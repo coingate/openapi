@@ -20,53 +20,115 @@ next:
       title: ' Is it possible to complete an order after it has been canceled or expired? '
       url: https://support.coingate.com/hc/en-us/articles/10420045425948
 ---
-[block:parameters]
-{
-  "data": {
-    "h-0": "Status",
-    "h-1": "Description",
-    "0-0": "new",
-    "0-1": "Newly created invoice. The shopper has not yet selected a [payment currency](https://developer.coingate.com/reference/currencies) or [crypto platform](https://developer.coingate.com/reference/platforms). If the shopper does not make a selection, the order status will eventually change to Expired 2 hours after the order creation time.",
-    "1-0": "pending",
-    "1-1": "The shopper has selected a payment currency and crypto platform. Awaiting payment. If the shopper does not complete the payment within 20 minutes, the order status will change to Expired.",
-    "2-0": "confirming",
-    "2-1": "Shopper transferred the payment for the invoice. Awaiting blockchain network confirmation.",
-    "3-0": "paid",
-    "3-1": "Payment is confirmed by the network, and has been credited to the merchant. Purchased goods/services can be safely delivered to the shopper.",
-    "4-0": "invalid",
-    "4-1": "The payment was either not confirmed by the blockchain network or was marked as invalid due to AML/CTF compliance reasons.",
-    "5-0": "expired",
-    "5-1": "An order will expire in the following cases:  \n  \n- For a new order: the shopper does not select a payment currency and crypto platform within 2 hours.\n- For a pending order: the shopper does not complete the payment within 20 minutes.",
-    "6-0": "canceled",
-    "6-1": "Shopper canceled the invoice.",
-    "7-0": "refunded",
-    "7-1": "Payment was refunded to the shopper. [Read more about refunds](https://coingate.com/blog/post/merchant-refund)",
-    "8-0": "partially_refunded",
-    "8-1": "Payment was partially refunded to the shopper. [Read more about refunds](https://coingate.com/blog/post/merchant-refund)"
-  },
-  "cols": 2,
-  "rows": 9,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Status
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        new
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Newly created invoice. The shopper has not yet selected a [payment currency](https://developer.coingate.com/reference/currencies) or [crypto platform](https://developer.coingate.com/reference/platforms). If the shopper does not make a selection, the order status will eventually change to Expired 2 hours after the order creation time.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        pending
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The shopper has selected a payment currency and crypto platform. Awaiting payment. If the shopper does not complete the payment within 20 minutes, the order status will change to Expired.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        confirming
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Shopper transferred the payment for the invoice. Awaiting blockchain network confirmation.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        paid
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Payment is confirmed by the network, and has been credited to the merchant. Purchased goods/services can be safely delivered to the shopper.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        invalid
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The payment was either not confirmed by the blockchain network or was marked as invalid due to AML/CTF compliance reasons.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        expired
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        An order will expire in the following cases:  
+
+        * For a new order: the shopper does not select a payment currency and crypto platform within 2 hours.
+        * For a pending order: the shopper does not complete the payment within 20 minutes.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        canceled
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Shopper canceled the invoice.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        refunded
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Payment was refunded to the shopper. [Read more about refunds](https://coingate.com/blog/post/merchant-refund)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        partially\_refunded
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Payment was partially refunded to the shopper. [Read more about refunds](https://coingate.com/blog/post/merchant-refund)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ## Order Status Changing Flow
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/28732a5-Order_Status_Changing_Flow4.png",
-        "",
-        "CoinGate Paymnet Statuses flow"
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+<Image align="center" src="https://files.readme.io/28732a5-Order_Status_Changing_Flow4.png" />
