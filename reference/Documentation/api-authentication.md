@@ -11,10 +11,10 @@ next:
   description: ''
 ---
 > 📘 Create API Key
-> 
-> <https://support.coingate.com/hc/en-us/articles/4402498918546>
+>
+> [https://support.coingate.com/hc/en-us/articles/4402498918546](https://support.coingate.com/hc/en-us/articles/4402498918546)
 
-Please note, that for "Test" (sandbox) mode you must generate separate API credentials on <https://sandbox.coingate.com.> API credentials generated on <https://coingate.com> will not work for "Test" (sandbox) mode.
+Please note, that for "Test" (sandbox) mode you must generate separate API credentials on [https://sandbox.coingate.com.](https://sandbox.coingate.com.) API credentials generated on [https://coingate.com](https://coingate.com) will not work for "Test" (sandbox) mode.
 
 Provide generated Token to **HTTP Authorization Header**.
 
