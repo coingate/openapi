@@ -2,3 +2,4 @@
 - create-billing-contact
 - list-billing-contacts
 - get-billing-contact
+- delete-billing-contact
