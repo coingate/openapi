@@ -44,25 +44,25 @@ Use the [Create Send Request API](https://developer.coingate.com/reference/creat
 
 Specify:
 
-- The ledger account (in USDC).
-- The beneficiary (with BTC payout settings).
-- The input amount: 100
-- The input currency: EUR
+* The ledger account (in USDC).
+* The beneficiary (with BTC payout settings).
+* The input amount: 100
+* The input currency: EUR
 
 ➡️ This step triggers conversion from EUR → BTC and calculates the required deduction in your USDC balance.
 
 3. **Review API Response for Action Requirements**
 
-In the response, check the field [actions_required](https://developer.coingate.com/reference/send-request-callback).
+In the response, check the field [actions\_required](https://developer.coingate.com/reference/send-request-callback).
 
-- If this field is present, the operation requires additional confirmation due to currency exchange.
-- Use one of the following API endpoints:
-  - ✅ [Confirm the send request](https://developer.coingate.com/reference/send-request-exchange-confirm)
-  - ❌ [Cancel the send request](https://developer.coingate.com/reference/send-request-exchange-cancel)
+* If this field is present, the operation requires additional confirmation due to currency exchange.
+* Use one of the following API endpoints:
+  * ✅ [Confirm the send request](https://developer.coingate.com/reference/send-request-exchange-confirm)
+  * ❌ [Cancel the send request](https://developer.coingate.com/reference/send-request-exchange-cancel)
 
 4. **Check for 2FA Confirmation Requirement**
 
-Also, check the [requires_2fa_confirmation](https://developer.coingate.com/reference/send-request-callback) field in the response.
+Also, check the [requires\_2fa\_confirmation](https://developer.coingate.com/reference/send-request-callback) field in the response.
 
-- If true, you must manually confirm the operation in your account dashboard using two-factor authentication (2FA).
-- If needed, 2FA confirmation can be disabled in the [dashboard settings](https://developer.coingate.com/reference/create-send).
+* If true, you must manually confirm the operation in your account dashboard using two-factor authentication (2FA).
+* If needed, 2FA confirmation can be disabled in the [dashboard settings](https://developer.coingate.com/reference/create-send).
