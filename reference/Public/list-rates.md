@@ -15,11 +15,11 @@ metadata:
 next:
   description: ''
 ---
-All supported currencies: https://coingate.com/currencies
+All supported currencies: [https://coingate.com/currencies](https://coingate.com/currencies)
 
-Get all rates or rates by category:
-https://api.coingate.com/v2/rates
-https://api.coingate.com/v2/rates/merchant
-https://api.coingate.com/v2/rates/trader
-https://api.coingate.com/v2/rates/trader/buy
-https://api.coingate.com/v2/rates/trader/sell
+Get all rates or rates by category:\
+[https://api.coingate.com/v2/rates](https://api.coingate.com/v2/rates)\
+[https://api.coingate.com/v2/rates/merchant](https://api.coingate.com/v2/rates/merchant)\
+[https://api.coingate.com/v2/rates/trader](https://api.coingate.com/v2/rates/trader)\
+[https://api.coingate.com/v2/rates/trader/buy](https://api.coingate.com/v2/rates/trader/buy)\
+[https://api.coingate.com/v2/rates/trader/sell](https://api.coingate.com/v2/rates/trader/sell)
