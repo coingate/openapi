@@ -17,11 +17,11 @@ Retrieve a list of all supported currency conversion rates available on CoinGate
 
 You can use this endpoint in three ways:
 
-1. List all supported conversion pairs and rates:  
+1. List all supported conversion pairs and rates:\
    `GET /api/v2/ledger/conversions/rates`
-2. List supported conversion pairs and rates for a specific base currency:  
-   `GET /api/v2/ledger/conversions/rates/{base_currency}`  
-   _Example_: `/api/v2/ledger/conversions/rates/BTC` → returns all quote currencies and rates available for BTC.
-3. Get the direct conversion rate between a specific base and quote currency:  
-   `GET /api/v2/ledger/conversions/rates/{base_currency}/{quote_currency}`  
-   _Example_: `/api/v2/ledger/conversions/rates/BTC/EUR` → returns the current conversion rate from BTC to EUR.
+2. List supported conversion pairs and rates for a specific base currency:\
+   `GET /api/v2/ledger/conversions/rates/{base_currency}`\
+   *Example*: `/api/v2/ledger/conversions/rates/BTC` → returns all quote currencies and rates available for BTC.
+3. Get the direct conversion rate between a specific base and quote currency:\
+   `GET /api/v2/ledger/conversions/rates/{base_currency}/{quote_currency}`\
+   *Example*: `/api/v2/ledger/conversions/rates/BTC/EUR` → returns the current conversion rate from BTC to EUR.
