@@ -46,12 +46,12 @@ metadata:
 next:
   description: ''
 ---
-| Status    | Description                                                                                                                       |
-| :-------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| pending   | This is the initial status of the billing request, indicating that the request has been created.                                  |
-| completed | The status changes to "Completed" when the client successfully pays the billing request.                                          |
-| expired   | If the billing request has a due_days, and that time has passed without payment from the client, the status changes to "Expired." |
-| canceled  | This status is applied when the billing request is terminated or revoked, meaning it will no longer be processed or paid.         |
+| Status    | Description                                                                                                                        |
+| :-------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| pending   | This is the initial status of the billing request, indicating that the request has been created.                                   |
+| completed | The status changes to "Completed" when the client successfully pays the billing request.                                           |
+| expired   | If the billing request has a due\_days, and that time has passed without payment from the client, the status changes to "Expired." |
+| canceled  | This status is applied when the billing request is terminated or revoked, meaning it will no longer be processed or paid.          |
 
 ## Status Changing Flow
 
