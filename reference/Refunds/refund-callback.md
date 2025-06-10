@@ -10,10 +10,10 @@ metadata:
 next:
   description: ''
 ---
-A refund callback will be sent to the merchant's **callback_url** when the merchant refund is created or the status is changed to processing, rejected or completed.
+A refund callback will be sent to the merchant's **callback\_url** when the merchant refund is created or the status is changed to processing, rejected or completed.
 
 > 🚧 API Callback Documentation
-> 
+>
 > Read more about common callback functionalities in the [API Callbacks section](doc:api-callbacks).
 
 CoinGate callback sends the data below:
