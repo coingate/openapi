@@ -17,12 +17,12 @@ metadata:
 next:
   description: ''
 ---
-> ❗️ 
-> 
+> ❗️
+>
 > The /checkout API endpoint is available only for selected merchants. If you would like to enable this functionality for your account, please contact [CoinGate Support](https://support.coingate.com/hc/en-us/requests/new) for assistance.
 
 > 📘 API authentication is required
-> 
+>
 > To create requests within the CoinGate system the user should have an authentication token. To get it, please follow the instructions [here](https://developer.coingate.com/reference/api-authentication).
 
 # White-label invoices using Checkout method
@@ -33,4 +33,4 @@ Using Checkout method, invoices can be white-labelled and integrated into your w
 
 This is achieved by pre-selecting BTC, LTC, etc as the payment currency, and retrieving the `pay_amount` and `payment_address` parameters. These are sufficient for a customer to complete the payment, as well as to generate a QR code which a customer can scan with a mobile wallet.
 
-You can find out which payment currencies can be used using this list: <https://api.coingate.com/v2/currencies?native=true&enabled=true&merchant_pay=true>
+You can find out which payment currencies can be used using this list: [https://api.coingate.com/v2/currencies?native=true\&enabled=true\&merchant\_pay=true](https://api.coingate.com/v2/currencies?native=true\&enabled=true\&merchant_pay=true)
