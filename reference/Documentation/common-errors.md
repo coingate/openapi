@@ -10,49 +10,108 @@ metadata:
 next:
   description: ''
 ---
-[block:callout]
-{
-  "type": "danger",
-  "title": "API v1 is DEPRECATED",
-  "body": "API v1 is DEPRECATED and no longer maintained. Please use API v2 http://developer.coingate.com/v2"
-}
-[/block]
-Most common API error responses described below. Error response must be identified by **HTTP status** and **reason** attribute in your application.
+> ❗️ API v1 is DEPRECATED
+>
+> API v1 is DEPRECATED and no longer maintained. Please use API v2 [http://developer.coingate.com/v2](http://developer.coingate.com/v2)
+
+Most common API error responses described below. Error response must be identified by **HTTP status** and **reason** attribute in your application.\
 Please note, that specific API methods, for example [Create Order](doc:create-order) has their own errors (422 Unprocessable Entity - when order is not valid).
-[block:parameters]
-{
-  "data": {
-    "h-0": "HTTP Status",
-    "h-1": "Reason",
-    "h-2": "Description",
-    "0-0": "401 (Unauthorized)",
-    "0-1": "BadCredentials",
-    "0-2": "API credentials is not valid",
-    "1-0": "404 (Not Found)",
-    "1-1": "PageNotFound",
-    "1-2": "Page, action or record not found",
-    "2-0": "404 (Not Found)",
-    "2-1": "RecordNotFound",
-    "2-2": "Record not found",
-    "3-0": "500 (Internal Server Error)",
-    "3-1": "InternalServerError",
-    "3-2": "Something wrong in CoinGate",
-    "4-0": "429 (Too Many Requests)",
-    "4-1": "RateLimitException",
-    "4-2": "API request limit is exceeded"
-  },
-  "cols": 3,
-  "rows": 5
-}
-[/block]
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        HTTP Status
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Reason
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        401 (Unauthorized)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        BadCredentials
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        API credentials is not valid
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        404 (Not Found)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        PageNotFound
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Page, action or record not found
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        404 (Not Found)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        RecordNotFound
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Record not found
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        500 (Internal Server Error)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        InternalServerError
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Something wrong in CoinGate
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        429 (Too Many Requests)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        RateLimitException
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        API request limit is exceeded
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 Response example:
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"message\": \"Not found App by Access-Key\",\n  \"reason\": \"BadCredentials\"\n}",
-      "language": "json"
-    }
-  ]
+  "message": "Not found App by Access-Key",
+  "reason": "BadCredentials"
 }
-[/block]
+```
