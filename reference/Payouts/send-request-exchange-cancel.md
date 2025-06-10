@@ -1,0 +1,18 @@
+---
+title: Send Request Exchange Cancel
+excerpt: ''
+api:
+  file: v2.json
+  operationId: send-request-exchange-cancel
+deprecated: false
+hidden: false
+metadata:
+  title: ''
+  description: ''
+  robots: index
+next:
+  description: ''
+---
+This request cancels the exchange and send request. It is required only if the send request involves an exchange (i.e., when the sending_currency and the balance_debit_currency differ).
+
+Note: If cancellation is possible, a generated cancellation link will be present in the actions_required response of the send request.

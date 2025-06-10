@@ -5,3 +5,4 @@
 - list-send
 - get-send
 - send-request-exchange-confirm
+- send-request-exchange-cancel
