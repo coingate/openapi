@@ -21,22 +21,7 @@ Records are initially created in a draft state and require manual confirmation t
 
 ‘Send Request’ should be confirmed in the account dashboard under Payouts → Outgoing Payments
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3cedf4c9ab4f232847a3189ad3a06a7950e36fc4ec5184680a5ce9e1836c05ed-image.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" border={true} src="https://files.readme.io/3cedf4c9ab4f232847a3189ad3a06a7950e36fc4ec5184680a5ce9e1836c05ed-image.png" />
 
 **With 2FA Disabled**
 
@@ -46,25 +31,10 @@ Requests are processed immediately upon creation, without requiring manual confi
 
 You can enable or disable the 2FA requirement for each ‘send request’ in API App → Select API App → 2FA Settings
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9c7cdfde51778781c16e12a9d24b075e4b035378ba4cf95ceac5ccb1b562aae2-image.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" border={true} src="https://files.readme.io/9c7cdfde51778781c16e12a9d24b075e4b035378ba4cf95ceac5ccb1b562aae2-image.png" />
 
 **API Response of Send Request**
 
 > 📘 Send Request Object
-> 
+>
 > The Send Request response has the same structure as the Send Request Callback. For detailed descriptions of each field, please refer to the ‘[Send Request Callback](https://developer.coingate.com/reference/send-request-callback)’ documentation page.
