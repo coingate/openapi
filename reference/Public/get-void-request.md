@@ -16,5 +16,5 @@ next:
   description: ''
 ---
 > 📘 What is a void transaction?
-> 
-> <https://support.coingate.com/hc/en-us/articles/4902938327964>
+>
+> [https://support.coingate.com/hc/en-us/articles/4902938327964](https://support.coingate.com/hc/en-us/articles/4902938327964)
