@@ -5,3 +5,4 @@
 - delete-billing-contact
 - create-billing-product
 - list-billing-products
+- get-billing-product
