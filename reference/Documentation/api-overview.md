@@ -25,7 +25,6 @@ next:
 }
 [/block]
 
-
 1. Call [Create Order](/reference/create-order) API method to create an order in the CoinGate system.
 
 2. CoinGate checks if the order is valid.
@@ -66,7 +65,6 @@ next:
   ]
 }
 [/block]
-
 
 ## API Requests
 
