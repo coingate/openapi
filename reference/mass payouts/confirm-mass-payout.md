@@ -13,4 +13,4 @@ metadata:
 next:
   description: ''
 ---
-An endpoint to **_confirm_** Mass Payout. During the **_confirmation_**, funds are being deducted from your [ledger account balance](ref:ledger-accounts). In order to proceed with **_confirmation_**, Mass Payout status must be **_pending_** ([get Mass Payout endpoint](ref:get-mass-payout)).
+An endpoint to ***confirm*** Mass Payout. During the ***confirmation***, funds are being deducted from your [ledger account balance](ref:ledger-accounts). In order to proceed with ***confirmation***, Mass Payout status must be ***pending*** ([get Mass Payout endpoint](ref:get-mass-payout)).
