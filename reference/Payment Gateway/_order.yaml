@@ -3,3 +3,4 @@
 - get-order
 - list-orders
 - order-statuses
+- payment-callback
