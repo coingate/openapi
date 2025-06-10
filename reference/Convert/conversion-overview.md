@@ -24,9 +24,9 @@ Use the [Create Conversion API](https://developer.coingate.com/reference/create-
 
 Specify:
 
-- The `ledger_account_id`  balance you want convert from. (In this case [EUR](https://developer.coingate.com/reference/ledger-accounts)).
-- The `quote_currency_id`  currency you want convert to. (In this case [BTC](https://developer.coingate.com/reference/currencies)).
-- The `base_amount` amount of ledger_account balance want to convert. (In this case 100)
+* The `ledger_account_id`  balance you want convert from. (In this case [EUR](https://developer.coingate.com/reference/ledger-accounts)).
+* The `quote_currency_id`  currency you want convert to. (In this case [BTC](https://developer.coingate.com/reference/currencies)).
+* The `base_amount` amount of ledger\_account balance want to convert. (In this case 100)
 
 ➡️ This step triggers conversion from EUR → BTC and calculates the required deduction in your balance.
 
@@ -34,9 +34,9 @@ Specify:
 
 In the response, check the field `actions_required`.
 
-- As operation requires confirmation or cancellation
-- Use one of the following actions given in `actions_required` or API endpoints:
-  - ✅ [Confirm Conversion](https://developer.coingate.com/reference/confirm-conversion)
-  - ❌ [Cancel Conversion](https://developer.coingate.com/reference/cancel-conversion)
+* As operation requires confirmation or cancellation
+* Use one of the following actions given in `actions_required` or API endpoints:
+  * ✅ [Confirm Conversion](https://developer.coingate.com/reference/confirm-conversion)
+  * ❌ [Cancel Conversion](https://developer.coingate.com/reference/cancel-conversion)
 
 Once confirmed, your balance will be updated with the converted currency.
