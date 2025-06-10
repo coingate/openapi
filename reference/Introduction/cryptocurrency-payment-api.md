@@ -26,17 +26,4 @@ Configuration of our API for processing payments on virtually any website is rat
 
 Continue to the [API Overview](doc:api-overview) for a technical introduction.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1be4d20-Merchant_payment_gateway.png",
-        "coingate-merchant-payment-api.png",
-        440
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+<Image align="center" src="https://files.readme.io/1be4d20-Merchant_payment_gateway.png" />
