@@ -5,3 +5,4 @@
 - order-statuses
 - payment-callback
 - get-order-transactions
+- get-order-transaction
