@@ -7,6 +7,11 @@ metadata:
 ---
 CoinGate provides two separate environments: **Live** and **Sandbox**.
 
+| Environment | URL                                   |
+| :---------- | :------------------------------------ |
+| **Live**    | `https://api.coingate.com/v2`         |
+| **Sandbox** | `https://api-sandbox.coingate.com/v2` |
+
 ### Live Environment
 
 The Live environment is the production environment where all operations are real and executed on the mainnet blockchain.
