@@ -24,6 +24,18 @@ The default limit is **500 orders per hour per business**.
 
 This includes orders created via the API or through the dashboard. Once the limit is reached, further order creation will be blocked until the hourly window resets.
 
+If the limit is exceeded, the API will return the following response:
+
+```json
+{
+  "message": "Order is not valid",
+  "reason": "OrderIsNotValid",
+  "errors": [
+    "Order limit exceeded (contact support to increase)"
+  ]
+}
+```
+
 To create an order via API, use the following endpoint:\
 [Create Order – API Reference](https://developer.coingate.com/reference/create-order)
 
