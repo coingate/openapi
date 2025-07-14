@@ -13,4 +13,4 @@ All endpoints require authentication using your CoinGate API key. Ensure you inc
 
 ## Available Endpoints
 
-* **Get Account**: Retrieve details of a single ledger account. <Anchor label="Docs →" target="_blank" href="#get-ledger-account">Docs →</Anchor>
+* **Get Account**: Retrieve details of a single ledger account. <Anchor label="Docs →" target="_blank" href="https://developer.coingate.com/reference/get-ledger-account">Docs →</Anchor>
