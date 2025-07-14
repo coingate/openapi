@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-The **CoinGate Ledger API** provides a comprehensive interface for managing and monitoring your financial transactions and account balances within the CoinGate platform. These endpoints are designed to offer detailed visibility into your ledger accounts and transactions, supporting a wide range of use cases such as reconciliation, auditing, and account management.
+The **CoinGate Ledger API** provides a comprehensive interface for managing and monitoring your financial transactions and account balances within the CoinGate platform. These endpoints are designed to offer detailed visibility into your ledger accounts and transactions, supporting a wide range of use cases such as auditing, and account management.
 
 ## 🔐Authentication
 
