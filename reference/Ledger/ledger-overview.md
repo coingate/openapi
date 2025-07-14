@@ -10,3 +10,7 @@ The **CoinGate Ledger API** provides a comprehensive interface for managing and 
 ## 🔐Authentication
 
 All endpoints require authentication using your CoinGate API key. Ensure you include the appropriate headers as described in the [API Authentication Guide](https://developer.coingate.com/reference/api-authentication)
+
+## Available Endpoints
+
+* **Get Account**: Retrieve details of a single ledger account. <Anchor label="Docs →" target="_blank" href="#get-ledger-account">Docs →</Anchor>
