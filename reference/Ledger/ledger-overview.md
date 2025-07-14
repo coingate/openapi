@@ -9,4 +9,4 @@ The **CoinGate Ledger API** provides a comprehensive interface for managing and 
 
 ## 🔐Authentication
 
-All endpoints require authentication using your CoinGate authentication token. Ensure you include the appropriate headers as described in the [API Authentication Guide](https://developer.coingate.com/reference/api-authentication)
+All endpoints require authentication using your CoinGate API key. Ensure you include the appropriate headers as described in the [API Authentication Guide](https://developer.coingate.com/reference/api-authentication)
