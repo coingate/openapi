@@ -14,8 +14,6 @@ next:
 
 With our solution, each and every business owner can start accepting cryptocurrencies as a form of payment using our API or API-based [ecommerce modules](https://coingate.com/plugins). To all of our merchants, we offer a simple framework for payment settlement. Whichever currency the customer pays with, you have an option to exchange it for Euros, bitcoin, and several other cryptocurrencies at the moment of receiving the payment. This way, we maintain things convenient for the merchant, but flexible for the shopper.
 
-CoinGate has been featured on [Reuters](https://www.reuters.com/brandfeatures/venture-capital/article?id=31920), [Upwork](https://www.upwork.com/hiring/for-clients/accept-bitcoin-website/), [Bitcoin Magazine](https://bitcoinmagazine.com/articles/adding-some-fun-and-games-bitcoin-scaling-debate-angst/) and other outlets.
-
 ## Merchant API for Cryptocurrency Payments
 
 The CoinGate API is designed as an easy starting point for online businesses and merchants that wish to accept cryptocurrencies as a payment method. CoinGate handles the payment flow from checkout to settlement, allowing businesses to use this innovative payment method without deep technical know-how and risks related to exchange rate fluctuations. The API is, therefore, suitable for applications from basic projects, to enterprise-level integration.
