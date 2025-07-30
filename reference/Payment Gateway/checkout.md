@@ -32,5 +32,3 @@ To utilize the checkout method, please contact our support team to enable this f
 Using Checkout method, invoices can be white-labelled and integrated into your website, without redirecting the customer to CoinGate.
 
 This is achieved by pre-selecting BTC, LTC, etc as the payment currency, and retrieving the `pay_amount` and `payment_address` parameters. These are sufficient for a customer to complete the payment, as well as to generate a QR code which a customer can scan with a mobile wallet.
-
-You can find out which payment currencies can be used using this list: [https://api.coingate.com/v2/currencies?native=true\&enabled=true\&merchant\_pay=true](https://api.coingate.com/v2/currencies?native=true\&enabled=true\&merchant_pay=true)
