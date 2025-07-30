@@ -8296,83 +8296,6 @@
         "summary": "Create Billing Request",
         "description": "",
         "operationId": "create-billing-request",
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "billing_contact_id",
-                  "currency_id",
-                  "receive_currency_id"
-                ],
-                "properties": {
-                  "billing_contact_id": {
-                    "type": "integer",
-                    "description": "Billing Contact ID",
-                    "format": "int32"
-                  },
-                  "title": {
-                    "type": "string",
-                    "description": "Request title"
-                  },
-                  "currency_id": {
-                    "type": "integer",
-                    "description": "Currency of amount. Currency ID's can be seen on https://developer.coingate.com/reference/currencies",
-                    "format": "int32"
-                  },
-                  "amount": {
-                    "type": "string",
-                    "description": "Amount is required only when the request is created without associated products. If products are included, the amount is automatically calculated based on the product prices and quantities"
-                  },
-                  "receive_currency_id": {
-                    "type": "string",
-                    "description": "Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
-                  },
-                  "due_days": {
-                    "type": "integer",
-                    "description": "Days request will be valid for. Default: 0 wont expire.",
-                    "default": 0,
-                    "format": "int32"
-                  },
-                  "send_email": {
-                    "type": "boolean",
-                    "description": "Will billing contact receive email about reqeust.",
-                    "default": true
-                  },
-                  "underpaid_cover_pct": {
-                    "type": "string",
-                    "description": "How much percentage of underpaid can be covered.",
-                    "default": "0"
-                  },
-                  "callback_url": {
-                    "type": "string",
-                    "description": "Send an automated message to Merchant URL when request status is changed. For testing you can use requestcatcher.com tool. URL must be direct without redirection. Read about billing request callbacks [here](/reference/billing-request-callback)."
-                  },
-                  "billing_request_items": {
-                    "type": "array",
-                    "description": "Billing Products and quantity. If present amount will calculated based on product price and quantity.",
-                    "items": {
-                      "properties": {
-                        "billing_product_id": {
-                          "type": "integer",
-                          "description": "Billing Product ID",
-                          "format": "int32"
-                        },
-                        "quantity": {
-                          "type": "integer",
-                          "description": "Quantity of product",
-                          "format": "int32"
-                        }
-                      },
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "200",
@@ -8558,7 +8481,82 @@
             }
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "billing_contact_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Billing Contact ID"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Request title"
+                  },
+                  "currency_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Currency of amount. Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
+                  },
+                  "amount": {
+                    "type": "string",
+                    "description": "Amount is required only when the request is created without associated products. If products are included, the amount is automatically calculated based on the product prices and quantities"
+                  },
+                  "receive_currency_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
+                  },
+                  "due_days": {
+                    "type": "integer",
+                    "description": "Days request will be valid for. Default: 0 wont expire.",
+                    "format": "int32",
+                    "default": "0"
+                  },
+                  "send_email": {
+                    "type": "boolean",
+                    "default": "false",
+                    "description": "Will billing contact receive email about reqeust."
+                  },
+                  "underpaid_cover_pct": {
+                    "type": "string",
+                    "description": "How much percentage of underpaid can be covered.",
+                    "default": "0"
+                  },
+                  "callback_url": {
+                    "type": "string",
+                    "description": "Send an automated message to Merchant URL when request status is changed. For testing you can use requestcatcher.com tool. URL must be direct without redirection. Read about billing request callbacks [here](https://developer.coingate.com/reference/billing-request-callback)."
+                  },
+                  "billing_request_items": {
+                    "type": "object",
+                    "properties": {
+                      "billing_product_id": {
+                        "type": "integer",
+                        "description": "Billing Product ID",
+                        "format": "int32"
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Quantity of product"
+                      }
+                    },
+                    "description": "Billing Products and quantity. If present amount will calculated based on product price and quantity."
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "billing_contact_id",
+                  "currency_id",
+                  "receive_currency_id"
+                ]
+              }
+            }
+          }
+        }
       },
       "get": {
         "summary": "List Billing Requests",
