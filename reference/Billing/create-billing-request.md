@@ -17,14 +17,14 @@ Creates a new billing request and returns a payment link that can be shared with
 
 **Time-Based Behaviors**:
 
-<Accordion title="Billing Reuqest" icon="fa-info-circle">
+<Accordion title="Billing Reuqest">
   The **pay button** on the billing link is disabled if:
 
   * The **due\_days** period has expired, **or**
   * The associated invoice is already paid.
 </Accordion>
 
-<Accordion title="Invoice" icon="fa-info-circle">
+<Accordion title="Invoice">
   * Invoice is valid for 2 hours unless payment details are generated.
 
   * Once the customer reaches the payment details view, they have a fixed window of 20 minutes to complete the payment
