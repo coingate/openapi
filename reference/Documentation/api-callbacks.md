@@ -67,12 +67,16 @@ After sending a payment notification, CoinGate waits for a response for **20 sec
 
 A payment notification will be canceled and terminated under the following conditions:
 
-* The retry limit of **40 attempts** is reached.
-* A **301 (Moved Permanently)** or **302 (Found)** status is received. This typically occurs when an “http” URL is redirected to “https”. Ensure the URL used is correct.
-* A **401 (Unauthorized)** status is received. This commonly happens when the website is password-protected (Basic access authentication). Ensure the website is publicly accessible.
-* A **403 (Forbidden)** status is received. This means the request is explicitly blocked. Please ensure that CoinGate Payment Callbacks are not blocked by your server. Check your firewall, IP whitelist, or any other access restrictions.
-* The payment notification is sent to the **TOR network**.
-* The payment notification is sent to a **private network**, such as localhost.
+| Retry limit reached                   | Description                                                                                                                               |
+| :------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| Retry limit reached                   | Callback was attempted 40 times without success.                                                                                          |
+| Response status: **301** or **302**   | Redirect received — typically happens when using an http URL that redirects to https. Use the correct protocol in your callback URL.      |
+| Response status: **401 Unauthorized** | Server requires authentication — usually occurs if your site is password-protected. Ensure your callback URL is publicly accessible.      |
+| Response status: **403 Forbidden**    | Callback is explicitly blocked — check your firewall, IP whitelist, or server restrictions to ensure CoinGate is not being denied access. |
+| Callback to **TOR network**           | Notifications to addresses within the TOR network are not allowed.                                                                        |
+| Callback to **private network**       | Notifications sent to private networks (e.g., localhost, 127.0.0.1, or internal IPs) are not permitted.                                   |
+
+<br />
 
 ## IP Addresses
 
