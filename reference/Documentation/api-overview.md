@@ -1,5 +1,5 @@
 ---
-title: API Overview
+title: CoinGate Payment Processing API Overview
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,57 +10,34 @@ metadata:
 next:
   description: ''
 ---
-![CoinGate API Overview](https://files.readme.io/e318931-API_Overview.png)
+<Image align="center" src="https://files.readme.io/99fa9951cf60026b0f3928e8dafb0eb3600352a2e330fea28866180344369be1-API_-_Create_Order.png" />
 
-1. Call [Create Order](./reference/create-order) API method to create an order in the CoinGate system.
+The CoinGate Payment Processing API allows you to seamlessly accept cryptocurrency payments and settle them in fiat currencies (EUR, USD, GBP) or crypto. The integration is designed to be lightweight, cost-efficient, and developer-friendly—helping merchants expand their global reach by accepting payments in Bitcoin, Ethereum, and other digital assets.
 
-2. CoinGate checks if the order is valid.
+With CoinGate, your customers can pay in crypto, while you receive payouts in fiat or crypto with automatic conversion.
 
-   2a. If the order is valid, CoinGate responds with 200 HTTP status and returns [order data](./doc/create-order). After receiving 200 HTTP status, you should redirect the shopper to ***payment\_url*** address.
+## 📌 How It Works – Example Flow
 
-   2b. If the order is not valid, CoinGate returns 422 (or another) error HTTP status and an error message (see [Errors](./doc/common-errors)).
+1. A customer selects crypto as the payment method for a €100 order.
+2. Based on real-time rates, they’re shown the amount to pay in their chosen cryptocurrency.
+3. After payment confirmation, you receive \~€99 (minus fees) in your CoinGate account.
+4. You can withdraw funds to your bank in EUR, USD, or GBP—or hold them in crypto.
 
-3. When the shopper pays for the order, CoinGate sends [Payment Callback/Payment Notification](./doc/payment-callback) to your ***callback\_url***, which is defined when creating the order (see [Create Order](./doc/create-order)). CoinGate also sends Payment Callback when order status is changed to canceled, expired or to any other status (see [Order Statuses](./doc/order-statuses)). Please note that payment notifications are sent using **POST** method.
+## 🔧 Integration Setup
 
-## Environments
+Follow these steps to integrate CoinGate into your checkout flow:
 
-| Environment | URL                                   |
-| :---------- | :------------------------------------ |
-| **Live**    | `https://api.coingate.com/v2`         |
-| **Sandbox** | `https://api-sandbox.coingate.com/v2` |
+1. **Create an Order**\
+   Use the [Create Order API](https://developer.coingate.com/reference/create-order)  to initiate a new payment.
+2. **Validate Order Response**
 
-* If you wish to use **Live** environment, create an account and API credentials on [https://coingate.com](https://coingate.com)
-* If you wish to use **Sandbox** environment, create an account and API credentials on [https://sandbox.coingate.com](https://sandbox.coingate.com)
+   2.1 If the order is valid, CoinGate will respond with `HTTP 200 OK` and return the order data, including the `payment_url`.
 
-## API Requests
+   ➤ Redirect the customer to this `payment_url` so they can complete the payment.
 
-API Requests are used to query the CoinGate API (examples: [Create Order](./doc/create-order), [Get Order](./doc/get-order)).
-
-To review your API Requests, login to your CoinGate account, then go to API » Requests.
-
-API Request attributes:
-
-* Action - Which API method was queried.
-* Response - HTTP status returned by CoinGate.
-* Parameters - Parameters used to query the CoinGate API.
-* Response - Parameters returned by CoinGate.
-
-![API Requests Interface](https://files.readme.io/B2ELvNVCT2unLKj4ewy8_api-requests.png)
-
-## Payment Callbacks (Payment Notifications)
-
-[Payment Callback](./doc/payment-callback) (Payment Notification) is a response which is sent after the order status changes (see [Order Statuses](./doc/order-statuses)). CoinGate sends the Payment Callback to merchant's ***callback\_url***, which is set during order creation (see [Create Order](./doc/create-order)).
-
-To review your Payment Callbacks, login to your CoinGate account, then go to API » Payment Callbacks.
-
-Payment Callback attributes:
-
-* **Response Status** - HTTP status returned by merchant.
-* **Response Data** - Data body returned by merchant.
-* **Callback Params** - Parameters sent by CoinGate to merchant's ***callback\_url***.
-
-![Payment Callbacks Interface](https://files.readme.io/cffb98c-callbacks.png)
-
-## POST Request
-
-In every POST method set **Content-Type: application/x-www-form-urlencoded** header.
+   2.2 If the order is invalid, you’ll receive an error (`422 Unprocessable Entity`) along with a message explaining why the order could not be created.
+3. **Customer Makes a Payment**\
+   The shopper selects their preferred currency and blockchain platform (if applicable) and proceeds with the crypto payment.
+4. **Receive Payment Status via Callback**\
+   CoinGate will notify your system of payment status changes using the [Payment Callback API](https://developer.coingate.com/reference/payment-callback) .
+   ➤ Handle these callbacks in your backend to update the order status accordingly in your e-commerce system.
