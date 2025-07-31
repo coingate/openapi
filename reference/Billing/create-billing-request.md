@@ -17,7 +17,7 @@ Creates a new billing request and returns a payment link that can be shared with
 
 **Time-Based Behaviors**:
 
-<Accordion title="Billing Reuqest" opened>
+<Accordion title="Billing Reuqest" open>
   The **pay button** on the billing link is disabled if:
 
   * The **due\_days** period has expired, **or**
