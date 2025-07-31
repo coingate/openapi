@@ -1,10 +1,10 @@
 ---
-title: CoinGate Payment Processing API Overview
+title: API Overview
 excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: ''
+  title: CoinGate Payment Processing API Overview
   description: ''
   robots: index
 next:
