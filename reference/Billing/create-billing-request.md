@@ -20,12 +20,14 @@ Time-Based Behaviors:
 <Accordion title="Billing Reuqest" icon="fa-info-circle">
   The **pay button** on the billing link is disabled if:
 
-  The **due\_days** period has expired, **or**
-  The associated invoice is already paid.
+  * The **due\_days** period has expired, **or**
+  * The associated invoice is already paid.
 </Accordion>
 
 <Accordion title="Invoice" icon="fa-info-circle">
-  Invoice is valid for 2 hours unless payment details are generated.
+  * Invoice is valid for 2 hours unless payment details are generated.
 
-  Once the customer reaches the payment details view, they have a fixed window of 20 minutes to complete the payment
+  * Once the customer reaches the payment details view, they have a fixed window of 20 minutes to complete the payment
 </Accordion>
+
+/
