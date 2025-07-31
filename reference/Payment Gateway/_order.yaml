@@ -1,6 +1,5 @@
 - api-overview
 - create-order
-- checkout
 - get-order
 - list-orders
 - currencies
@@ -8,5 +7,6 @@
 - payment-callback
 - get-order-transactions
 - get-order-transaction
+- checkout
 - submit-shopper
 - test
