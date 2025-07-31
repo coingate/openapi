@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-<Image align="center" src="https://files.readme.io/99fa9951cf60026b0f3928e8dafb0eb3600352a2e330fea28866180344369be1-API_-_Create_Order.png" />
+<Image align="center" src="https://files.readme.io/8c280ba41fd11925348badbe72e65998d4cacb8720de4a4953f1b2d6b6b42814-API_-_Create_Order1.png" />
 
 The CoinGate Payment Processing API allows you to seamlessly accept cryptocurrency payments and settle them in fiat currencies (EUR, USD, GBP) or crypto. The integration is designed to be lightweight, cost-efficient, and developer-friendly—helping merchants expand their global reach by accepting payments in Bitcoin, Ethereum, and other digital assets.
 
