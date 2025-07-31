@@ -45,15 +45,19 @@ Change callback format for existing API App go to Merchant » API » Apps » Edi
 
 Payment notifications are sent according to the following schedule based on the retry count:
 
-* **Every 1 minute** if the retry count is **≤ 5**
-* **Every 5 minutes** if the retry count is **> 5 and ≤ 10**
-* **Every 10 minutes** if the retry count is **> 10 and ≤ 15**
-* **Every 20 minutes** if the retry count is **> 15 and ≤ 20**
-* **Every 30 minutes** if the retry count is **> 20 and ≤ 25**
-* **Every 1 hour** if the retry count is **> 25 and ≤ 30**
-* **Every 5 hours** if the retry count is **> 30 and ≤ 35**
-* **Every 1 day** if the retry count is **> 35 and ≤ 40**
-* **Callback will be canceled** if the retry count is **≥ 41**
+| Retry Count Range | Interval Between Retries                        |
+| :---------------- | :---------------------------------------------- |
+| 1 – 5             | Every 1 minute                                  |
+| 6 – 10            | Every 5 minutes                                 |
+| 11 – 15           | Every 10 minutes                                |
+| 16 – 20           | Every 20 minutes                                |
+| 21 – 25           | Every 30 minutes                                |
+| 26 – 30           | Every 1 hour                                    |
+| 31 – 35           | Every 5 hours                                   |
+| 36 – 40           | Every 1 day                                     |
+| 41 and above      | Callback is terminated and no more will be sent |
+
+<br />
 
 ### Notification Response Timeout
 
