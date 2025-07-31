@@ -15,7 +15,7 @@ next:
 ---
 Creates a new billing request and returns a payment link that can be shared with a customer. Billing requests are typically used to send one-off crypto payment links to customers outside of a full shopping cart experience.
 
-Time-Based Behaviors:
+**Time-Based Behaviors**:
 
 <Accordion title="Billing Reuqest" icon="fa-info-circle">
   The **pay button** on the billing link is disabled if:
