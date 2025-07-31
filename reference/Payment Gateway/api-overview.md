@@ -12,6 +12,12 @@ next:
     - slug: environments
       title: Environments
       type: endpoint
+    - slug: api-callbacks
+      title: API Callbacks
+      type: endpoint
+    - slug: api-limits-and-quotas
+      title: API Limits and Quotas
+      type: endpoint
 ---
 <Image align="center" src="https://files.readme.io/8c280ba41fd11925348badbe72e65998d4cacb8720de4a4953f1b2d6b6b42814-API_-_Create_Order1.png" />
 
