@@ -8512,7 +8512,7 @@
                   },
                   "due_days": {
                     "type": "integer",
-                    "description": "Days request will be valid for. Default: 0 wont expire.",
+                    "description": "Defines how many days the pay button remains active. Default: 0 won't expire. Example: A value of 3 means the pay button will remain active for 3 days after billing request has been created",
                     "format": "int32",
                     "default": "0"
                   },
