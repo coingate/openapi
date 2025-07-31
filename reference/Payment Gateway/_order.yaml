@@ -1,12 +1,12 @@
 - api-overview
 - create-order
 - get-order
+- checkout
 - list-orders
 - currencies
 - order-statuses
 - payment-callback
 - get-order-transactions
 - get-order-transaction
-- checkout
 - submit-shopper
 - test
