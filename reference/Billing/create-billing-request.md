@@ -18,9 +18,9 @@ Creates a new billing request and returns a payment link that can be shared with
 Time-Based Behaviors:
 
 <Accordion title="Billing Reuqest" icon="fa-info-circle">
-  The pay button on the billing link is disabled if:
+  The **pay button** on the billing link is disabled if:
 
-  The **due\_days** period has expired, or
+  The **due\_days** period has expired, **or**
   The associated invoice is already paid.
 </Accordion>
 
