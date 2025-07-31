@@ -22,9 +22,9 @@ A payment callback (payment notification) will be sent to the merchant’s **cal
 
 ## Callback Format
 
-> 🚧
->
-> Callback data is sent in **POST** method.
+<Callout icon="🚧" theme="warn">
+  Callback data is sent in **POST** method.
+</Callout>
 
 By [creating new API App](https://support.coingate.com/hc/en-us/articles/4402498918546) you can choose in which format you want to receive callbacks:
 
@@ -37,9 +37,9 @@ Change callback format for existing API App go to Merchant » API » Apps » Edi
 
 ## Callback Retry Schedule
 
-> 📘
->
-> CoinGate sends payment notification while your application returns response **200 (OK) HTTP** or **204 (No Content)** status code.
+<Callout icon="📘" theme="info">
+  CoinGate sends payment notification while your application returns response **200 (OK) HTTP** or **204 (No Content)** status code.
+</Callout>
 
 ### Retry Policy for Payment Notifications
 
@@ -63,11 +63,12 @@ After sending a payment notification, CoinGate waits for a response for **20 sec
 
 A payment notification will be canceled and terminated under the following conditions:
 
-* The retry limit of 40 attempts is reached.
-* A 301 or 302 (Redirect) status is received. This typically occurs when an “http” URL is redirected to “https”. Ensure the URL used is correct.
-* A 401 (Unauthorized) status is received. This commonly happens when the website is password-protected (Basic access authentication). Ensure the website is publicly accessible.
-* The payment notification is sent to the TOR network.
-* The payment notification is sent to a private network, such as localhost.
+* The retry limit of **40 attempts** is reached.
+* A **301 (Moved Permanently)** or **302 (Found)** status is received. This typically occurs when an “http” URL is redirected to “https”. Ensure the URL used is correct.
+* A **401 (Unauthorized)** status is received. This commonly happens when the website is password-protected (Basic access authentication). Ensure the website is publicly accessible.
+* A **403 (Forbidden)** status is received. This means the request is explicitly blocked. Please ensure that CoinGate Payment Callbacks are not blocked by your server. Check your firewall, IP whitelist, or any other access restrictions.
+* The payment notification is sent to the **TOR network**.
+* The payment notification is sent to a **private network**, such as localhost.
 
 ## IP Addresses
 
