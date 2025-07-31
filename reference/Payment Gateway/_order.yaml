@@ -2,6 +2,7 @@
 - checkout
 - get-order
 - list-orders
+- currencies
 - order-statuses
 - payment-callback
 - get-order-transactions
