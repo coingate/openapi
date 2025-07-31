@@ -29,5 +29,3 @@ Creates a new billing request and returns a payment link that can be shared with
 
   * Once the customer reaches the payment details view, they have a fixed window of 20 minutes to complete the payment
 </Accordion>
-
-/
