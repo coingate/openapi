@@ -9,7 +9,7 @@ api:
 deprecated: false
 hidden: false
 metadata:
-  title: ''
+  title: Supported Merchant Processing Currencies
   description: ''
   robots: index
 next:
