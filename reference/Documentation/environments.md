@@ -22,7 +22,7 @@ To use this environment, you must complete merchant verification:\
 ### Sandbox Environment
 
 The Sandbox environment is intended for **testing purposes only**.\
-In this environment, you can use any API or dashboard functionality without verification. All operations are executed on the testnet blockchain.
+In this environment, you can use any API or dashboard functionality without verification. All operations are executed on the **testnet blockchain**.
 You can simply create an account and start testing via the dashboard or integrate the API:
 👉 <Anchor label="CoinGate Sandbox" target="_blank" href="https://sandbox.coingate.com">CoinGate Sandbox</Anchor>
 
