@@ -1,42 +1,5 @@
 ---
-title: Billing overview
-excerpt: >-
-  The Billing Service enables you to request specific payments from your
-  clients. It functions similarly to an advance payment invoice.
-
-
-  ##Key Features
-
-  **Billing Contacts**
-
-  These are dedicated, billing-only customer contact records used for payment
-  management.
-
-
-  **Products (Optional)**
-
-  Products are currency-specific, meaning each billing request can be created in
-  a single currency, identified by a currency_id.
-
-  You can choose to skip defining products and instead specify only the payment
-  amount and currency.
-
-  Additionally, setting a title for the billing request is optional.
-
-
-  **Billing Request**
-
-  The core of the service, a billing request, includes various statuses and
-  configurable options:
-
-  - due_days: Specifies the number of days within which the payment must be
-  completed. If the payment is not completed in this timeframe, the request will
-  expire.
-
-  - underpaid_cover_pct: A percentage (0-10%) to cover minor underpayments.
-
-  - receive_currency_id: Defines the currency in which you will receive the
-  settlement.
+title: Billing Overview
 deprecated: false
 hidden: false
 metadata:
@@ -46,6 +9,17 @@ metadata:
 next:
   description: ''
 ---
+The Billing Service enables you to request specific payments from your clients. It functions similarly to an advance payment invoice.
+
+## Features
+
+* **Billing Contacts** These are dedicated, billing-only customer contact records used for payment management.
+* **Products (Optional)** Products are currency-specific, meaning each billing request can be created in a single currency, identified by a currency\_id.You can choose to skip defining products and instead specify only the payment amount and currency.Additionally, setting a title for the billing request is optional.
+* **Billing Request**The core of the service, a billing request, includes various statuses and configurable options:
+  * due\_days: Specifies the number of days within which the payment must be completed. If the payment is not completed in this timeframe, the request will expire.
+  * underpaid\_cover\_pct: A percentage (0-10%) to cover minor underpayments.
+  * receive\_currency\_id: Defines the currency in which you will receive the settlement.
+
 | Status    | Description                                                                                                                        |
 | :-------- | :--------------------------------------------------------------------------------------------------------------------------------- |
 | pending   | This is the initial status of the billing request, indicating that the request has been created.                                   |
