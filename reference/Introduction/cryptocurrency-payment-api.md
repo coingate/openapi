@@ -27,7 +27,7 @@ You can integrate directly via API or choose from our ready-made, API-based [eco
 * Issue full or partial refunds
 * Send crypto payouts to employees, vendors, or users
 * Convert crypto to fiat or other assets in real-time
-* Automate billing with recurring or one-off crypto invoices, and more.
+* Automate billing with recurring or one-off crypto invoices, and more
 
 You can accept major cryptocurrencies like BTC, ETH, LTC, TRX, USDC, and others, across multiple networks, including Layer 2 solutions like Base and Arbitrum, and cost-efficient chains like TRON, Binance Smart Chain (BSC), or Solana. Here’s a full list of [supported currencies and networks](https://coingate.com/supported-currencies).
 
