@@ -1,5 +1,5 @@
 ---
-title: Merchant Payment Gateway
+title: CoinGate Cryptocurrency Payment API
 excerpt: Introduction to CoinGate and our payment gateway API for businesses
 deprecated: false
 hidden: false
@@ -10,18 +10,62 @@ metadata:
 next:
   description: ''
 ---
-[CoinGate](https://coingate.com) is a blockchain payment processor, established in 2014 in Vilnius, Lithuania. Currently, we serve thousands of merchants globally, and support over 50 cryptocurrencies, including Bitcoin, Litecoin, Ethereum and [others](https://coingate.com/accept). Our mission is to grow adoption of cryptocurrencies on a global scale by laying out a reliable payments infrastructure that caters for the needs of both merchants and their customers: accessible, convenient and customer oriented.
+Start accepting, managing, and sending cryptocurrency payments with a modern, flexible API built for online businesses.
 
-With our solution, each and every business owner can start accepting cryptocurrencies as a form of payment using our API or API-based [ecommerce modules](https://coingate.com/plugins). To all of our merchants, we offer a simple framework for payment settlement. Whichever currency the customer pays with, you have an option to exchange it for Euros, bitcoin, and several other cryptocurrencies at the moment of receiving the payment. This way, we maintain things convenient for the merchant, but flexible for the shopper.
+Our team has developed a robust set of tools that make it easy to integrate crypto payments, issue refunds, send payouts, convert currencies, and automate invoicing within a single interface.
 
-## Merchant API for Cryptocurrency Payments
+Perfect for a webshop, SaaS product, platform, or custom solution in terms of flexibility and functionality, even without deep technical experience.
 
-The CoinGate API is designed as an easy starting point for online businesses and merchants that wish to accept cryptocurrencies as a payment method. CoinGate handles the payment flow from checkout to settlement, allowing businesses to use this innovative payment method without deep technical know-how and risks related to exchange rate fluctuations. The API is, therefore, suitable for applications from basic projects, to enterprise-level integration.
+You can integrate directly via API or choose from our ready-made, API-based [ecommerce plugins](https://coingate.com/plugins) for platforms like WooCommerce, WHMCS, PrestaShop, and others.
 
-Our gateway provides full automation for accepting Bitcoin, Litecoin, Ether and other coins, unique addresses for each order, real-time transparent exchange rates for customers, and a platform for merchants to track and manage their payment history and payouts. See our [shop example](https://coingate.shop/ecommerce/).
+**Our API lets you:**
 
-Configuration of our API for processing payments on virtually any website is rather straightforward. Merchant API credentials can be created from your CoinGate account, where you can also add your payout details based on your preferred option for receiving settlements. API integration can be tested on our Sandbox environment (create separate credentials [here](https://sandbox.coingate.com)) or straight in live mode.
+* Accept crypto payments from customers worldwide
+* Issue full or partial refunds
+* Send crypto payouts to employees, vendors, or users
+* Convert crypto to fiat or other assets in real-time
+* Automate billing with recurring or one-off crypto invoices, and more.
 
-Continue to the [API Overview](doc:api-overview) for a technical introduction.
+You can accept major cryptocurrencies like BTC, ETH, LTC, TRX, USDC, and others, across multiple networks, including Layer 2 solutions like Base and Arbitrum, and cost-efficient chains like TRON, Binance Smart Chain (BSC), or Solana. Here’s a full list of [supported currencies and networks](https://coingate.com/supported-currencies).
+
+All payments can be automatically settled in crypto or converted to fiat like EUR, USD, or GBP.
+
+## Key Features
+
+### Easy Payment Integration
+
+Handle the entire payment lifecycle — from generating payment addresses to confirming transactions and receiving settlements — with just a few API calls. Start [here](https://developer.coingate.com/docs/api-overview).
+
+### Refund API
+
+Quickly issue full or partial [refunds](https://coingate.com/blog/post/merchant-refund) via API with transparent status tracking. Both merchants and customers receive automatic updates throughout the process.
+
+### Payout API
+
+Programmatically send [crypto payouts](https://developer.coingate.com/reference/send-request-overview) to employees, contractors, or users — one by one or in bulk. Set payout amounts and our end will handle the conversion and delivery.
+
+### Convert API
+
+Easily swap between supported crypto and fiat currencies. Prices are fetched in real-time, and converted funds are automatically credited to your CoinGate balance. More about it — [here](https://developer.coingate.com/reference/conversion-overview).
+
+### Billing API
+
+Generate crypto invoices with defined due dates, amounts, and currencies. Track paid and unpaid bills from your dashboard or via API. [Learn more](https://developer.coingate.com/reference/billing-overview).
+
+## Developer-Friendly by Design
+
+* RESTful architecture and well-structured endpoints
+* Comprehensive documentation and quickstart guides
+* [Sandbox mode](https://developer.coingate.com/reference/environments) for safe integration testing
+* API keys with [permission controls](https://coingate.com/blog/post/business-user-permissions) to manage access securely
+* [Libraries](https://developer.coingate.com/reference/code-libraries) in popular programming languages
+
+See a real-life use case in our [Shop Example](https://example.coingate.com/).
+
+## Track Everything From Your Dashboard
+
+All activity — payments, conversions, payouts, and refunds — is fully traceable in your CoinGate dashboard. Filter by currency, status, date range, and more. Export pre-formatted reports when needed for accounting or auditing.
+
+Explore the [API Overview](https://developer.coingate.com/docs/api-overview) to get started with your integration.
 
 <Image align="center" src="https://files.readme.io/1be4d20-Merchant_payment_gateway.png" />
