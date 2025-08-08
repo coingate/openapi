@@ -17,13 +17,9 @@ metadata:
 next:
   description: ''
 ---
-> ❗️
->
-> The /checkout API endpoint is available only for selected merchants. If you would like to enable this functionality for your account, please contact [CoinGate Support](https://support.coingate.com/hc/en-us/requests/new) for assistance.
-
-> 📘 API authentication is required
->
-> To create requests within the CoinGate system the user should have an authentication token. To get it, please follow the instructions [here](https://developer.coingate.com/reference/api-authentication).
+<Callout icon="❗️" theme="error">
+  The /checkout API endpoint is available only for selected merchants. If you would like to enable this functionality for your account, please contact [CoinGate Support](https://support.coingate.com/hc/en-us/requests/new) for assistance.
+</Callout>
 
 # White-label invoices using Checkout method
 
