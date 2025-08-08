@@ -50,3 +50,11 @@ Follow these steps to integrate CoinGate into your checkout flow:
 4. **Receive Payment Status via Callback**\
    CoinGate will notify your system of payment status changes using the [Payment Callback API](https://developer.coingate.com/reference/payment-callback) .
    ➤ Handle these callbacks in your backend to update the order status accordingly in your e-commerce system.
+
+## 🔐 API Authentication
+
+Authentication is required for all API requests of the Payment Gateway.
+
+You must include your personal authentication token in the request headers when interacting with CoinGate APIs. To obtain your token, follow the instructions in the [API Authentication guide](https://developer.coingate.com/reference/api-authentication).
+
+> **Note**: The only exception is the [Supported Currencies](https://developer.coingate.com/reference/currencies) endpoint, which is publicly accessible and can be called without authentication.
