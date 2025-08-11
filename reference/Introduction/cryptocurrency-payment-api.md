@@ -39,6 +39,10 @@ All payments can be automatically settled in crypto or converted to fiat like EU
 
 Handle the entire payment lifecycle — from generating payment addresses to confirming transactions and receiving settlements — with just a few API calls. Start [here](https://developer.coingate.com/docs/api-overview).
 
+### Binance Pay Integration
+
+Together with the standard CoinGate Payment Processing integration, you also gain seamless access to <Anchor label="Binance Pay" target="_blank" href="https://merchant.binance.com/en">Binance Pay</Anchor>—a contactless, borderless, and secure cryptocurrency payment solution developed by Binance. This unlocks the ability for millions of Binance Pay users to purchase from your store using any wallet assets tied to their Binance account.
+
 ### Refund API
 
 Quickly issue full or partial [refunds](https://coingate.com/blog/post/merchant-refund) via API with transparent status tracking. Both merchants and customers receive automatic updates throughout the process.
