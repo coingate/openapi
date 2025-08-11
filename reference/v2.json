@@ -198,7 +198,7 @@
                   },
                   "receive_currency": {
                     "type": "string",
-                    "description": "[ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code which defines the currency in which you wish to receive your settlements. Currency conversions are done by CoinGate. Possible values: fiat - EUR; stablecoin - USDT; crypto: BTC, LTC, ETH or DO_NOT_CONVERT. Note: use DO_NOT_CONVERT to keep payments received in original currency (Altcoin payments will be converted to BTC). With DO_NOT_CONVERT you can also extend invoice expiration time up to 24 hours. [Supported currencies](https://developer.coingate.com/docs/currencies)"
+                    "description": "[ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code specifying the currency in which you want to receive settlements. Currency conversions are handled by CoinGate. See Supported Settlement Currencies for available options, or use DO_NOT_CONVERT to keep the payment in its original currency. For setup instructions, see [How to Configure Settlement Currency](https://support.coingate.com/hc/en-us/articles/21208494395676)."
                   },
                   "title": {
                     "type": "string",
