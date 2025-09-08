@@ -13,3 +13,4 @@ metadata:
 next:
   description: ''
 ---
+Remove a billing contact from your CoinGate account by its ID. Once deleted, the contact will no longer be available for invoices or billing purposes.
