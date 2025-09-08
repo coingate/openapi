@@ -13,3 +13,4 @@ metadata:
 next:
   description: ''
 ---
+Retrieve detailed information for a specific billing contact by its ID.
