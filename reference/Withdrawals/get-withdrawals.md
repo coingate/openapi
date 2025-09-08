@@ -1,8 +1,5 @@
 ---
 title: Get Withdrawals
-excerpt: >-
-  This is private API endpoint and requires
-  [authentication](https://developer.coingate.com/docs/api-authentication).
 api:
   file: api-settings.json
   operationId: get-withdrawals
@@ -15,3 +12,4 @@ metadata:
 next:
   description: ''
 ---
+Retrieve a paginated list of all withdrawals from your CoinGate account. Each withdrawal includes the amount, currency, status, and payout details.
