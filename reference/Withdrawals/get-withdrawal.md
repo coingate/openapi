@@ -1,8 +1,5 @@
 ---
 title: Get Withdrawal
-excerpt: >-
-  This is private API endpoint and requires
-  [authentication](https://developer.coingate.com/docs/api-authentication).
 api:
   file: api-settings.json
   operationId: get-withdrawal
@@ -15,3 +12,4 @@ metadata:
 next:
   description: ''
 ---
+Retrieve detailed information about a specific withdrawal by its ID, including amount, currency, status, payout settings, and timestamps.
