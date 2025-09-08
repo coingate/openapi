@@ -13,3 +13,4 @@ metadata:
 next:
   description: ''
 ---
+Retrieve a paginated list of all billing products in your CoinGate account. Each product includes its name, price, currency, and creation date.
