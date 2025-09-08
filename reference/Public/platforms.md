@@ -13,3 +13,4 @@ metadata:
 next:
   description: ''
 ---
+Returns a list of available payment platforms (networks) and the currencies they support. This global endpoint is used across multiple services, including order processing, refunds, send requests, and payouts.
