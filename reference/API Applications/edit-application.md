@@ -5,7 +5,7 @@ api:
   file: api-settings.json
   operationId: edit-application
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
