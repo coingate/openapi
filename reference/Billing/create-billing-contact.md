@@ -13,3 +13,4 @@ metadata:
 next:
   description: ''
 ---
+These are dedicated, billing-only customer contact records used for payment management.
