@@ -13,4 +13,6 @@ metadata:
 next:
   description: ''
 ---
-Cancel the Binance order in case the user landed on `cancel` url or initiated the cancel action on your end.
+Cancels a Binance payment order from the merchant’s side. This stops the payment process and updates the order’s status to canceled.
+
+<br />
