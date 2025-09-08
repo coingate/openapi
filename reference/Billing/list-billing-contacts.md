@@ -13,3 +13,4 @@ metadata:
 next:
   description: ''
 ---
+Retrieve a paginated list of all billing contacts in your CoinGate account. Each contact can be a person or business and includes identifying and creation details.
