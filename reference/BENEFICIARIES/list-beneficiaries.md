@@ -13,3 +13,4 @@ metadata:
 next:
   description: ''
 ---
+Retrieve a paginated list of all beneficiaries in your CoinGate account, with optional filters by ID, type, email, or name.
