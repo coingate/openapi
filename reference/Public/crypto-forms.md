@@ -5,7 +5,7 @@ api:
   file: api-settings.json
   operationId: crypto-forms
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
