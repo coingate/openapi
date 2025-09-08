@@ -13,3 +13,4 @@ metadata:
 next:
   description: ''
 ---
+Retrieves detailed information about a specific CoinGate Order by its UUID.
