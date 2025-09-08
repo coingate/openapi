@@ -5,7 +5,7 @@ api:
   file: api-settings.json
   operationId: get-application-1
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
