@@ -13,3 +13,4 @@ metadata:
 next:
   description: ''
 ---
+Retrieve the full details of a specific beneficiary by their ID.
