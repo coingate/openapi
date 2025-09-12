@@ -5613,7 +5613,12 @@
                     "type": "string",
                     "description": "Amount to convert, expressed in the currency of the ledger account"
                   }
-                }
+                },
+                "required": [
+                  "ledger_account_id",
+                  "quote_currency_id",
+                  "base_amount"
+                ]
               }
             }
           }
