@@ -5606,7 +5606,7 @@
                     "description": "The ID of the ledger account from which the balance will be converted. Can be retrieved from https://api.coingate.com/api/v2/ledger/accounts"
                   },
                   "quote_currency_id": {
-                    "type": "string",
+                    "type": "integer",
                     "description": "The ID of the currency to which the balance will be converted. Can be retrieved from https://developer.coingate.com/reference/conversion-rates"
                   },
                   "base_amount": {
