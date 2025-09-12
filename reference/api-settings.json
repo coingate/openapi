@@ -1,1 +1,1047 @@
-{"openapi":"3.1.0","info":{"title":"api-settings","version":"2"},"servers":[{"url":"https://api.coingate.com/api/v2"}],"components":{"securitySchemes":{}},"security":[{}],"paths":{"/ledger/accounts/{id}":{"get":{"summary":"Get Account","description":"","operationId":"get-ledger-account","parameters":[{"name":"id","in":"path","description":"ID of ledger account","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"id\": \"01G0EM0RRVREB4WD5KDB6VJVPM\",\n  \"balance\": \"0.00501229\",\n  \"status\": \"active\",\n  \"currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"symbol\": \"BTC\"\n  }\n}"}},"schema":{"type":"object","properties":{"id":{"type":"string","example":"01G0EM0RRVREB4WD5KDB6VJVPM"},"balance":{"type":"string","example":"0.00501229"},"status":{"type":"string","example":"active"},"currency":{"type":"object","properties":{"id":{"type":"integer","example":1,"default":0},"title":{"type":"string","example":"Bitcoin"},"symbol":{"type":"string","example":"BTC"}}}}}}}},"404":{"description":"404","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"message\": \"Ledger Account not found\",\n  \"reason\": \"LedgerAccountNotFound\"\n}"}},"schema":{"type":"object","properties":{"message":{"type":"string","example":"Ledger Account not found"},"reason":{"type":"string","example":"LedgerAccountNotFound"}}}}}}},"deprecated":false,"x-readme":{"code-samples":[{"language":"curl","code":"curl --location --request GET 'https://sandbox.coingate.com/api/v2/ledger/accounts/01G0EM0RRVREB4WD5KDB6VJVPM' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE'"}],"samples-languages":["curl"]}}},"/ledger/transactions/{id}":{"get":{"summary":"Get Transaction","description":"","operationId":"get-transaction","parameters":[{"name":"id","in":"path","description":"ID of ledger transaction","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n    \"id\": \"01GTH61CE8SRENMEB6J9A8AE8P\",\n    \"created_at\": \"2023-03-02T12:51:31.431Z\",\n    \"purpose\": \"Bought 0.04523086 BTC for 1000.0 EUR\",\n    \"type\": \"trader_order_buy\",\n    \"account\": {\n        \"id\": \"01GTH61CE10JWX4WE5KCPS33PZ\",\n        \"title\": \"Bitcoin main account\"\n    },\n    \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n    },\n    \"credited_amount\": \"0\",\n    \"debited_amount\": \"0.04523086\",\n    \"closing_balance\": \"0.04523086\"\n}"}},"schema":{"type":"object","properties":{"id":{"type":"string","example":"01GTH61CE8SRENMEB6J9A8AE8P"},"created_at":{"type":"string","example":"2023-03-02T12:51:31.431Z"},"purpose":{"type":"string","example":"Bought 0.04523086 BTC for 1000.0 EUR"},"type":{"type":"string","example":"trader_order_buy"},"account":{"type":"object","properties":{"id":{"type":"string","example":"01GTH61CE10JWX4WE5KCPS33PZ"},"title":{"type":"string","example":"Bitcoin main account"}}},"currency":{"type":"object","properties":{"id":{"type":"integer","example":1,"default":0},"title":{"type":"string","example":"Bitcoin"},"kind":{"type":"string","example":"crypto"},"symbol":{"type":"string","example":"BTC"}}},"credited_amount":{"type":"string","example":"0"},"debited_amount":{"type":"string","example":"0.04523086"},"closing_balance":{"type":"string","example":"0.04523086"}}}}}},"404":{"description":"404","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"message\": \"Ledger Account not found\",\n  \"reason\": \"LedgerAccountNotFound\"\n}"}},"schema":{"type":"object","properties":{"message":{"type":"string","example":"Ledger Account not found"},"reason":{"type":"string","example":"LedgerAccountNotFound"}}}}}}},"deprecated":false,"x-readme":{"code-samples":[{"language":"curl","code":"curl --location --request GET 'https://sandbox.coingate.com/api/v2/ledger/transactions/01G0EM0RRVREB4WD5KDB6VJVPM' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE'"}],"samples-languages":["curl"]}}},"/withdrawals":{"get":{"summary":"Get Withdrawals","description":"This is private API endpoint and requires [authentication](https://developer.coingate.com/docs/api-authentication).","operationId":"get-withdrawals","responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"current_page\": 1,\n  \"per_page\": 100,\n  \"total_withdrawals\": 2,\n  \"total_pages\": 1,\n  \"withdrawals\": [\n    {\n      \"id\": 6,\n      \"status\": \"pending\",\n      \"amount\": \"101.09\",\n      \"created_at\": \"2022-06-23T10:04:12+00:00\",\n      \"currency\": {\n        \"id\": 2,\n        \"title\": \"Euro\",\n        \"symbol\": \"EUR\"\n      },\n      \"payout_setting\": {\n        \"id\": 71,\n        \"title\": \"My Test Bank\",\n        \"account_holder_name\": \"Cathey Welch\",\n        \"routing_number\": null,\n        \"bank_name\": \"ABC INTERNATIONAL BANK PLC\",\n        \"bank_address\": null,\n        \"bank_city\": null,\n        \"bank_country\": null,\n        \"swift\": \"AAPUGB21\",\n        \"iban\": \"GB16QDWY15868962169856\"\n      }\n    },\n    {\n      \"id\": 5,\n      \"status\": \"completed\",\n      \"amount\": \"1.112617\",\n      \"created_at\": \"2022-06-23T09:53:39+00:00\",\n      \"completed_at\": \"2022-06-23T09:54:51+00:00\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"symbol\": \"BTC\"\n      },\n      \"payout_setting\": {\n        \"id\": 68,\n        \"title\": \"My Test Bitcoin Wallet\",\n        \"address\": \"2N9HGaH3ExTU9tarhdrnxmH9PgBv2JhG5sT\",\n        \"currency\": {\n          \"id\": 1,\n          \"title\": \"Bitcoin\",\n          \"symbol\": \"BTC\"\n        },\n        \"platform\": {\n          \"id\": 6,\n          \"title\": \"Bitcoin\",\n          \"id_name\": \"bitcoin\"\n        }\n      }\n    }\n  ]\n}"}},"schema":{"type":"object","properties":{"current_page":{"type":"integer","example":1,"default":0},"per_page":{"type":"integer","example":100,"default":0},"total_withdrawals":{"type":"integer","example":2,"default":0},"total_pages":{"type":"integer","example":1,"default":0},"withdrawals":{"type":"array","items":{"type":"object","properties":{"id":{"type":"integer","example":6,"default":0},"status":{"type":"string","example":"pending"},"amount":{"type":"string","example":"101.09"},"created_at":{"type":"string","example":"2022-06-23T10:04:12+00:00"},"currency":{"type":"object","properties":{"id":{"type":"integer","example":2,"default":0},"title":{"type":"string","example":"Euro"},"symbol":{"type":"string","example":"EUR"}}},"payout_setting":{"type":"object","properties":{"id":{"type":"integer","example":71,"default":0},"title":{"type":"string","example":"My Test Bank"},"account_holder_name":{"type":"string","example":"Cathey Welch"},"routing_number":{},"bank_name":{"type":"string","example":"ABC INTERNATIONAL BANK PLC"},"bank_address":{},"bank_city":{},"bank_country":{},"swift":{"type":"string","example":"AAPUGB21"},"iban":{"type":"string","example":"GB16QDWY15868962169856"}}}}}}}}}}}},"deprecated":false}},"/withdrawals/{id}":{"get":{"summary":"Get Withdrawal","description":"This is private API endpoint and requires [authentication](https://developer.coingate.com/docs/api-authentication).","operationId":"get-withdrawal","parameters":[{"name":"id","in":"path","schema":{"type":"integer","format":"int32"},"required":true}],"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"id\": 5,\n  \"status\": \"completed\",\n  \"amount\": \"1.112617\",\n  \"created_at\": \"2022-06-23T09:53:39+00:00\",\n  \"completed_at\": \"2022-06-23T09:54:51+00:00\",\n  \"currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"symbol\": \"BTC\"\n  },\n  \"payout_setting\": {\n    \"id\": 68,\n    \"title\": \"My Test Bitcoin Wallet\",\n    \"address\": \"2N9HGaH3ExTU9tarhdrnxmH9PgBv2JhG5sT\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    },\n    \"platform\": {\n      \"id\": 6,\n      \"title\": \"Bitcoin\",\n      \"id_name\": \"bitcoin\"\n    }\n  }\n}"}},"schema":{"type":"object","properties":{"id":{"type":"integer","example":5,"default":0},"status":{"type":"string","example":"completed"},"amount":{"type":"string","example":"1.112617"},"created_at":{"type":"string","example":"2022-06-23T09:53:39+00:00"},"completed_at":{"type":"string","example":"2022-06-23T09:54:51+00:00"},"currency":{"type":"object","properties":{"id":{"type":"integer","example":1,"default":0},"title":{"type":"string","example":"Bitcoin"},"symbol":{"type":"string","example":"BTC"}}},"payout_setting":{"type":"object","properties":{"id":{"type":"integer","example":68,"default":0},"title":{"type":"string","example":"My Test Bitcoin Wallet"},"address":{"type":"string","example":"2N9HGaH3ExTU9tarhdrnxmH9PgBv2JhG5sT"},"currency":{"type":"object","properties":{"id":{"type":"integer","example":1,"default":0},"title":{"type":"string","example":"Bitcoin"},"symbol":{"type":"string","example":"BTC"}}},"platform":{"type":"object","properties":{"id":{"type":"integer","example":6,"default":0},"title":{"type":"string","example":"Bitcoin"},"id_name":{"type":"string","example":"bitcoin"}}}}}}}}}},"404":{"description":"404","content":{"text/plain":{"examples":{"Result":{"value":"{\n  \"message\": \"Withdrawal does not exist\",\n  \"reason\": \"WithdrawalNotFound\"\n}"}},"schema":{"type":"object","properties":{"message":{"type":"string","example":"Withdrawal does not exist"},"reason":{"type":"string","example":"WithdrawalNotFound"}}}}}}},"deprecated":false}},"/apps":{"get":{"summary":"Get applications","description":"Retrieves a list of created API applications with current API application.","operationId":"get-application","responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"api_apps\": [\n    {\n      \"id\": 1,\n      \"invoice_time\": 20,\n      \"title\": \"Api App 1\",\n      \"invoice_head_title\": \"Invoice Title 1\",\n      \"ip_whitelist\": [],\n      \"underpaid_cover_pct\": \"5.0\"\n    },\n    {\n      \"id\": 2,\n      \"invoice_time\": 45,\n      \"title\": \"Api App 2\",\n      \"invoice_head_title\": \"Invoice Title 2\",\n      \"ip_whitelist\":[\"192.0.2.0\"],\n      \"underpaid_cover_pct\":\"7.0\"\n    }\n  ]\n}"}},"schema":{"type":"object","properties":{"api_apps":{"type":"array","items":{"type":"object","properties":{"id":{"type":"integer","example":1,"default":0},"invoice_time":{"type":"integer","example":20,"default":0},"title":{"type":"string","example":"Api App 1"},"invoice_head_title":{"type":"string","example":"Invoice Title 1"},"ip_whitelist":{"type":"array"},"underpaid_cover_pct":{"type":"string","example":"5.0"}}}}}}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}}},"deprecated":false,"x-readme":{"code-samples":[{"language":"curl","code":"curl --location --request GET 'https://sandbox.coingate.com/api/v2/apps' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE'"}],"samples-languages":["curl"]}},"post":{"summary":"Create application","description":"Creates an API application","operationId":"create-application","requestBody":{"content":{"application/x-www-form-urlencoded":{"schema":{"type":"object","required":["title"],"properties":{"title":{"type":"string","description":"Name of the API App <br /> *Max 100 characters*"},"invoice_time":{"type":"integer","description":"Custom invoice expiration time in minutes. <br /> Possible values: 10, 15, 20, 30, 45, 60, 90, 120, 360, 720, 1440 <br /> **Please note** that longer than 20 minutes expiration time only works when the payment and receive currencies are the same. [Read more](https://blog.coingate.com/2017/09/bitcoin-merchant-extend-invoice-expiration-time/)","default":20,"format":"int32"},"underpaid_cover_pct":{"type":"number","description":"*Min: 0. Max: 10* <br /> This feature allows Merchants to accept orders that are underpaid up to a certain threshold [Read more](https://support.coingate.com/hc/en-us/articles/4402503049234-I-underpaid-my-invoice-What-should-I-do-)","default":0,"format":"float"},"ip_whitelist":{"type":"array","description":"IP address whitelist <br /> Leave empty to allow all ip addresses","default":["[]"],"items":{"type":"string"}},"invoice_head_title":{"type":"string","description":"By default, your legal business name is displayed on the invoice. Use this setting to display your brand name."}}}}}},"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"id\": 1,\n  \"invoice_time\": 45,\n  \"title\": \"Api App\",\n  \"invoice_head_title\": \"Invoice Title\",\n  \"ip_whitelist\": [\n   \"192.0.2.0\",\n   \"192.0.2.1\"\n  ],\n  \"underpaid_cover_pct\": \"7.65\",\n  \"auth_token\": \"vd47GHBoqz2_pmbBc_rommefWjb3waC6LHPjEu_Q\"\n}"}},"schema":{"type":"object","properties":{"id":{"type":"integer","example":1,"default":0},"invoice_time":{"type":"integer","example":45,"default":0},"title":{"type":"string","example":"Api App"},"invoice_head_title":{"type":"string","example":"Invoice Title"},"ip_whitelist":{"type":"array","items":{"type":"string","example":"192.0.2.0"}},"underpaid_cover_pct":{"type":"string","example":"7.65"},"auth_token":{"type":"string","example":"vd47GHBoqz2_pmbBc_rommefWjb3waC6LHPjEu_Q"}}}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}}},"deprecated":false,"x-readme":{"code-samples":[{"language":"curl","code":"curl --location --request POST 'https://sandbox.coingate.com/api/v2/apps' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"invoice_time\": 45,\n    \"title\": \"Api App\",\n    \"invoice_head_title\": \"Invoice Title\",\n    \"ip_whitelist\": [\n        \"192.0.2.0\",\n        \"192.0.2.1\"\n    ],\n    \"underpaid_cover_pct\": 7.65\n}'"}],"samples-languages":["curl"]}}},"/apps/:id":{"get":{"summary":"Get application","description":"Creates an API application","operationId":"get-application-1","parameters":[{"name":"ID","in":"path","description":"Application ID assigned by CoinGate","required":true,"schema":{"type":"integer","format":"int32"}}],"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"id\": 1,\n  \"invoice_time\": 45,\n  \"title\": \"Api App\",\n  \"invoice_head_title\": \"Invoice Title\",\n  \"ip_whitelist\": [\n   \"192.0.2.2\",\n   \"192.0.2.3\"\n  ],\n  \"underpaid_cover_pct\": \"5.0\",\n}"}}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}}},"deprecated":false,"x-readme":{"code-samples":[{"language":"curl","code":"curl --location --request GET 'https://sandbox.coingate.com/api/v2/apps/1' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE'"}],"samples-languages":["curl"]}},"patch":{"summary":"Edit application","description":"Creates an API application","operationId":"edit-application","parameters":[{"name":"ID","in":"path","description":"Application ID assigned by CoinGate","required":true,"schema":{"type":"integer","format":"int32"}}],"requestBody":{"content":{"application/x-www-form-urlencoded":{"schema":{"type":"object","properties":{"title":{"type":"string","description":"Name of the API App <br /> *Max 100 characters*"},"invoice_time":{"type":"integer","description":"Custom invoice expiration time in minutes. <br /> Possible values: 10, 15, 20, 30, 45, 60, 90, 120, 360, 720, 1440 <br /> **Please note** that longer than 20 minutes expiration time only works when the payment and receive currencies are the same. [Read more](https://blog.coingate.com/2017/09/bitcoin-merchant-extend-invoice-expiration-time/)","default":20,"format":"int32"},"underpaid_cover_pct":{"type":"number","description":"*Min: 0. Max: 10* <br /> This feature allows Merchants to accept orders that are underpaid up to a certain threshold [Read more](https://support.coingate.com/hc/en-us/articles/4402503049234-I-underpaid-my-invoice-What-should-I-do-)","default":0,"format":"float"},"ip_whitelist":{"type":"array","description":"IP address whitelist <br /> Leave empty to allow all ip addresses","items":{"type":"string"}},"invoice_head_title":{"type":"string","description":"By default, your legal business name is displayed on the invoice. Use this setting to display your brand name."}}}}}},"responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"id\": 1,\n  \"invoice_time\": 45,\n  \"title\": \"Updated Api App\",\n  \"invoice_head_title\": \"Updated Invoice Title\",\n  \"ip_whitelist\": [\n   \"192.0.2.2\",\n   \"192.0.2.3\"\n  ],\n  \"underpaid_cover_pct\": \"5.0\",\n}"}}}}},"400":{"description":"400","content":{"application/json":{"examples":{"Result":{"value":"{}"}},"schema":{"type":"object","properties":{}}}}}},"deprecated":false,"x-readme":{"code-samples":[{"language":"curl","code":"curl --location --request PATCH 'https://sandbox.coingate.com/api/v2/apps/1' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"invoice_time\": 30,\n    \"title\": \"Updated Api App\",\n    \"invoice_head_title\": \"Updated Invoice Title\",\n    \"ip_whitelist\": [\n        \"192.0.2.2\",\n        \"192.0.2.3\"\n    ],\n    \"underpaid_cover_pct\": 5\n}'"}],"samples-languages":["curl"]}}},"/ips-v4":{"get":{"summary":"IP Addresses","description":"Get IP addresses of CoinGate servers","operationId":"ip-addresses","parameters":[{"name":"separator","in":"query","description":"(optional) Separator of ip addresses. Default new line (\\n).","schema":{"type":"string","default":"new line (\\n)"}}],"responses":{"200":{"description":"200","content":{"text/plain":{"examples":{"Result":{"value":"52.28.22.118|35.156.68.160"}}}}}},"deprecated":false,"x-readme":{"code-samples":[{"language":"curl","code":"curl \"https://api.coingate.com/v2/ips-v4?separator=%7C\""}],"samples-languages":["curl"]}}},"/crypto-forms/{currency_symbol}":{"get":{"summary":"Crypto Forms","description":"","operationId":"crypto-forms","responses":{"200":{"description":"200","content":{"application/json":{"examples":{"Result":{"value":"{\n  \"platforms\": {\n    \"2\": {\n      \"platform_title\": \"Binance Chain\",\n      \"platform_id\": 2,\n      \"fields\": [\n        {\n          \"name\": \"address\",\n          \"required\": true,\n          \"form_field\": \"address\"\n        },\n        {\n          \"name\": \"memo\",\n          \"required\": false,\n          \"form_field\": \"additional_field\"\n        }\n      ]\n    }\n  }\n}"}},"schema":{"type":"object","properties":{"platforms":{"type":"object","properties":{"2":{"type":"object","properties":{"platform_title":{"type":"string","example":"Binance Chain"},"platform_id":{"type":"integer","example":2,"default":0},"fields":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","example":"address"},"required":{"type":"boolean","example":true,"default":true},"form_field":{"type":"string","example":"address"}}}}}}}}}}}}}},"deprecated":false,"security":[]}}},"x-readme":{"headers":[],"explorer-enabled":false,"proxy-enabled":true},"x-readme-fauxas":true}
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "api-settings",
+    "version": "2"
+  },
+  "servers": [
+    {
+      "url": "https://api.coingate.com/api/v2"
+    }
+  ],
+  "components": {
+    "securitySchemes": {}
+  },
+  "security": [
+    {}
+  ],
+  "paths": {
+    "/ledger/accounts/{id}": {
+      "get": {
+        "summary": "Get Account",
+        "description": "",
+        "operationId": "get-ledger-account",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of ledger account",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "id": "01HP6X6EP5YG76EQPTFBRWD6Y9",
+                      "balance": "0.859781",
+                      "status": "active",
+                      "account_type": "main",
+                      "title": "Bitcoin main account",
+                      "currency": {
+                        "id": 1,
+                        "title": "Bitcoin",
+                        "kind": "crypto",
+                        "symbol": "BTC",
+                        "enabled": true,
+                        "disabled_message": null
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "01G0EM0RRVREB4WD5KDB6VJVPM"
+                    },
+                    "balance": {
+                      "type": "string",
+                      "example": "0.00501229"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "active"
+                    },
+                    "currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1,
+                          "default": 0
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Bitcoin"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "BTC"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Ledger Account not found\",\n  \"reason\": \"LedgerAccountNotFound\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Ledger Account not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "LedgerAccountNotFound"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-readme": {
+          "code-samples": [
+            {
+              "language": "curl",
+              "code": "curl --location --request GET 'https://sandbox.coingate.com/api/v2/ledger/accounts/01G0EM0RRVREB4WD5KDB6VJVPM' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE'"
+            }
+          ],
+          "samples-languages": [
+            "curl"
+          ]
+        }
+      }
+    },
+    "/ledger/transactions/{id}": {
+      "get": {
+        "summary": "Get Transaction",
+        "description": "",
+        "operationId": "get-transaction",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of ledger transaction",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n    \"id\": \"01GTH61CE8SRENMEB6J9A8AE8P\",\n    \"created_at\": \"2023-03-02T12:51:31.431Z\",\n    \"purpose\": \"Bought 0.04523086 BTC for 1000.0 EUR\",\n    \"type\": \"trader_order_buy\",\n    \"account\": {\n        \"id\": \"01GTH61CE10JWX4WE5KCPS33PZ\",\n        \"title\": \"Bitcoin main account\"\n    },\n    \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n    },\n    \"credited_amount\": \"0\",\n    \"debited_amount\": \"0.04523086\",\n    \"closing_balance\": \"0.04523086\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "01GTH61CE8SRENMEB6J9A8AE8P"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2023-03-02T12:51:31.431Z"
+                    },
+                    "purpose": {
+                      "type": "string",
+                      "example": "Bought 0.04523086 BTC for 1000.0 EUR"
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "trader_order_buy"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "01GTH61CE10JWX4WE5KCPS33PZ"
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Bitcoin main account"
+                        }
+                      }
+                    },
+                    "currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1,
+                          "default": 0
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Bitcoin"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "example": "crypto"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "BTC"
+                        }
+                      }
+                    },
+                    "credited_amount": {
+                      "type": "string",
+                      "example": "0"
+                    },
+                    "debited_amount": {
+                      "type": "string",
+                      "example": "0.04523086"
+                    },
+                    "closing_balance": {
+                      "type": "string",
+                      "example": "0.04523086"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Ledger Account not found\",\n  \"reason\": \"LedgerAccountNotFound\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Ledger Account not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "LedgerAccountNotFound"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-readme": {
+          "code-samples": [
+            {
+              "language": "curl",
+              "code": "curl --location --request GET 'https://sandbox.coingate.com/api/v2/ledger/transactions/01G0EM0RRVREB4WD5KDB6VJVPM' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE'"
+            }
+          ],
+          "samples-languages": [
+            "curl"
+          ]
+        }
+      }
+    },
+    "/withdrawals": {
+      "get": {
+        "summary": "Get Withdrawals",
+        "description": "This is private API endpoint and requires [authentication](https://developer.coingate.com/docs/api-authentication).",
+        "operationId": "get-withdrawals",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 100,\n  \"total_withdrawals\": 2,\n  \"total_pages\": 1,\n  \"withdrawals\": [\n    {\n      \"id\": 6,\n      \"status\": \"pending\",\n      \"amount\": \"101.09\",\n      \"created_at\": \"2022-06-23T10:04:12+00:00\",\n      \"currency\": {\n        \"id\": 2,\n        \"title\": \"Euro\",\n        \"symbol\": \"EUR\"\n      },\n      \"payout_setting\": {\n        \"id\": 71,\n        \"title\": \"My Test Bank\",\n        \"account_holder_name\": \"Cathey Welch\",\n        \"routing_number\": null,\n        \"bank_name\": \"ABC INTERNATIONAL BANK PLC\",\n        \"bank_address\": null,\n        \"bank_city\": null,\n        \"bank_country\": null,\n        \"swift\": \"AAPUGB21\",\n        \"iban\": \"GB16QDWY15868962169856\"\n      }\n    },\n    {\n      \"id\": 5,\n      \"status\": \"completed\",\n      \"amount\": \"1.112617\",\n      \"created_at\": \"2022-06-23T09:53:39+00:00\",\n      \"completed_at\": \"2022-06-23T09:54:51+00:00\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"symbol\": \"BTC\"\n      },\n      \"payout_setting\": {\n        \"id\": 68,\n        \"title\": \"My Test Bitcoin Wallet\",\n        \"address\": \"2N9HGaH3ExTU9tarhdrnxmH9PgBv2JhG5sT\",\n        \"currency\": {\n          \"id\": 1,\n          \"title\": \"Bitcoin\",\n          \"symbol\": \"BTC\"\n        },\n        \"platform\": {\n          \"id\": 6,\n          \"title\": \"Bitcoin\",\n          \"id_name\": \"bitcoin\"\n        }\n      }\n    }\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "per_page": {
+                      "type": "integer",
+                      "example": 100,
+                      "default": 0
+                    },
+                    "total_withdrawals": {
+                      "type": "integer",
+                      "example": 2,
+                      "default": 0
+                    },
+                    "total_pages": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "withdrawals": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 6,
+                            "default": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "example": "pending"
+                          },
+                          "amount": {
+                            "type": "string",
+                            "example": "101.09"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2022-06-23T10:04:12+00:00"
+                          },
+                          "currency": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 2,
+                                "default": 0
+                              },
+                              "title": {
+                                "type": "string",
+                                "example": "Euro"
+                              },
+                              "symbol": {
+                                "type": "string",
+                                "example": "EUR"
+                              }
+                            }
+                          },
+                          "payout_setting": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 71,
+                                "default": 0
+                              },
+                              "title": {
+                                "type": "string",
+                                "example": "My Test Bank"
+                              },
+                              "account_holder_name": {
+                                "type": "string",
+                                "example": "Cathey Welch"
+                              },
+                              "routing_number": {},
+                              "bank_name": {
+                                "type": "string",
+                                "example": "ABC INTERNATIONAL BANK PLC"
+                              },
+                              "bank_address": {},
+                              "bank_city": {},
+                              "bank_country": {},
+                              "swift": {
+                                "type": "string",
+                                "example": "AAPUGB21"
+                              },
+                              "iban": {
+                                "type": "string",
+                                "example": "GB16QDWY15868962169856"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/withdrawals/{id}": {
+      "get": {
+        "summary": "Get Withdrawal",
+        "description": "This is private API endpoint and requires [authentication](https://developer.coingate.com/docs/api-authentication).",
+        "operationId": "get-withdrawal",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 5,\n  \"status\": \"completed\",\n  \"amount\": \"1.112617\",\n  \"created_at\": \"2022-06-23T09:53:39+00:00\",\n  \"completed_at\": \"2022-06-23T09:54:51+00:00\",\n  \"currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"symbol\": \"BTC\"\n  },\n  \"payout_setting\": {\n    \"id\": 68,\n    \"title\": \"My Test Bitcoin Wallet\",\n    \"address\": \"2N9HGaH3ExTU9tarhdrnxmH9PgBv2JhG5sT\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    },\n    \"platform\": {\n      \"id\": 6,\n      \"title\": \"Bitcoin\",\n      \"id_name\": \"bitcoin\"\n    }\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 5,
+                      "default": 0
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "completed"
+                    },
+                    "amount": {
+                      "type": "string",
+                      "example": "1.112617"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2022-06-23T09:53:39+00:00"
+                    },
+                    "completed_at": {
+                      "type": "string",
+                      "example": "2022-06-23T09:54:51+00:00"
+                    },
+                    "currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1,
+                          "default": 0
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Bitcoin"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "BTC"
+                        }
+                      }
+                    },
+                    "payout_setting": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 68,
+                          "default": 0
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "My Test Bitcoin Wallet"
+                        },
+                        "address": {
+                          "type": "string",
+                          "example": "2N9HGaH3ExTU9tarhdrnxmH9PgBv2JhG5sT"
+                        },
+                        "currency": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "example": 1,
+                              "default": 0
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Bitcoin"
+                            },
+                            "symbol": {
+                              "type": "string",
+                              "example": "BTC"
+                            }
+                          }
+                        },
+                        "platform": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "example": 6,
+                              "default": 0
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Bitcoin"
+                            },
+                            "id_name": {
+                              "type": "string",
+                              "example": "bitcoin"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404",
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Withdrawal does not exist\",\n  \"reason\": \"WithdrawalNotFound\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Withdrawal does not exist"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "WithdrawalNotFound"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/apps": {
+      "get": {
+        "summary": "Get applications",
+        "description": "Retrieves a list of created API applications with current API application.",
+        "operationId": "get-application",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"api_apps\": [\n    {\n      \"id\": 1,\n      \"invoice_time\": 20,\n      \"title\": \"Api App 1\",\n      \"invoice_head_title\": \"Invoice Title 1\",\n      \"ip_whitelist\": [],\n      \"underpaid_cover_pct\": \"5.0\"\n    },\n    {\n      \"id\": 2,\n      \"invoice_time\": 45,\n      \"title\": \"Api App 2\",\n      \"invoice_head_title\": \"Invoice Title 2\",\n      \"ip_whitelist\":[\"192.0.2.0\"],\n      \"underpaid_cover_pct\":\"7.0\"\n    }\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "api_apps": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 1,
+                            "default": 0
+                          },
+                          "invoice_time": {
+                            "type": "integer",
+                            "example": 20,
+                            "default": 0
+                          },
+                          "title": {
+                            "type": "string",
+                            "example": "Api App 1"
+                          },
+                          "invoice_head_title": {
+                            "type": "string",
+                            "example": "Invoice Title 1"
+                          },
+                          "ip_whitelist": {
+                            "type": "array"
+                          },
+                          "underpaid_cover_pct": {
+                            "type": "string",
+                            "example": "5.0"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-readme": {
+          "code-samples": [
+            {
+              "language": "curl",
+              "code": "curl --location --request GET 'https://sandbox.coingate.com/api/v2/apps' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE'"
+            }
+          ],
+          "samples-languages": [
+            "curl"
+          ]
+        }
+      },
+      "post": {
+        "summary": "Create application",
+        "description": "Creates an API application",
+        "operationId": "create-application",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "title"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Name of the API App <br /> *Max 100 characters*"
+                  },
+                  "invoice_time": {
+                    "type": "integer",
+                    "description": "Custom invoice expiration time in minutes. <br /> Possible values: 10, 15, 20, 30, 45, 60, 90, 120, 360, 720, 1440 <br /> **Please note** that longer than 20 minutes expiration time only works when the payment and receive currencies are the same. [Read more](https://blog.coingate.com/2017/09/bitcoin-merchant-extend-invoice-expiration-time/)",
+                    "default": 20,
+                    "format": "int32"
+                  },
+                  "underpaid_cover_pct": {
+                    "type": "number",
+                    "description": "*Min: 0. Max: 10* <br /> This feature allows Merchants to accept orders that are underpaid up to a certain threshold [Read more](https://support.coingate.com/hc/en-us/articles/4402503049234-I-underpaid-my-invoice-What-should-I-do-)",
+                    "default": 0,
+                    "format": "float"
+                  },
+                  "ip_whitelist": {
+                    "type": "array",
+                    "description": "IP address whitelist <br /> Leave empty to allow all ip addresses",
+                    "default": [
+                      "[]"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "invoice_head_title": {
+                    "type": "string",
+                    "description": "By default, your legal business name is displayed on the invoice. Use this setting to display your brand name."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 1,\n  \"invoice_time\": 45,\n  \"title\": \"Api App\",\n  \"invoice_head_title\": \"Invoice Title\",\n  \"ip_whitelist\": [\n   \"192.0.2.0\",\n   \"192.0.2.1\"\n  ],\n  \"underpaid_cover_pct\": \"7.65\",\n  \"auth_token\": \"vd47GHBoqz2_pmbBc_rommefWjb3waC6LHPjEu_Q\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "invoice_time": {
+                      "type": "integer",
+                      "example": 45,
+                      "default": 0
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Api App"
+                    },
+                    "invoice_head_title": {
+                      "type": "string",
+                      "example": "Invoice Title"
+                    },
+                    "ip_whitelist": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "192.0.2.0"
+                      }
+                    },
+                    "underpaid_cover_pct": {
+                      "type": "string",
+                      "example": "7.65"
+                    },
+                    "auth_token": {
+                      "type": "string",
+                      "example": "vd47GHBoqz2_pmbBc_rommefWjb3waC6LHPjEu_Q"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-readme": {
+          "code-samples": [
+            {
+              "language": "curl",
+              "code": "curl --location --request POST 'https://sandbox.coingate.com/api/v2/apps' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"invoice_time\": 45,\n    \"title\": \"Api App\",\n    \"invoice_head_title\": \"Invoice Title\",\n    \"ip_whitelist\": [\n        \"192.0.2.0\",\n        \"192.0.2.1\"\n    ],\n    \"underpaid_cover_pct\": 7.65\n}'"
+            }
+          ],
+          "samples-languages": [
+            "curl"
+          ]
+        }
+      }
+    },
+    "/apps/:id": {
+      "get": {
+        "summary": "Get application",
+        "description": "Creates an API application",
+        "operationId": "get-application-1",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "Application ID assigned by CoinGate",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 1,\n  \"invoice_time\": 45,\n  \"title\": \"Api App\",\n  \"invoice_head_title\": \"Invoice Title\",\n  \"ip_whitelist\": [\n   \"192.0.2.2\",\n   \"192.0.2.3\"\n  ],\n  \"underpaid_cover_pct\": \"5.0\",\n}"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-readme": {
+          "code-samples": [
+            {
+              "language": "curl",
+              "code": "curl --location --request GET 'https://sandbox.coingate.com/api/v2/apps/1' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE'"
+            }
+          ],
+          "samples-languages": [
+            "curl"
+          ]
+        }
+      },
+      "patch": {
+        "summary": "Edit application",
+        "description": "Creates an API application",
+        "operationId": "edit-application",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "Application ID assigned by CoinGate",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Name of the API App <br /> *Max 100 characters*"
+                  },
+                  "invoice_time": {
+                    "type": "integer",
+                    "description": "Custom invoice expiration time in minutes. <br /> Possible values: 10, 15, 20, 30, 45, 60, 90, 120, 360, 720, 1440 <br /> **Please note** that longer than 20 minutes expiration time only works when the payment and receive currencies are the same. [Read more](https://blog.coingate.com/2017/09/bitcoin-merchant-extend-invoice-expiration-time/)",
+                    "default": 20,
+                    "format": "int32"
+                  },
+                  "underpaid_cover_pct": {
+                    "type": "number",
+                    "description": "*Min: 0. Max: 10* <br /> This feature allows Merchants to accept orders that are underpaid up to a certain threshold [Read more](https://support.coingate.com/hc/en-us/articles/4402503049234-I-underpaid-my-invoice-What-should-I-do-)",
+                    "default": 0,
+                    "format": "float"
+                  },
+                  "ip_whitelist": {
+                    "type": "array",
+                    "description": "IP address whitelist <br /> Leave empty to allow all ip addresses",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "invoice_head_title": {
+                    "type": "string",
+                    "description": "By default, your legal business name is displayed on the invoice. Use this setting to display your brand name."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 1,\n  \"invoice_time\": 45,\n  \"title\": \"Updated Api App\",\n  \"invoice_head_title\": \"Updated Invoice Title\",\n  \"ip_whitelist\": [\n   \"192.0.2.2\",\n   \"192.0.2.3\"\n  ],\n  \"underpaid_cover_pct\": \"5.0\",\n}"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-readme": {
+          "code-samples": [
+            {
+              "language": "curl",
+              "code": "curl --location --request PATCH 'https://sandbox.coingate.com/api/v2/apps/1' \\\n--header 'Authorization: Bearer YOUR_TOKEN_GOES_HERE' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"invoice_time\": 30,\n    \"title\": \"Updated Api App\",\n    \"invoice_head_title\": \"Updated Invoice Title\",\n    \"ip_whitelist\": [\n        \"192.0.2.2\",\n        \"192.0.2.3\"\n    ],\n    \"underpaid_cover_pct\": 5\n}'"
+            }
+          ],
+          "samples-languages": [
+            "curl"
+          ]
+        }
+      }
+    },
+    "/ips-v4": {
+      "get": {
+        "summary": "IP Addresses",
+        "description": "Get IP addresses of CoinGate servers",
+        "operationId": "ip-addresses",
+        "parameters": [
+          {
+            "name": "separator",
+            "in": "query",
+            "description": "(optional) Separator of ip addresses. Default new line (\\n).",
+            "schema": {
+              "type": "string",
+              "default": "new line (\\n)"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "Result": {
+                    "value": "52.28.22.118|35.156.68.160"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-readme": {
+          "code-samples": [
+            {
+              "language": "curl",
+              "code": "curl \"https://api.coingate.com/v2/ips-v4?separator=%7C\""
+            }
+          ],
+          "samples-languages": [
+            "curl"
+          ]
+        }
+      }
+    },
+    "/crypto-forms/{currency_symbol}": {
+      "get": {
+        "summary": "Crypto Forms",
+        "description": "",
+        "operationId": "crypto-forms",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"platforms\": {\n    \"2\": {\n      \"platform_title\": \"Binance Chain\",\n      \"platform_id\": 2,\n      \"fields\": [\n        {\n          \"name\": \"address\",\n          \"required\": true,\n          \"form_field\": \"address\"\n        },\n        {\n          \"name\": \"memo\",\n          \"required\": false,\n          \"form_field\": \"additional_field\"\n        }\n      ]\n    }\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "platforms": {
+                      "type": "object",
+                      "properties": {
+                        "2": {
+                          "type": "object",
+                          "properties": {
+                            "platform_title": {
+                              "type": "string",
+                              "example": "Binance Chain"
+                            },
+                            "platform_id": {
+                              "type": "integer",
+                              "example": 2,
+                              "default": 0
+                            },
+                            "fields": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string",
+                                    "example": "address"
+                                  },
+                                  "required": {
+                                    "type": "boolean",
+                                    "example": true,
+                                    "default": true
+                                  },
+                                  "form_field": {
+                                    "type": "string",
+                                    "example": "address"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    }
+  },
+  "x-readme": {
+    "headers": [],
+    "explorer-enabled": false,
+    "proxy-enabled": true
+  },
+  "x-readme-fauxas": true
+}
