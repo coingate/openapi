@@ -37,17 +37,8 @@
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": {
-                  "properties": {
-                    "property1": {
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                },
                 "examples": {
-                  "New Example": {
-                    "summary": "New Example",
+                  "Result": {
                     "value": {
                       "id": "01HP6X6EP5YG76EQPTFBRWD6Y9",
                       "balance": "0.859781",
@@ -61,6 +52,41 @@
                         "symbol": "BTC",
                         "enabled": true,
                         "disabled_message": null
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "01G0EM0RRVREB4WD5KDB6VJVPM"
+                    },
+                    "balance": {
+                      "type": "string",
+                      "example": "0.00501229"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "active"
+                    },
+                    "currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1,
+                          "default": 0
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Bitcoin"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "BTC"
+                        }
                       }
                     }
                   }
