@@ -86,6 +86,9 @@
                         "symbol": {
                           "type": "string",
                           "example": "BTC"
+                        },
+                        "enabled": {
+                          "type": "boolean"
                         }
                       }
                     },
