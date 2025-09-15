@@ -3342,7 +3342,29 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 100,\n  \"total_accounts\": 1,\n  \"total_pages\": 1,\n  \"accounts\": [\n    {\n      \"id\": \"01G0EM0RRVREB4WD5KDB6VJVPM\",\n      \"balance\": \"0.00501229\",\n      \"status\": \"active\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  ]\n}"
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_accounts": 20,
+                      "total_pages": 1,
+                      "accounts": [
+                        {
+                          "id": "01G27GBKX653FKV2S0SCXXDBES",
+                          "balance": "0.0",
+                          "status": "active",
+                          "account_type": "main",
+                          "title": "USDT acc",
+                          "currency": {
+                            "id": 97,
+                            "title": "USDT",
+                            "kind": "crypto",
+                            "symbol": "USDT",
+                            "enabled": true,
+                            "disabled_message": null
+                          }
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {
@@ -3402,6 +3424,16 @@
                                 "example": "BTC"
                               }
                             }
+                          },
+                          "account_type": {
+                            "type": "string",
+                            "enum": [
+                              "main",
+                              "secondary"
+                            ]
+                          },
+                          "title": {
+                            "type": "string"
                           }
                         }
                       }
