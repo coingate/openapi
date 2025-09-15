@@ -88,6 +88,13 @@
                           "example": "BTC"
                         }
                       }
+                    },
+                    "account_type": {
+                      "type": "string",
+                      "enum": [
+                        "main",
+                        "secondary"
+                      ]
                     }
                   }
                 }
