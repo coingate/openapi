@@ -2217,7 +2217,7 @@
                   },
                   "currency_id": {
                     "type": "integer",
-                    "description": "ID of the currency in which the refund will be issued",
+                    "description": "ID of the currency in which the refund will be issued. [Supported refund currencies](https://developer.coingate.com/reference/refund-supported-currencies).",
                     "format": "int32"
                   },
                   "platform_id": {
