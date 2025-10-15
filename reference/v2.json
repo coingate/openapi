@@ -2235,7 +2235,7 @@
                   },
                   "ledger_account_id": {
                     "type": "string",
-                    "description": "ID of the trader balance associated with the currency in which the refund will be issued"
+                    "description": "Specifies the ledger balance from which the refund amount will be deducted. If the ledger account currency differs from the refund currency (currency_id), a conversion will be applied automatically. Learn more here: [Merchant refund conversions](coingate.com/blog/post/merchant-refund). API endpoint to list all ledger accounts: [API Ledger Overview](https://developer.coingate.com/reference/ledger-overview)."
                   },
                   "callback_url": {
                     "type": "string",
