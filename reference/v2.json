@@ -2222,7 +2222,7 @@
                   },
                   "platform_id": {
                     "type": "integer",
-                    "description": "Platform ID of the currency in which the refund will be issued",
+                    "description": "Platform ID associated with the selected refund currency. [Supported refund platforms](https://developer.coingate.com/reference/refund-supported-currencies).",
                     "format": "int32"
                   },
                   "reason": {
