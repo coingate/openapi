@@ -224,10 +224,6 @@
                     "type": "string",
                     "description": "Your custom token to validate payment callback (notification)."
                   },
-                  "purchaser_email": {
-                    "type": "string",
-                    "description": "Email address of the purchaser (payee) provided will be pre-filled on the invoice."
-                  },
                   "shopper": {
                     "type": "object",
                     "properties": {
