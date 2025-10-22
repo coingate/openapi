@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-A refund callback will be sent to the merchant's **callback\_url** when the merchant refund is created or the status is changed to processing, rejected or completed.
+A refund callback will be sent to the merchant's **callback_url** when the merchant refund is created or the status is changed to processing, rejected or completed.
 
 > 🚧 API Callback Documentation
 >
@@ -22,7 +22,7 @@ CoinGate callback sends the data below:
 | :---------------------------- | :------ | :----------------------------------------------------------------------------------- |
 | `id`                          | Integer | CoinGate merchant refund ID                                                          |
 | `order_id`                    | Integer | CoinGate order ID assigned to the merchant refund                                    |
-| `status`                      | String  | Current order status                                                                 |
+| `status`                      | String  | CoinGate merchant refund status                                                      |
 | `request_amount`              | String  | Amount requested to refund                                                           |
 | `request_currency`            | Hash    | [Currency](doc:currencies) id and symbol                                             |
 | `address`                     | String  | Customer’s wallet address where the refund will be sent                              |
