@@ -24,12 +24,11 @@ Community code libraries:
 
 * [.Net](https://github.com/cizu64/Coingate.Net)
 * [Node.js](https://www.npmjs.com/package/coingate-v2)
-* [Python](https://github.com/iodbh/coingate-python)\
+* [Python](https://github.com/iodbh/coingate-python)  
   ([contact us](https://support.coingate.com/hc/en-us/requests/new) to add your library)
 
 Plugins for e-commerce and billing systems:
 
-* [Blesta](https://coingate.com/plugins/blesta)
 * [Magento 2](https://coingate.com/plugins/magento2)
 * [OpenCart 1/2/3](https://coingate.com/plugins/opencart)
 * [PrestaShop](https://coingate.com/plugins/prestashop)
