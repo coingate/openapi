@@ -87,6 +87,10 @@ Typical use cases:
 Access in dashboard:
 **Dashboard → Integrations → API Management → <Anchor label="Callback Testing" target="_blank" href="https://account.coingate.com/merchant-tools/api-integrations?tab=callbackTesting">Callback Testing</Anchor>**
 
+<Image border={false} src="https://files.readme.io/0665828def294b9c8e427b26460e70ea18c13c12a92a0bb787ea0d76ce4093de-image.png" />
+
+<br />
+
 ## IP Addresses
 
 Payment Callbacks are sent from the servers listed in the following public API endpoints:
