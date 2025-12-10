@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-A payment callback (payment notification) will be sent to the merchant’s **callback\_url** whenever the order status, refund status, or billing status changes due to a request. The *callback\_url* parameter is defined when creating the object.
+A payment callback (payment notification) will be sent to the merchant’s **callback_url** whenever the order status, refund status, or billing status changes due to a request. The _callback_url_ parameter is defined when creating the object.
 
 * [Create Merchant Order](doc:create-order)
 * [Create Order Refund](doc:create-refund)
@@ -31,7 +31,7 @@ By [creating new API App](https://support.coingate.com/hc/en-us/articles/4402498
 * Form Encoding (application/x-www-form-urlencoded)
 * JSON (application/json)
 
-<Image align="center" className="border" border={true} src="https://files.readme.io/6cd04730eca248cbffe8b5264bbf4466ef0e61f9ab99efc373da8b59eba1e03b-Screenshot_2025-02-26_at_15.48.10.png" />
+<Image align="center" border={true} src="https://files.readme.io/6cd04730eca248cbffe8b5264bbf4466ef0e61f9ab99efc373da8b59eba1e03b-Screenshot_2025-02-26_at_15.48.10.png" className="border" />
 
 Change callback format for existing API App go to Merchant » API » Apps » Edit.
 
@@ -56,10 +56,6 @@ Payment notifications are sent according to the following schedule based on the 
 | 31 – 35           | Every 5 hours                                   |
 | 36 – 40           | Every 1 day                                     |
 | 41 and above      | Callback is terminated and no more will be sent |
-
-<br />
-
-### Notification Response Timeout
 
 After sending a payment notification, CoinGate waits for a response for **20 seconds**.
 
@@ -93,7 +89,7 @@ We recommend updating your IP whitelist regularly using the information provided
 
 ## Private Nework & Localhost
 
-CoinGate payment callback will not send notifications to private networks (for example: localhost).\
+CoinGate payment callback will not send notifications to private networks (for example: localhost).  
 In localhost, you can send test payment notification with [cURL library](https://curl.haxx.se/):
 
 ```shell HTTPie
