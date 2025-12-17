@@ -314,7 +314,9 @@
                 "type": "object",
                 "required": [
                   "price_amount",
-                  "price_currency"
+                  "price_currency",
+                  "title",
+                  "description"
                 ]
               }
             }
