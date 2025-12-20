@@ -75,4 +75,4 @@ All activity — payments, conversions, payouts, and refunds — is fully tracea
 
 Explore the [API Overview](https://developer.coingate.com/docs/api-overview) to get started with your integration.
 
-<Image align="center" src="https://files.readme.io/1be4d20-Merchant_payment_gateway.png" />
+<Image align="center" border={false} src="https://files.readme.io/eeb1253ca45820534d21e866b0f9a707b40de89e03ec934b3b9b933dacfa814f-MiCA_announcemen_-_Linkedin.png" />
