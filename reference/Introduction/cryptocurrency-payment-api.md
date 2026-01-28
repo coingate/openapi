@@ -61,7 +61,7 @@ Generate crypto invoices with defined due dates, amounts, and currencies. Track 
 
 ### Underpaid Cover
 
-Underpaid Cover allows merchants to accept cryptocurrency payments that are slightly below the invoice amount by configuring an underpayment tolerance (up to 10%). If a shopper underpays within this threshold, the payment is still marked as paid, helping prevent failed or expired orders. [Learn more](https://support.coingate.com/hc/en-us/articles/4402498932114) .
+Underpaid Cover allows merchants to accept cryptocurrency payments that are slightly below the invoice amount by configuring an underpayment tolerance (up to 10%). If a shopper underpays within this threshold, the payment is still marked as paid, helping prevent failed or expired orders. [Learn more](https://support.coingate.com/hc/en-us/articles/4402498932114).
 
 ## Developer-Friendly by Design
 
