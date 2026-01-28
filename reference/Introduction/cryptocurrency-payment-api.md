@@ -59,6 +59,10 @@ Easily swap between supported crypto and fiat currencies. Prices are fetched in 
 
 Generate crypto invoices with defined due dates, amounts, and currencies. Track paid and unpaid bills from your dashboard or via API. [Learn more](https://developer.coingate.com/reference/billing-overview).
 
+### Underpaid Cover
+
+Underpaid Cover allows merchants to accept cryptocurrency payments that are slightly below the invoice amount by configuring an underpayment tolerance (up to 10%). If a shopper underpays within this threshold, the payment is still marked as paid, helping prevent failed or expired orders. [Learn more](https://support.coingate.com/hc/en-us/articles/4402498932114) .
+
 ## Developer-Friendly by Design
 
 * RESTful architecture and well-structured endpoints
