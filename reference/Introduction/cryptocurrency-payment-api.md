@@ -79,4 +79,6 @@ All activity — payments, conversions, payouts, and refunds — is fully tracea
 
 Explore the [API Overview](https://developer.coingate.com/docs/api-overview) to get started with your integration.
 
-<Image align="center" border={false} src="https://files.readme.io/eeb1253ca45820534d21e866b0f9a707b40de89e03ec934b3b9b933dacfa814f-MiCA_announcemen_-_Linkedin.png" />
+<Image align="center" src="https://files.readme.io/eeb1253ca45820534d21e866b0f9a707b40de89e03ec934b3b9b933dacfa814f-MiCA_announcemen_-_Linkedin.png" />
+
+_UAB Decentralized, a private limited liability company incorporated in Lithuania, is authorised as a Crypto-Asset Service Provider under the EU Markets in Crypto-Assets Regulation (MiCA) by the Bank of Lithuania (Authorization code: LB002323) to provide crypto-asset services. UAB Decentralized is also licensed as a Payment institution by the Bank of Lithuania (Authorization code: LB002324) to provide transfer services for Electronic Money Tokens. Crypto-assets are high-risk investments and may result in partial or total loss of capital._
