@@ -12764,6 +12764,55 @@
           }
         }
       }
+    },
+    "/orders/{order_id}/refunds/{refund_id}/mark_as_completed": {
+      "patch": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "reason": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "order_id",
+            "schema": {
+              "type": "integer",
+              "default": "CoinGate Order ID"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "refund_id",
+            "schema": {
+              "type": "integer",
+              "default": "CoinGate Merchant Refund ID"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "patch_orders-order-id-refunds-refund-id-mark-as-completed"
+      }
     }
   },
   "x-readme": {
