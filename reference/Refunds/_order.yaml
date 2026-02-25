@@ -6,4 +6,4 @@
 - refund-callback
 - refund-supported-currencies
 - mark-as-completed
-- mark-as-completed-1
+- order-refund-mark-as-rejected
