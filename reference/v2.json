@@ -12814,7 +12814,7 @@
         "operationId": "patch_orders-order-id-refunds-refund-id-mark-as-completed"
       }
     },
-    "/orders/{order_id}/refunds/{refund_id}/mark_as_completed-1": {
+    "/orders/{order_id}/refunds/{refund_id}/mark_as_rejected": {
       "patch": {
         "description": "",
         "responses": {
@@ -12860,8 +12860,8 @@
             "required": true
           }
         ],
-        "operationId": "patch_orders-order-id-refunds-refund-id-mark-as-completed-1",
-        "summary": "Copy of "
+        "summary": "Copy of ",
+        "operationId": "patch_orders-order-id-refunds-refund-id-mark-as-rejected"
       }
     }
   },
