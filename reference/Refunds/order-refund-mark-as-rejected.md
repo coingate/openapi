@@ -4,7 +4,7 @@ api:
   file: v2.json
   operationId: patch_orders-order-id-refunds-refund-id-mark-as-rejected
 deprecated: false
-hidden: true
+hidden: false
 link:
   new_tab: false
 metadata:
