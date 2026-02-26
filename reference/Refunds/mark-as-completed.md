@@ -2,7 +2,7 @@
 title: Mark as Completed
 api:
   file: v2.json
-  operationId: patch_orders-order-id-refunds-refund-id-mark-as-completed
+  operationId: patch_orders-order-id-refunds-id-mark-as-completed
 deprecated: false
 hidden: false
 link:
