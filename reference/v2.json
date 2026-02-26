@@ -12874,18 +12874,20 @@
             "name": "order_id",
             "schema": {
               "type": "integer",
-              "default": "CoinGate Order ID"
+              "default": ""
             },
-            "required": true
+            "required": true,
+            "description": "CoinGate Order ID"
           },
           {
             "in": "path",
             "name": "refund_id",
             "schema": {
               "type": "integer",
-              "default": "CoinGate Merchant Refund ID"
+              "default": ""
             },
-            "required": true
+            "required": true,
+            "description": "CoinGate Merchant Refund ID"
           }
         ],
         "operationId": "patch_orders-order-id-refunds-refund-id-mark-as-completed"
