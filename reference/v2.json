@@ -13013,7 +13013,8 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "description": "CoinGate Merchant Refund ID"
           }
         ],
         "operationId": "patch_orders-order-id-refunds-id-mark-as-completed"
