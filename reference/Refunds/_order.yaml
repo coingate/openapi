@@ -5,5 +5,5 @@
 - refund-statuses
 - refund-callback
 - refund-supported-currencies
-- mark-as-completed
+- order-refund-mark-as-completed
 - order-refund-mark-as-rejected
