@@ -2,7 +2,7 @@
 title: Mark as Rejected
 api:
   file: v2.json
-  operationId: patch_orders-order-id-refunds-refund-id-mark-as-rejected
+  operationId: patch_orders-order-id-refunds-id-mark-as-rejected
 deprecated: false
 hidden: false
 link:
