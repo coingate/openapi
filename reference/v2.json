@@ -12893,7 +12893,7 @@
         "operationId": "patch_orders-order-id-refunds-refund-id-mark-as-completed"
       }
     },
-    "/orders/{order_id}/refunds/{refund_id}/mark_as_rejected": {
+    "/orders/{order_id}/refunds/{id}/mark_as_rejected": {
       "patch": {
         "description": "",
         "responses": {
@@ -13003,22 +13003,22 @@
             "name": "order_id",
             "schema": {
               "type": "integer",
-              "default": "CoinGate Order ID"
+              "default": ""
             },
-            "required": true
+            "required": true,
+            "description": "CoinGate Order ID"
           },
           {
             "in": "path",
-            "name": "refund_id",
+            "name": "id",
             "schema": {
-              "type": "integer",
-              "default": "CoinGate Merchant Refund ID"
+              "type": "string"
             },
             "required": true
           }
         ],
         "summary": "Copy of ",
-        "operationId": "patch_orders-order-id-refunds-refund-id-mark-as-rejected"
+        "operationId": "patch_orders-order-id-refunds-id-mark-as-rejected"
       }
     }
   },
