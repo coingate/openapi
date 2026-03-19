@@ -11043,7 +11043,7 @@
                       },
                       "company_code": {
                         "type": "string",
-                        "description": "Company, LEI code"
+                        "description": "Company or LEI code"
                       }
                     }
                   },
