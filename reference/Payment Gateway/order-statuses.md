@@ -90,7 +90,7 @@ next:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        An order will expire in the following cases:  
+        An order will expire in the following cases:
 
         * For a new order: the shopper does not select a payment currency and crypto platform within 2 hours.
         * For a pending order: the shopper does not complete the payment within 20 minutes.
@@ -119,7 +119,7 @@ next:
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        partially\_refunded
+        partially_refunded
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -131,4 +131,6 @@ next:
 
 ## Order Status Changing Flow
 
-<Image align="center" src="https://files.readme.io/28732a5-Order_Status_Changing_Flow4.png" />
+<Image align="center" src="https://files.readme.io/09b081442a720d019928ef7d247631e358188505ec3904bbdf1dc22f63a16591-Screenshot_2026-03-23_at_09.29.27.png" />
+
+<br />
