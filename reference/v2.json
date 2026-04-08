@@ -13430,7 +13430,7 @@
         }
       }
     },
-    "/payment-channels": {
+    "/payment_channels": {
       "post": {
         "description": "",
         "responses": {
