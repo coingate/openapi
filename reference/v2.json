@@ -13352,6 +13352,35 @@
         ],
         "operationId": "patch_orders-order-id-refunds-id-mark-as-completed"
       }
+    },
+    "/contacts": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "operationId": "post_contacts",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   },
   "x-readme": {
