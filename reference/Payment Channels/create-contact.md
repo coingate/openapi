@@ -10,3 +10,4 @@ link:
 metadata:
   robots: index
 ---
+Create a new contact for use with Payment Channels. Contacts represent the beneficiary (individual or business) that will be associated with a payment channel for receiving crypto payments. Each contact must include travel rule compliant information based on the contact type.
