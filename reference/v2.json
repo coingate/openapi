@@ -13439,7 +13439,50 @@
           }
         },
         "parameters": [],
-        "operationId": "post_payment-channels"
+        "operationId": "post_payment-channels",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contact_id": {
+                    "type": "integer",
+                    "description": "ID of the contact to associate with this payment channel. Contact must belong to the same merchant and have all required travel rule fields filled"
+                  },
+                  "receive_currency_id": {
+                    "type": "integer",
+                    "description": "ID of the currency the merchant wants to receive. Must be enabled and support merchant receive"
+                  },
+                  "payment_purpose": {
+                    "type": "string",
+                    "description": "Purpose of the payment (e.g. merchant_payment, subscription, donation)"
+                  },
+                  "callback_url": {
+                    "type": "string",
+                    "description": "URL to receive webhook notifications for transactions on this payment channel"
+                  },
+                  "assets": {
+                    "type": "object",
+                    "description": "List of crypto assets to generate addresses for. Each item requires currency_id (integer) and platform_id (integer). The currency must be enabled and the platform must be active with deposits enabled",
+                    "properties": {
+                      "currency_id": {
+                        "type": "integer"
+                      },
+                      "platform_id": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "contact_id",
+                  "receive_currency_id"
+                ]
+              }
+            }
+          }
+        }
       }
     }
   },
