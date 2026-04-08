@@ -13369,12 +13369,60 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": {
-                    "type": "string"
+                  "contact_type": {
+                    "type": "string",
+                    "description": "Type of contact. Allowed values: person, business.",
+                    "default": "person"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Contact email address. Must be a valid, non-disposable email"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "description": "First name of the contact (required if contact_type is person)"
+                  },
+                  "surname": {
+                    "type": "string",
+                    "description": "Last name of the contact (required if contact_type is person)"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "description": "Company name (required if contact_type is business)"
+                  },
+                  "external_contact_id": {
+                    "type": "string",
+                    "description": "External Contact ID used in your application (e.g. user or customer ID). Must be unique per merchant"
+                  },
+                  "date_of_birth": {
+                    "type": "string",
+                    "description": "Date of birth in YYYY-MM-DD format (required if contact_type is person)"
+                  },
+                  "address_country": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Country of residence as ISO 3166-1 alpha-2 (e.g. LT) or alpha-3 (e.g. LTU) code (required if contact_type is person)"
+                  },
+                  "company_code": {
+                    "type": "string",
+                    "description": "Company registration code (required if contact_type is business)"
+                  },
+                  "incorporation_country": {
+                    "type": "string",
+                    "description": "Company registration country as ISO 3166-1 alpha-2 or alpha-3 code (required if contact_type is business)"
                   }
                 },
                 "required": [
-                  "name"
+                  "contact_type",
+                  "email",
+                  "first_name",
+                  "surname",
+                  "external_contact_id",
+                  "company_name",
+                  "date_of_birth",
+                  "incorporation_country",
+                  "company_code",
+                  "address_country"
                 ]
               }
             }
