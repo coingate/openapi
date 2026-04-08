@@ -13429,6 +13429,18 @@
           }
         }
       }
+    },
+    "/payment-channels": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "operationId": "post_payment-channels"
+      }
     }
   },
   "x-readme": {
