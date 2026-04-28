@@ -1,17 +1,9 @@
 ---
-title: Get Outgoing Fees
-excerpt: >-
-  <b>Get Outgoing Fees</b>. Outgoing fees apply to all outgoing transactions,
-  such as withdrawals, trader orders, and both refund requests and merchant
-  refunds. CoinGate API provides various ways to retrieve these fees based on
-  currency, crypto platform, or specific types of payments. You can use
-  endpoints like <b>api/v2/outgoing_fees</b> to get an array of all enabled fees
-  or filter it further with other parameters to get more specific information.
 api:
   file: v2.json
   operationId: get-outgoing_fees
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
