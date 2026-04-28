@@ -13037,7 +13037,8 @@
           "samples-languages": [
             "curl"
           ]
-        }
+        },
+        "x-internal": true
       }
     },
     "/new-endpoint": {
