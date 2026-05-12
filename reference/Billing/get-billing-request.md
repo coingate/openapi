@@ -1,5 +1,4 @@
 ---
-title: Get Billing Request
 excerpt: ''
 api:
   file: v2.json
