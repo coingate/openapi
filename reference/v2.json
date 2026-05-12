@@ -404,7 +404,67 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 2,\n  \"total_orders\": 455,\n  \"total_pages\": 228,\n  \"orders\": [\n    {\n      \"id\": 537,\n      \"status\": \"canceled\",\n      \"title\": \"test\",\n      \"do_not_convert\": false,\n      \"orderable_type\": \"Button\",\n      \"orderable_id\": 2,\n      \"price_currency\": \"EUR\",\n      \"price_amount\": \"10.0\",\n      \"lightning_network\": false,\n      \"receive_currency\": \"\",\n      \"receive_amount\": \"0\",\n      \"created_at\": \"2022-12-09T13:53:43+00:00\",\n      \"order_id\": \"\",\n      \"payment_url\": \"http://localhost:3000/invoice/e386db94-d648-4b4b-9b19-1f2825f7eb32\",\n      \"underpaid_amount\": \"0\",\n      \"overpaid_amount\": \"0\",\n      \"is_refundable\": false,\n      \"refunds\": [],\n      \"voids\": [],\n      \"fees\": [],\n\t\t\t\"blockchain_transactions\": []\n    },\n    {\n      \"id\": 536,\n      \"status\": \"canceled\",\n      \"title\": \"test\",\n      \"do_not_convert\": false,\n      \"orderable_type\": \"Button\",\n      \"orderable_id\": 2,\n      \"price_currency\": \"EUR\",\n      \"price_amount\": \"20.0\",\n      \"pay_currency\": \"BTC\",\n      \"pay_amount\": \"0.0009822\",\n      \"lightning_network\": false,\n      \"receive_currency\": \"USDT\",\n      \"receive_amount\": \"0\",\n      \"created_at\": \"2022-12-07T11:27:11+00:00\",\n      \"expire_at\": \"2022-12-07T11:47:18+00:00\",\n      \"payment_address\": \"00e5602a-3380-4437-b1df-483ff84c47de\",\n      \"order_id\": \"\",\n      \"payment_url\": \"http://localhost:3000/invoice/725ee4b4-4a75-45a5-8f3d-c8012546cda9\",\n      \"underpaid_amount\": \"0.0009822\",\n      \"overpaid_amount\": \"0\",\n      \"is_refundable\": false,\n      \"conversion_rate\": \"20566.0\",\n      \"refunds\": [],\n      \"voids\": [],\n      \"fees\": [],\n      \"blockchain_transactions\": []\n    }\n  ]\n}"
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 2,
+                      "total_orders": 455,
+                      "total_pages": 228,
+                      "orders": [
+                        {
+                          "id": 537,
+                          "status": "canceled",
+                          "title": "test",
+                          "do_not_convert": false,
+                          "orderable_type": "Button",
+                          "orderable_id": 2,
+                          "price_currency": "EUR",
+                          "price_amount": "10.0",
+                          "lightning_network": false,
+                          "receive_currency": "",
+                          "receive_amount": "0",
+                          "created_at": "2022-12-09T13:53:43+00:00",
+                          "order_id": "",
+                          "payment_url": "http://localhost:3000/invoice/e386db94-d648-4b4b-9b19-1f2825f7eb32",
+                          "underpaid_amount": "0",
+                          "overpaid_amount": "0",
+                          "is_refundable": false,
+                          "refunds": [],
+                          "voids": [],
+                          "fees": [],
+                          "blockchain_transactions": [],
+                          "ledger_transactions": []
+                        },
+                        {
+                          "id": 536,
+                          "status": "canceled",
+                          "title": "test",
+                          "do_not_convert": false,
+                          "orderable_type": "Button",
+                          "orderable_id": 2,
+                          "price_currency": "EUR",
+                          "price_amount": "20.0",
+                          "pay_currency": "BTC",
+                          "pay_amount": "0.0009822",
+                          "lightning_network": false,
+                          "receive_currency": "USDT",
+                          "receive_amount": "0",
+                          "created_at": "2022-12-07T11:27:11+00:00",
+                          "expire_at": "2022-12-07T11:47:18+00:00",
+                          "payment_address": "00e5602a-3380-4437-b1df-483ff84c47de",
+                          "order_id": "",
+                          "payment_url": "http://localhost:3000/invoice/725ee4b4-4a75-45a5-8f3d-c8012546cda9",
+                          "underpaid_amount": "0.0009822",
+                          "overpaid_amount": "0",
+                          "is_refundable": false,
+                          "conversion_rate": "20566.0",
+                          "refunds": [],
+                          "voids": [],
+                          "fees": [],
+                          "blockchain_transactions": [],
+                          "ledger_transactions": []
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {
