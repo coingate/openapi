@@ -3865,7 +3865,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Entry associated with. Possible values: Order, "
+            "description": "Entry associated with. e.g. Order, Withdrawal"
           },
           {
             "in": "query",
