@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-A callback will be sent to the merchant's **callback\_url** when the billing request is created or the status is changed
+A callback will be sent to the merchant's **callback_url** when the billing request is created or the status is changed
 
 > 🚧 API Callback Documentation
 >
@@ -23,6 +23,7 @@ CoinGate callback sends the data below:
 | `id`                    | Integer     | Billing Request ID                                                                |
 | `uuid`                  | String      | Generated UUID                                                                    |
 | `status`                | String      | Billing Request status                                                            |
+| `orded_id`              | Integer     | Order ID of a paid billing request.                                               |
 | `title`                 | String      | Custom title of the request                                                       |
 | `due_days`              | Integer     | Days after billing request will expired                                           |
 | `callback_url`          | String      | Callback URL                                                                      |
@@ -47,6 +48,7 @@ An example of pending callback in JSON:
   "id": 1,
   "uuid": "6d93326d-f386-4b90-ab35-1eaab2673ba7",
   "status": "pending",
+	"order_id": null,
   "title": "Billing Request Example",
   "due_days": 1,
   "callback_url": "https://callback.com/exmaple",
@@ -87,6 +89,7 @@ An example of completed callback in JSON
   "id": 3,
   "uuid": "a88d2edc-16be-4b1b-bfdf-bf62f302dca4",
   "status": "completed",
+	"order_id": 27365192,
   "title": "20 eur",
   "due_days": 30,
   "callback_url": "https://callback.com/exmaple",
