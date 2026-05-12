@@ -170,7 +170,40 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"id\": \"01GTH61CE8SRENMEB6J9A8AE8P\",\n    \"created_at\": \"2023-03-02T12:51:31.431Z\",\n    \"purpose\": \"Bought 0.04523086 BTC for 1000.0 EUR\",\n    \"type\": \"trader_order_buy\",\n    \"account\": {\n        \"id\": \"01GTH61CE10JWX4WE5KCPS33PZ\",\n        \"title\": \"Bitcoin main account\"\n    },\n    \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n    },\n    \"credited_amount\": \"0\",\n    \"debited_amount\": \"0.04523086\",\n    \"closing_balance\": \"0.04523086\"\n}"
+                    "value": {
+                      "id": "01KQYT8NNTDN5M185MWNNSKJBN",
+                      "created_at": "2026-05-06T14:14:59.004Z",
+                      "purpose": "Order ID #74 100.0 EUR",
+                      "type": "merchant_order",
+                      "source_type": "Order",
+                      "source_id": "74",
+                      "account": {
+                        "id": "01KM2ZN7CVENHDXPRKNPGB876A",
+                        "balance": "480.08",
+                        "status": "active",
+                        "account_type": "main",
+                        "title": "Euro main account",
+                        "currency": {
+                          "id": 2,
+                          "title": "Euro",
+                          "kind": "fiat",
+                          "symbol": "EUR",
+                          "enabled": true,
+                          "disabled_message": null
+                        }
+                      },
+                      "currency": {
+                        "id": 2,
+                        "title": "Euro",
+                        "kind": "fiat",
+                        "symbol": "EUR",
+                        "enabled": true,
+                        "disabled_message": null
+                      },
+                      "credited_amount": "0",
+                      "debited_amount": "100.0",
+                      "closing_balance": "481.08"
+                    }
                   }
                 },
                 "schema": {
@@ -191,6 +224,12 @@
                     "type": {
                       "type": "string",
                       "example": "trader_order_buy"
+                    },
+                    "source_type": {
+                      "type": "string"
+                    },
+                    "source_id": {
+                      "type": "string"
                     },
                     "account": {
                       "type": "object",
