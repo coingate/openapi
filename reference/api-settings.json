@@ -567,7 +567,41 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": 5,\n  \"status\": \"completed\",\n  \"amount\": \"1.112617\",\n  \"created_at\": \"2022-06-23T09:53:39+00:00\",\n  \"completed_at\": \"2022-06-23T09:54:51+00:00\",\n  \"currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"symbol\": \"BTC\"\n  },\n  \"payout_setting\": {\n    \"id\": 68,\n    \"title\": \"My Test Bitcoin Wallet\",\n    \"address\": \"2N9HGaH3ExTU9tarhdrnxmH9PgBv2JhG5sT\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    },\n    \"platform\": {\n      \"id\": 6,\n      \"title\": \"Bitcoin\",\n      \"id_name\": \"bitcoin\"\n    }\n  }\n}"
+                    "value": {
+                      "id": 2,
+                      "status": "pending",
+                      "amount": "0.00101",
+                      "created_at": "2026-03-13T11:39:55+00:00",
+                      "currency": {
+                        "id": 1,
+                        "title": "Bitcoin",
+                        "symbol": "BTC"
+                      },
+                      "payout_setting": {
+                        "id": 1,
+                        "title": "BTC-01K200X59397JVZVFC6WNA7884",
+                        "address": "mphcvMTVkBQVZPFcdkKe4LjnFuM3GRAFX5",
+                        "currency": {
+                          "id": 1,
+                          "title": "Bitcoin",
+                          "symbol": "BTC"
+                        },
+                        "platform": {
+                          "id": 4,
+                          "title": "Bitcoin",
+                          "id_name": "bitcoin"
+                        }
+                      },
+                      "ledger_transactions": [
+                        {
+                          "id": "01KKKFXY5CG98B87DP84B0WVM8",
+                          "type": "withdrawal",
+                          "credited_amount": "0.00101",
+                          "debited_amount": "0",
+                          "purpose": "Withdrawal 0.00101 BTC"
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {
