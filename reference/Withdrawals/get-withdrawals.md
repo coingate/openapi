@@ -1,5 +1,4 @@
 ---
-title: Get Withdrawals
 api:
   file: api-settings.json
   operationId: get-withdrawals
