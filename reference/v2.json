@@ -3865,14 +3865,15 @@
             "schema": {
               "type": "string"
             },
-            "description": "Entry associated with. e.g. Order, Withdrawal"
+            "description": "Type of the associated record (e.g. Order, Withdrawal). Must be provided together with`source_id`"
           },
           {
             "in": "query",
             "name": "source_id",
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "Identifier of the associated record. Must be provided together with `source_type`"
           }
         ],
         "responses": {
