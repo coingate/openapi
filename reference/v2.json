@@ -13549,65 +13549,6 @@
         }
       }
     },
-    "/countries/shoppers": {
-      "get": {
-        "description": "Returns the countries where users can pay for orders (\"shoppers\").",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "alpha2_code": {
-                      "type": "string",
-                      "description": "ISO 3166-1 alpha-2 country code (e.g. LT)."
-                    },
-                    "alpha3_code": {
-                      "type": "string",
-                      "description": "ISO 3166-1 alpha-3 country code (e.g. LTU)."
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "English country name."
-                    }
-                  },
-                  "required": [
-                    "alpha2_code"
-                  ]
-                },
-                "examples": {
-                  "OK": {
-                    "summary": "OK",
-                    "value": [
-                      {
-                        "alpha2_code": "DE",
-                        "alpha3_code": "DEU",
-                        "name": "Germany"
-                      },
-                      {
-                        "alpha2_code": "LT",
-                        "alpha3_code": "LTU",
-                        "name": "Lithuania"
-                      },
-                      {
-                        "alpha2_code": "US",
-                        "alpha3_code": "USA",
-                        "name": "United States"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parameters": [],
-        "operationId": "get_countries-shoppers",
-        "summary": "Shopper Supported Countries"
-      }
-    },
     "/countries/merchants": {
       "get": {
         "description": "",
@@ -13661,6 +13602,67 @@
         },
         "parameters": [],
         "operationId": "get_countries-merchants"
+      }
+    },
+    "/countries/shoppers": {
+      "get": {
+        "description": "Returns the countries where users can pay for orders (\"shoppers\").",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "alpha2_code": {
+                      "type": "string",
+                      "description": "ISO 3166-1 alpha-2 country code (e.g. LT)."
+                    },
+                    "alpha3_code": {
+                      "type": "string",
+                      "description": "ISO 3166-1 alpha-3 country code (e.g. LTU)."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "English country name."
+                    }
+                  },
+                  "required": [
+                    "alpha2_code",
+                    "name",
+                    "alpha3_code"
+                  ]
+                },
+                "examples": {
+                  "OK": {
+                    "summary": "OK",
+                    "value": [
+                      {
+                        "alpha2_code": "DE",
+                        "alpha3_code": "DEU",
+                        "name": "Germany"
+                      },
+                      {
+                        "alpha2_code": "LT",
+                        "alpha3_code": "LTU",
+                        "name": "Lithuania"
+                      },
+                      {
+                        "alpha2_code": "US",
+                        "alpha3_code": "USA",
+                        "name": "United States"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "operationId": "get_countries-shoppers",
+        "summary": "Shopper Supported Countries"
       }
     }
   },
