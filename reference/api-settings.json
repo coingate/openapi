@@ -150,7 +150,7 @@
     "/ledger/transactions/{id}": {
       "get": {
         "summary": "Get Transaction",
-        "description": "",
+        "description": "This endpoint allows you to retrieve detailed information about a specific ledger transaction by its unique identifier. This is useful for auditing individual transaction details, verifying specific entries, and understanding the impact of a transaction on an account's balance.",
         "operationId": "get-transaction",
         "parameters": [
           {
@@ -170,7 +170,40 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"id\": \"01GTH61CE8SRENMEB6J9A8AE8P\",\n    \"created_at\": \"2023-03-02T12:51:31.431Z\",\n    \"purpose\": \"Bought 0.04523086 BTC for 1000.0 EUR\",\n    \"type\": \"trader_order_buy\",\n    \"account\": {\n        \"id\": \"01GTH61CE10JWX4WE5KCPS33PZ\",\n        \"title\": \"Bitcoin main account\"\n    },\n    \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n    },\n    \"credited_amount\": \"0\",\n    \"debited_amount\": \"0.04523086\",\n    \"closing_balance\": \"0.04523086\"\n}"
+                    "value": {
+                      "id": "01KQYT8NNTDN5M185MWNNSKJBN",
+                      "created_at": "2026-05-06T14:14:59.004Z",
+                      "purpose": "Order ID #74 100.0 EUR",
+                      "type": "merchant_order",
+                      "source_type": "Order",
+                      "source_id": "74",
+                      "account": {
+                        "id": "01KM2ZN7CVENHDXPRKNPGB876A",
+                        "balance": "480.08",
+                        "status": "active",
+                        "account_type": "main",
+                        "title": "Euro main account",
+                        "currency": {
+                          "id": 2,
+                          "title": "Euro",
+                          "kind": "fiat",
+                          "symbol": "EUR",
+                          "enabled": true,
+                          "disabled_message": null
+                        }
+                      },
+                      "currency": {
+                        "id": 2,
+                        "title": "Euro",
+                        "kind": "fiat",
+                        "symbol": "EUR",
+                        "enabled": true,
+                        "disabled_message": null
+                      },
+                      "credited_amount": "0",
+                      "debited_amount": "100.0",
+                      "closing_balance": "481.08"
+                    }
                   }
                 },
                 "schema": {
@@ -191,6 +224,12 @@
                     "type": {
                       "type": "string",
                       "example": "trader_order_buy"
+                    },
+                    "source_type": {
+                      "type": "string"
+                    },
+                    "source_id": {
+                      "type": "string"
                     },
                     "account": {
                       "type": "object",
@@ -296,7 +335,104 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 100,\n  \"total_withdrawals\": 2,\n  \"total_pages\": 1,\n  \"withdrawals\": [\n    {\n      \"id\": 6,\n      \"status\": \"pending\",\n      \"amount\": \"101.09\",\n      \"created_at\": \"2022-06-23T10:04:12+00:00\",\n      \"currency\": {\n        \"id\": 2,\n        \"title\": \"Euro\",\n        \"symbol\": \"EUR\"\n      },\n      \"payout_setting\": {\n        \"id\": 71,\n        \"title\": \"My Test Bank\",\n        \"account_holder_name\": \"Cathey Welch\",\n        \"routing_number\": null,\n        \"bank_name\": \"ABC INTERNATIONAL BANK PLC\",\n        \"bank_address\": null,\n        \"bank_city\": null,\n        \"bank_country\": null,\n        \"swift\": \"AAPUGB21\",\n        \"iban\": \"GB16QDWY15868962169856\"\n      }\n    },\n    {\n      \"id\": 5,\n      \"status\": \"completed\",\n      \"amount\": \"1.112617\",\n      \"created_at\": \"2022-06-23T09:53:39+00:00\",\n      \"completed_at\": \"2022-06-23T09:54:51+00:00\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"symbol\": \"BTC\"\n      },\n      \"payout_setting\": {\n        \"id\": 68,\n        \"title\": \"My Test Bitcoin Wallet\",\n        \"address\": \"2N9HGaH3ExTU9tarhdrnxmH9PgBv2JhG5sT\",\n        \"currency\": {\n          \"id\": 1,\n          \"title\": \"Bitcoin\",\n          \"symbol\": \"BTC\"\n        },\n        \"platform\": {\n          \"id\": 6,\n          \"title\": \"Bitcoin\",\n          \"id_name\": \"bitcoin\"\n        }\n      }\n    }\n  ]\n}"
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_withdrawals": 2,
+                      "total_pages": 1,
+                      "withdrawals": [
+                        {
+                          "id": 3,
+                          "status": "pending",
+                          "amount": "41.83",
+                          "created_at": "2026-03-13T11:54:34+00:00",
+                          "currency": {
+                            "id": 3,
+                            "title": "United States dollar",
+                            "symbol": "USD"
+                          },
+                          "payout_setting": {
+                            "id": 12,
+                            "title": "USD PAYOUT",
+                            "account_holder_name": "John Doe",
+                            "routing_number": null,
+                            "bank_name": "Revolut",
+                            "bank_address": null,
+                            "bank_city": "Latvia",
+                            "bank_country": {
+                              "id": 2,
+                              "alpha2_code": "AE",
+                              "trader_supported": true,
+                              "merchant_supported": true,
+                              "alpha3_code": "ARE",
+                              "region": "Asia",
+                              "created_at": "2025-08-06T15:41:56.640Z",
+                              "updated_at": "2025-08-06T15:41:56.641Z",
+                              "restricted": false,
+                              "risk_score": "very_high",
+                              "eu": false,
+                              "sepa": false,
+                              "shopper_supported": true,
+                              "tx_location": "low",
+                              "binance_pay_supported": true
+                            },
+                            "swift": "REVOGB2LXXX",
+                            "iban": null
+                          },
+                          "ledger_transactions": [
+                            {
+                              "id": "01KKKGRRK0J7YFD9V95BPB2N38",
+                              "type": "withdrawal",
+                              "credited_amount": "41.83",
+                              "debited_amount": "0",
+                              "purpose": "Withdrawal 41.83 USD"
+                            },
+                            {
+                              "id": "01KKKGRRT76ZBNSAV4B7A3ANTT",
+                              "type": "fee",
+                              "credited_amount": "8.17",
+                              "debited_amount": "0",
+                              "purpose": "Withdrawal fee 8.17 USD"
+                            }
+                          ]
+                        },
+                        {
+                          "id": 2,
+                          "status": "pending",
+                          "amount": "0.00101",
+                          "created_at": "2026-03-13T11:39:55+00:00",
+                          "currency": {
+                            "id": 1,
+                            "title": "Bitcoin",
+                            "symbol": "BTC"
+                          },
+                          "payout_setting": {
+                            "id": 1,
+                            "title": "BTC-01K200X59397JVZVFC6WNA7884",
+                            "address": "mphcvMTVkBQVZPFcdkKe4LjnFuM3GRAFX5",
+                            "currency": {
+                              "id": 1,
+                              "title": "Bitcoin",
+                              "symbol": "BTC"
+                            },
+                            "platform": {
+                              "id": 4,
+                              "title": "Bitcoin",
+                              "id_name": "bitcoin"
+                            }
+                          },
+                          "ledger_transactions": [
+                            {
+                              "id": "01KKKFXY5CG98B87DP84B0WVM8",
+                              "type": "withdrawal",
+                              "credited_amount": "0.00101",
+                              "debited_amount": "0",
+                              "purpose": "Withdrawal 0.00101 BTC"
+                            }
+                          ]
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {
@@ -431,7 +567,41 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": 5,\n  \"status\": \"completed\",\n  \"amount\": \"1.112617\",\n  \"created_at\": \"2022-06-23T09:53:39+00:00\",\n  \"completed_at\": \"2022-06-23T09:54:51+00:00\",\n  \"currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"symbol\": \"BTC\"\n  },\n  \"payout_setting\": {\n    \"id\": 68,\n    \"title\": \"My Test Bitcoin Wallet\",\n    \"address\": \"2N9HGaH3ExTU9tarhdrnxmH9PgBv2JhG5sT\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    },\n    \"platform\": {\n      \"id\": 6,\n      \"title\": \"Bitcoin\",\n      \"id_name\": \"bitcoin\"\n    }\n  }\n}"
+                    "value": {
+                      "id": 2,
+                      "status": "pending",
+                      "amount": "0.00101",
+                      "created_at": "2026-03-13T11:39:55+00:00",
+                      "currency": {
+                        "id": 1,
+                        "title": "Bitcoin",
+                        "symbol": "BTC"
+                      },
+                      "payout_setting": {
+                        "id": 1,
+                        "title": "BTC-01K200X59397JVZVFC6WNA7884",
+                        "address": "mphcvMTVkBQVZPFcdkKe4LjnFuM3GRAFX5",
+                        "currency": {
+                          "id": 1,
+                          "title": "Bitcoin",
+                          "symbol": "BTC"
+                        },
+                        "platform": {
+                          "id": 4,
+                          "title": "Bitcoin",
+                          "id_name": "bitcoin"
+                        }
+                      },
+                      "ledger_transactions": [
+                        {
+                          "id": "01KKKFXY5CG98B87DP84B0WVM8",
+                          "type": "withdrawal",
+                          "credited_amount": "0.00101",
+                          "debited_amount": "0",
+                          "purpose": "Withdrawal 0.00101 BTC"
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {

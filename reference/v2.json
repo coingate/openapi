@@ -404,7 +404,67 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 2,\n  \"total_orders\": 455,\n  \"total_pages\": 228,\n  \"orders\": [\n    {\n      \"id\": 537,\n      \"status\": \"canceled\",\n      \"title\": \"test\",\n      \"do_not_convert\": false,\n      \"orderable_type\": \"Button\",\n      \"orderable_id\": 2,\n      \"price_currency\": \"EUR\",\n      \"price_amount\": \"10.0\",\n      \"lightning_network\": false,\n      \"receive_currency\": \"\",\n      \"receive_amount\": \"0\",\n      \"created_at\": \"2022-12-09T13:53:43+00:00\",\n      \"order_id\": \"\",\n      \"payment_url\": \"http://localhost:3000/invoice/e386db94-d648-4b4b-9b19-1f2825f7eb32\",\n      \"underpaid_amount\": \"0\",\n      \"overpaid_amount\": \"0\",\n      \"is_refundable\": false,\n      \"refunds\": [],\n      \"voids\": [],\n      \"fees\": [],\n\t\t\t\"blockchain_transactions\": []\n    },\n    {\n      \"id\": 536,\n      \"status\": \"canceled\",\n      \"title\": \"test\",\n      \"do_not_convert\": false,\n      \"orderable_type\": \"Button\",\n      \"orderable_id\": 2,\n      \"price_currency\": \"EUR\",\n      \"price_amount\": \"20.0\",\n      \"pay_currency\": \"BTC\",\n      \"pay_amount\": \"0.0009822\",\n      \"lightning_network\": false,\n      \"receive_currency\": \"USDT\",\n      \"receive_amount\": \"0\",\n      \"created_at\": \"2022-12-07T11:27:11+00:00\",\n      \"expire_at\": \"2022-12-07T11:47:18+00:00\",\n      \"payment_address\": \"00e5602a-3380-4437-b1df-483ff84c47de\",\n      \"order_id\": \"\",\n      \"payment_url\": \"http://localhost:3000/invoice/725ee4b4-4a75-45a5-8f3d-c8012546cda9\",\n      \"underpaid_amount\": \"0.0009822\",\n      \"overpaid_amount\": \"0\",\n      \"is_refundable\": false,\n      \"conversion_rate\": \"20566.0\",\n      \"refunds\": [],\n      \"voids\": [],\n      \"fees\": [],\n      \"blockchain_transactions\": []\n    }\n  ]\n}"
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 2,
+                      "total_orders": 455,
+                      "total_pages": 228,
+                      "orders": [
+                        {
+                          "id": 537,
+                          "status": "canceled",
+                          "title": "test",
+                          "do_not_convert": false,
+                          "orderable_type": "Button",
+                          "orderable_id": 2,
+                          "price_currency": "EUR",
+                          "price_amount": "10.0",
+                          "lightning_network": false,
+                          "receive_currency": "",
+                          "receive_amount": "0",
+                          "created_at": "2022-12-09T13:53:43+00:00",
+                          "order_id": "",
+                          "payment_url": "http://localhost:3000/invoice/e386db94-d648-4b4b-9b19-1f2825f7eb32",
+                          "underpaid_amount": "0",
+                          "overpaid_amount": "0",
+                          "is_refundable": false,
+                          "refunds": [],
+                          "voids": [],
+                          "fees": [],
+                          "blockchain_transactions": [],
+                          "ledger_transactions": []
+                        },
+                        {
+                          "id": 536,
+                          "status": "canceled",
+                          "title": "test",
+                          "do_not_convert": false,
+                          "orderable_type": "Button",
+                          "orderable_id": 2,
+                          "price_currency": "EUR",
+                          "price_amount": "20.0",
+                          "pay_currency": "BTC",
+                          "pay_amount": "0.0009822",
+                          "lightning_network": false,
+                          "receive_currency": "USDT",
+                          "receive_amount": "0",
+                          "created_at": "2022-12-07T11:27:11+00:00",
+                          "expire_at": "2022-12-07T11:47:18+00:00",
+                          "payment_address": "00e5602a-3380-4437-b1df-483ff84c47de",
+                          "order_id": "",
+                          "payment_url": "http://localhost:3000/invoice/725ee4b4-4a75-45a5-8f3d-c8012546cda9",
+                          "underpaid_amount": "0.0009822",
+                          "overpaid_amount": "0",
+                          "is_refundable": false,
+                          "conversion_rate": "20566.0",
+                          "refunds": [],
+                          "voids": [],
+                          "fees": [],
+                          "blockchain_transactions": [],
+                          "ledger_transactions": []
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {
@@ -816,7 +876,110 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": 535,\n  \"status\": \"paid\",\n  \"title\": \"test\",\n  \"do_not_convert\": false,\n  \"orderable_type\": \"Button\",\n  \"orderable_id\": 2,\n  \"price_currency\": \"EUR\",\n  \"price_amount\": \"100.0\",\n  \"pay_currency\": \"BTC\",\n  \"pay_amount\": \"0.00489886\",\n  \"lightning_network\": false,\n  \"receive_currency\": \"USDT\",\n  \"receive_amount\": \"99.758162\",\n  \"created_at\": \"2022-12-06T10:58:21+00:00\",\n  \"expire_at\": \"2022-12-06T11:18:25+00:00\",\n  \"paid_at\": \"2022-12-06T10:58:31+00:00\",\n  \"payment_address\": \"c9a71333-2ab9-4e66-a50d-d111f732cb08\",\n  \"payment_gateway\": \"coingate\",\n  \"order_id\": \"\",\n  \"payment_url\": \"http://localhost:3000/invoice/68d7e03c-6bd0-401e-b9c3-f891709b88d8\",\n  \"payment_request_uri\": \"bitcoin:3KCtuihM6uPmRDtpELfBmnt9hVRQ8G9tUX?amount=1.43\",\n  \"underpaid_amount\": \"0.00489886\",\n  \"overpaid_amount\": \"0\",\n  \"is_refundable\": false,\n  \"conversion_rate\": \"20566.0\",\n  \"refunds\": [\n    {\n      \"id\": 8,\n      \"request_amount\": \"10.0\",\n      \"refund_amount\": \"0.0004862\",\n      \"address\": \"3CCV3GjNvQip5ewsHhzYc136WhaeCzHigj\",\n      \"status\": \"pending\",\n      \"memo\": null,\n      \"created_at\": \"2022-12-06T11:01:50+00:00\",\n      \"order\": {\n        \"id\": 535\n      },\n      \"refund_currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"symbol\": \"BTC\",\n        \"platform\": {\n          \"id\": 5,\n          \"title\": \"Bitcoin\"\n        }\n      },\n      \"transactions\": [],\n      \"ledger_account\": {\n        \"id\": \"01GJZBH2JZF3E369HT9GVM71CE\",\n        \"currency\": {\n          \"id\": 1,\n          \"title\": \"Bitcoin\",\n          \"symbol\": \"BTC\"\n        }\n      }\n    }\n  ],\n  \"voids\": [],\n  \"fees\": [\n    {\n      \"type\": \"processing_fee\",\n      \"amount\": \"1.007658\",\n      \"currency\": {\n        \"id\": 21,\n        \"symbol\": \"USDT\"\n      }\n    }\n  ],\n  \"blockchain_transactions\": [\n\t\t{\n\t\t\t\"id\": 123,\n\t\t\t\"txid\": \"5c1a0a92-9a3d-4107-9a00-8d6a2a4b6620\",\n\t\t\t\"amount\": \"0.00001234\",\n\t\t\t\"status\": \"confirming\",\n\t\t\t\"network_confirmations\": 0,\n\t\t\t\"currency\": {\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"title\": \"Bitcoin\",\n\t\t\t\t\"symbol\": \"BTC\",\n\t\t\t\t\"platform\": {\n\t\t\t\t\t\"id\": 6,\n\t\t\t\t\t\"title\": \"Bitcoin\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t]\n}"
+                    "value": {
+                      "id": 535,
+                      "status": "paid",
+                      "title": "test",
+                      "do_not_convert": false,
+                      "orderable_type": "Button",
+                      "orderable_id": 2,
+                      "price_currency": "EUR",
+                      "price_amount": "100.0",
+                      "pay_currency": "BTC",
+                      "pay_amount": "0.00489886",
+                      "lightning_network": false,
+                      "receive_currency": "USDT",
+                      "receive_amount": "99.758162",
+                      "created_at": "2022-12-06T10:58:21+00:00",
+                      "expire_at": "2022-12-06T11:18:25+00:00",
+                      "paid_at": "2022-12-06T10:58:31+00:00",
+                      "payment_address": "c9a71333-2ab9-4e66-a50d-d111f732cb08",
+                      "payment_gateway": "coingate",
+                      "order_id": "",
+                      "payment_url": "http://localhost:3000/invoice/68d7e03c-6bd0-401e-b9c3-f891709b88d8",
+                      "payment_request_uri": "bitcoin:3KCtuihM6uPmRDtpELfBmnt9hVRQ8G9tUX?amount=1.43",
+                      "underpaid_amount": "0.00489886",
+                      "overpaid_amount": "0",
+                      "is_refundable": false,
+                      "conversion_rate": "20566.0",
+                      "refunds": [
+                        {
+                          "id": 8,
+                          "request_amount": "10.0",
+                          "refund_amount": "0.0004862",
+                          "address": "3CCV3GjNvQip5ewsHhzYc136WhaeCzHigj",
+                          "status": "pending",
+                          "memo": null,
+                          "created_at": "2022-12-06T11:01:50+00:00",
+                          "order": {
+                            "id": 535
+                          },
+                          "refund_currency": {
+                            "id": 1,
+                            "title": "Bitcoin",
+                            "symbol": "BTC",
+                            "platform": {
+                              "id": 5,
+                              "title": "Bitcoin"
+                            }
+                          },
+                          "transactions": [],
+                          "ledger_account": {
+                            "id": "01GJZBH2JZF3E369HT9GVM71CE",
+                            "currency": {
+                              "id": 1,
+                              "title": "Bitcoin",
+                              "symbol": "BTC"
+                            }
+                          }
+                        }
+                      ],
+                      "voids": [],
+                      "fees": [
+                        {
+                          "type": "processing_fee",
+                          "amount": "1.007658",
+                          "currency": {
+                            "id": 21,
+                            "symbol": "USDT"
+                          }
+                        }
+                      ],
+                      "blockchain_transactions": [
+                        {
+                          "id": 123,
+                          "txid": "5c1a0a92-9a3d-4107-9a00-8d6a2a4b6620",
+                          "amount": "0.00001234",
+                          "status": "confirming",
+                          "network_confirmations": 0,
+                          "currency": {
+                            "id": 1,
+                            "title": "Bitcoin",
+                            "symbol": "BTC",
+                            "platform": {
+                              "id": 6,
+                              "title": "Bitcoin"
+                            }
+                          }
+                        }
+                      ],
+                      "ledger_transactions": [
+                        {
+                          "id": "01KQYT8NNTDN5M185MWNNSKJBN",
+                          "type": "merchant_order",
+                          "credited_amount": "0",
+                          "debited_amount": "100.0",
+                          "purpose": "Order ID #535 100.0 EUR"
+                        },
+                        {
+                          "id": "01KQYT8PNSPFF7ZW9B51RJ7QJ4",
+                          "type": "fee",
+                          "credited_amount": "1.007658",
+                          "debited_amount": "0",
+                          "purpose": "Order ID #535 processing fee 1.007658 USDT"
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {
@@ -3805,7 +3968,7 @@
     "/ledger/transactions": {
       "get": {
         "summary": "List Transactions",
-        "description": "",
+        "description": "This endpoint allows you to retrieve a list of all ledger transactions associated with your CoinGate account. This is crucial for reconciliation purposes, enabling you to track all movements of funds (credits and debits) and maintain an accurate ledger of your financial activities within the CoinGate system.",
         "operationId": "list-transactions",
         "parameters": [
           {
@@ -3858,6 +4021,22 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "query",
+            "name": "source_type",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Type of the associated record (e.g. Order, Withdrawal). Must be provided together with `source_id`"
+          },
+          {
+            "in": "query",
+            "name": "source_id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Identifier of the associated record. Must be provided together with `source_type`"
           }
         ],
         "responses": {
@@ -3867,7 +4046,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"current_page\": 1,\n    \"per_page\": 100,\n    \"sort\": \"created_at_desc\",\n    \"date_from\": \"\",\n    \"date_to\": \"\",\n    \"currency\": \"all\",\n    \"total_entries\": 7,\n    \"total_pages\": 1,\n    \"entries\": [\n        {\n            \"id\": \"01GTH61CE8SRENMEB6J9A8AE8P\",\n            \"created_at\": \"2023-03-02T12:51:31.431Z\",\n            \"purpose\": \"Bought 0.04523086 BTC for 1000.0 EUR\",\n            \"type\": \"trader_order_buy\",\n            \"account\": {\n                \"id\": \"01GTH61CE10JWX4WE5KCPS33PZ\",\n                \"title\": \"Bitcoin main account\"\n            },\n            \"currency\": {\n                \"id\": 1,\n                \"title\": \"Bitcoin\",\n                \"kind\": \"crypto\",\n                \"symbol\": \"BTC\"\n            },\n            \"credited_amount\": \"0\",\n            \"debited_amount\": \"0.04523086\",\n            \"closing_balance\": \"0.04523086\"\n        },\n        {\n            \"id\": \"01GTH6482RX9Y4K90JFHNC7PSB\",\n            \"created_at\": \"2023-03-02T12:53:05.241Z\",\n            \"purpose\": \"Exchange 0.0253086 BTC to 554.0 EUR\",\n            \"type\": \"exchange_deduction\",\n            \"account\": {\n                \"id\": \"01GTH61CE10JWX4WE5KCPS33PZ\",\n                \"title\": \"Bitcoin main account\"\n            },\n            \"currency\": {\n                \"id\": 1,\n                \"title\": \"Bitcoin\",\n                \"kind\": \"crypto\",\n                \"symbol\": \"BTC\"\n            },\n            \"credited_amount\": \"0.0253086\",\n            \"debited_amount\": \"0\",\n            \"closing_balance\": \"0.01992226\"\n        },\n        {\n            \"id\": \"01GTH60TT3EAZNF08C977AD53A\",\n            \"created_at\": \"2023-03-02T12:51:13.348Z\",\n            \"purpose\": \"Sold 0.45 BTC for 9752.93 EUR\",\n            \"type\": \"trader_order_sell\",\n            \"account\": {\n                \"id\": \"01GTH5QCVXMMGY4FXXCCQNM329\",\n                \"title\": \"Euro main account\"\n            },\n            \"currency\": {\n                \"id\": 2,\n              \t\"title\": \"Euro\",\n              \t\"kind\": \"fiat\",\n                \"symbol\": \"EUR\"\n            },\n            \"credited_amount\": \"0\",\n            \"debited_amount\": \"9752.93\",\n            \"closing_balance\": \"9752.93\"\n        },\n        {\n            \"id\": \"01GTH60VF9V6WNRV4WBS8FF7DJ\",\n            \"created_at\": \"2023-03-02T12:51:14.026Z\",\n            \"purpose\": \"Withdrawal 9752.93 EUR\",\n            \"type\": \"withdrawal\",\n            \"account\": {\n                \"id\": \"01GTH5QCVXMMGY4FXXCCQNM329\",\n                \"title\": \"Euro main account\"\n            },\n            \"currency\": {\n                \"id\": 2,\n              \t\"title\": \"Euro\",\n              \t\"kind\": \"fiat\",\n                \"symbol\": \"EUR\"\n            },\n            \"credited_amount\": \"9752.93\",\n            \"debited_amount\": \"0\",\n            \"closing_balance\": \"0.0\"\n        },\n        {\n            \"id\": \"01GTH64885Z31TYXKVC4T0DSAP\",\n            \"created_at\": \"2023-03-02T12:53:05.414Z\",\n            \"purpose\": \"Exchange 0.0253086 BTC to 554.0 EUR\",\n            \"type\": \"exchange_addition\",\n            \"account\": {\n                \"id\": \"01GTH5QCVXMMGY4FXXCCQNM329\",\n                \"title\": \"Euro main account\"\n            },\n            \"currency\": {\n                \"id\": 2,\n              \t\"title\": \"Euro\",\n              \t\"kind\": \"fiat\",\n                \"symbol\": \"EUR\"\n            },\n            \"credited_amount\": \"0\",\n            \"debited_amount\": \"554.0\",\n            \"closing_balance\": \"554.0\"\n        },\n        {\n            \"id\": \"01GTH648C4FMBSJB5NWRCHN8VN\",\n            \"created_at\": \"2023-03-02T12:53:05.541Z\",\n            \"purpose\": \"Exchange conversion fee 5.54 EUR\",\n            \"type\": \"fee\",\n            \"account\": {\n                \"id\": \"01GTH5QCVXMMGY4FXXCCQNM329\",\n                \"title\": \"Euro main account\"\n            },\n            \"currency\": {\n                \"id\": 2,\n              \t\"title\": \"Euro\",\n              \t\"kind\": \"fiat\",\n                \"symbol\": \"EUR\"\n            },\n            \"credited_amount\": \"5.54\",\n            \"debited_amount\": \"0\",\n            \"closing_balance\": \"548.46\"\n        },\n        {\n            \"id\": \"01GTH659D81CMZSA0EEQKD691B\",\n            \"created_at\": \"2023-03-02T12:53:39.394Z\",\n            \"purpose\": \"Withdrawal 548.46 EUR\",\n            \"type\": \"withdrawal\",\n            \"account\": {\n                \"id\": \"01GTH5QCVXMMGY4FXXCCQNM329\",\n                \"title\": \"Euro main account\"\n            },\n            \"currency\": {\n                \"id\": 2,\n              \t\"title\": \"Euro\",\n              \t\"kind\": \"fiat\",\n                \"symbol\": \"EUR\"\n            },\n            \"credited_amount\": \"548.46\",\n            \"debited_amount\": \"0\",\n            \"closing_balance\": \"0.0\"\n        }\n    ]\n}"
+                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 10,\n  \"sort\": \"created_at_desc\",\n  \"date_from\": \"\",\n  \"date_to\": \"\",\n  \"currency\": \"all\",\n  \"total_entries\": 17,\n  \"total_pages\": 2,\n  \"entries\": [\n    {\n      \"id\": \"01KQYTERQH7224DEE0CN588DER\",\n      \"created_at\": \"2026-05-06T14:18:18.737Z\",\n      \"purpose\": \"Merchant Refund 8 service fee 0.00000353 BTC\",\n      \"type\": \"fee\",\n      \"source_type\": \"MerchantRefund\",\n      \"source_id\": \"8\",\n      \"account\": {\n        \"id\": \"01KKKERG431CHD5BC1PT5AGV3H\",\n        \"balance\": \"0.08001218\",\n        \"status\": \"active\",\n        \"account_type\": \"main\",\n        \"title\": \"Bitcoin main account\",\n        \"currency\": {\n          \"id\": 1,\n          \"title\": \"Bitcoin\",\n          \"kind\": \"crypto\",\n          \"symbol\": \"BTC\",\n          \"enabled\": true,\n          \"disabled_message\": null\n        }\n      },\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\",\n        \"enabled\": true,\n        \"disabled_message\": null\n      },\n      \"credited_amount\": \"0.00000353\",\n      \"debited_amount\": \"0\",\n      \"closing_balance\": \"0.08001218\"\n    },\n    {\n      \"id\": \"01KQYTEREHKRZ527AJN7PHHJF2\",\n      \"created_at\": \"2026-05-06T14:18:18.449Z\",\n      \"purpose\": \"Merchant refund 0.00101 BTC\",\n      \"type\": \"merchant_refund\",\n      \"source_type\": \"MerchantRefund\",\n      \"source_id\": \"8\",\n      \"account\": {\n        \"id\": \"01KKKERG431CHD5BC1PT5AGV3H\",\n        \"balance\": \"0.08001218\",\n        \"status\": \"active\",\n        \"account_type\": \"main\",\n        \"title\": \"Bitcoin main account\",\n        \"currency\": {\n          \"id\": 1,\n          \"title\": \"Bitcoin\",\n          \"kind\": \"crypto\",\n          \"symbol\": \"BTC\",\n          \"enabled\": true,\n          \"disabled_message\": null\n        }\n      },\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\",\n        \"enabled\": true,\n        \"disabled_message\": null\n      },\n      \"credited_amount\": \"0.00101\",\n      \"debited_amount\": \"0\",\n      \"closing_balance\": \"0.08001571\"\n    },\n    {\n      \"id\": \"01KQYT8PNSPFF7ZW9B51RJ7QJ4\",\n      \"created_at\": \"2026-05-06T14:15:00.025Z\",\n      \"purpose\": \"Order ID #74 processing fee 1.0 EUR\",\n      \"type\": \"fee\",\n      \"source_type\": \"Fee\",\n      \"source_id\": \"480\",\n      \"account\": {\n        \"id\": \"01KM2ZN7CVENHDXPRKNPGB876A\",\n        \"balance\": \"480.08\",\n        \"status\": \"active\",\n        \"account_type\": \"main\",\n        \"title\": \"Euro main account\",\n        \"currency\": {\n          \"id\": 2,\n          \"title\": \"Euro\",\n          \"kind\": \"fiat\",\n          \"symbol\": \"EUR\",\n          \"enabled\": true,\n          \"disabled_message\": null\n        }\n      },\n      \"currency\": {\n        \"id\": 2,\n        \"title\": \"Euro\",\n        \"kind\": \"fiat\",\n        \"symbol\": \"EUR\",\n        \"enabled\": true,\n        \"disabled_message\": null\n      },\n      \"credited_amount\": \"1.0\",\n      \"debited_amount\": \"0\",\n      \"closing_balance\": \"480.08\"\n    },\n    {\n      \"id\": \"01KQYT8NNTDN5M185MWNNSKJBN\",\n      \"created_at\": \"2026-05-06T14:14:59.004Z\",\n      \"purpose\": \"Order ID #74 100.0 EUR\",\n      \"type\": \"merchant_order\",\n      \"source_type\": \"Order\",\n      \"source_id\": \"74\",\n      \"account\": {\n        \"id\": \"01KM2ZN7CVENHDXPRKNPGB876A\",\n        \"balance\": \"480.08\",\n        \"status\": \"active\",\n        \"account_type\": \"main\",\n        \"title\": \"Euro main account\",\n        \"currency\": {\n          \"id\": 2,\n          \"title\": \"Euro\",\n          \"kind\": \"fiat\",\n          \"symbol\": \"EUR\",\n          \"enabled\": true,\n          \"disabled_message\": null\n        }\n      },\n      \"currency\": {\n        \"id\": 2,\n        \"title\": \"Euro\",\n        \"kind\": \"fiat\",\n        \"symbol\": \"EUR\",\n        \"enabled\": true,\n        \"disabled_message\": null\n      },\n      \"credited_amount\": \"0\",\n      \"debited_amount\": \"100.0\",\n      \"closing_balance\": \"481.08\"\n    },\n  ]\n}"
                   }
                 },
                 "schema": {
@@ -3929,6 +4108,12 @@
                           "type": {
                             "type": "string",
                             "example": "trader_order_buy"
+                          },
+                          "source_type": {
+                            "type": "string"
+                          },
+                          "source_id": {
+                            "type": "string"
                           },
                           "account": {
                             "type": "object",

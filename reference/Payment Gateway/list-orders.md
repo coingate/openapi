@@ -1,5 +1,4 @@
 ---
-title: List Orders
 api:
   file: v2.json
   operationId: list-orders
