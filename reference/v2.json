@@ -13561,13 +13561,16 @@
                   "type": "object",
                   "properties": {
                     "alpha2_code": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "ISO 3166-1 alpha-2 country code (e.g. LT)."
                     },
                     "alpha3_code": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "ISO 3166-1 alpha-3 country code (e.g. LTU)."
                     },
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "English country name."
                     }
                   },
                   "required": [
