@@ -13551,7 +13551,7 @@
     },
     "/countries/shoppers": {
       "get": {
-        "description": "",
+        "description": "Returns the countries where users can pay for orders (\"shoppers\").",
         "responses": {
           "200": {
             "description": "",
@@ -13604,7 +13604,8 @@
           }
         },
         "parameters": [],
-        "operationId": "get_countries-shoppers"
+        "operationId": "get_countries-shoppers",
+        "summary": "Shopper Supported Countries"
       }
     },
     "/countries/merchants": {
