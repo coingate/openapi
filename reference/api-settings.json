@@ -541,7 +541,36 @@
             }
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "parameters": [
+          {
+            "in": "query",
+            "name": "per_page",
+            "schema": {
+              "type": "integer",
+              "default": "100",
+              "format": "int32"
+            },
+            "description": "How many orders per page. Max: 100. Default: 100."
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string",
+              "default": "created_at_desc"
+            },
+            "description": "Sort orders by field. Available sort options: created_at_asc, created_at_desc. Default: created_at_desc."
+          }
+        ]
       }
     },
     "/withdrawals/{id}": {
