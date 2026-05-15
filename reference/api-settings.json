@@ -560,7 +560,8 @@
               "type": "integer",
               "format": "int32",
               "default": "1"
-            }
+            },
+            "description": "Current page number"
           },
           {
             "in": "query",
