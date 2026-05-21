@@ -49,7 +49,11 @@ Quickly issue full or partial [refunds](https://coingate.com/blog/post/merchant-
 
 ### Payout API
 
-Programmatically send [crypto payouts](https://developer.coingate.com/reference/send-request-overview) to employees, contractors, or users — one by one or in bulk. Set payout amounts and our end will handle the conversion and delivery.
+Automate crypto payouts to employees, contractors, customers, or users — individually or at scale.
+
+Use the [Crypto Payout Integration](https://developer.coingate.com/reference/send-request-overview) for fully automated payout workflows, or choose [Batch Payouts](https://coingate.com/crypto-payouts) to upload a CSV file and process mass payouts without writing code.
+
+CoinGate handles currency conversion, blockchain delivery, and payout processing, helping you move funds globally with less operational overhead.
 
 ### Convert API
 
