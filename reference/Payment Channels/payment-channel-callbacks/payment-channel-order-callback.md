@@ -9,7 +9,7 @@ When an order received through a Payment Channel changes status, CoinGate sends 
 
 > 📘 API Callback Documentation
 >
-> About common callback functionality please read in [API Callbacks section](https://developer.coingate.com/reference/api-callbacks).
+> The callback is delivered as a `POST` request with a `application/json` body. For shared callback behavior — retry policy, IP allowlist, manual resend — see the <Anchor label="API Callbacks " target="_blank" href="https://developer.coingate.com/reference/api-callbacks">API Callbacks </Anchor>reference.
 
 A callback is sent every time the order transitions to one of these statuses:
 
