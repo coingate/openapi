@@ -7,6 +7,10 @@ metadata:
 ---
 When an order received through a Payment Channel changes status, CoinGate sends a structured callback to the URL configured on that Payment Channel (`callback_url`). The payload follows a versioned envelope (`event`, `object`, `data`) and includes everything a merchant needs for reconciliation: contact details, external identifiers, the payment address, blockchain transactions, fees, and the exchange rate.
 
+> 📘 API Callback Documentation
+>
+> About common callback functionality please read in [API Callbacks section](https://developer.coingate.com/reference/api-callbacks).
+
 A callback is sent every time the order transitions to one of these statuses:
 
 | event                           | When it fires                                                     |
