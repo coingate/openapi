@@ -19,14 +19,72 @@ A callback is sent every time the order transitions to one of these statuses:
 
 **Request**
 
-Envelope
+| Property     | Value                                     |
+| :----------- | :---------------------------------------- |
+| Method       | `POST`                                    |
+| URL          | The Payment Channel's `callback_url`      |
+| Content-Type | `application/json`                        |
+| User-Agent   | `CoinGate Payment Channel Order Callback` |
+| Body         | JSON object — see Payload below           |
 
-| Field name | Type   | Description                                                            |
-| :--------- | :----- | :--------------------------------------------------------------------- |
-| event      | string | The transition that triggered this callback — `order.status.<status>`. |
-| object     | string | Always "order".                                                        |
-| data       | object | The order payload (see below).                                         |
+**Payload**
 
-`data`
+```json
+{
+  "event": "order.status.paid",
+  "object": "order",
+  "data": {
+    "id": 390104,
+    "status": "paid",
+    "address": "bc1qexample...",
+    "contact": {
+      "id": 123,
+      "type": "business",
+      "company_name": "Acme Corp",
+      "external_contact_id": "shop_user_123"
+    },
+    "price": {
+      "amount": "10.00",
+      "currency": { "id": 2, "symbol": "EUR" }
+    },
+    "pay": {
+      "amount": "0.00016069",
+      "currency": { "id": 1, "symbol": "BTC" },
+      "conversion_rate": "62000.00"
+    },
+    "receive": {
+      "amount": "9.00",
+      "currency": { "id": 1, "symbol": "EUR" },
+      "conversion_rate": "62000.00"
+    },
+    "payment_channel": {
+      "id": 456,
+      "purpose": "merchant_payment"
+    },
+    "blockchain_transactions": [
+      {
+        "id": 123,
+        "txid": "5c1a0a92-9a3d-4107-9a00-8d6a2a4b6620",
+        "amount": "0.00001234",
+        "status": "confirmed",
+        "network_confirmations": 6,
+        "currency": {
+          "id": 1,
+          "symbol": "BTC",
+          "platform": { "id": 6, "title": "Bitcoin" }
+        }
+      }
+    ],
+    "fees": [
+      {
+        "type": "processing_fee",
+        "amount": "0.000002",
+        "currency": { "id": 1, "symbol": "BTC" }
+      }
+    ],
+    "paid_at": "2026-04-30T14:04:32+00:00"
+  }
+}
+```
 
 <br />
