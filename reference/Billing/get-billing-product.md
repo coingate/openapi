@@ -1,5 +1,4 @@
 ---
-title: Get Billing Product
 excerpt: ''
 api:
   file: v2.json
