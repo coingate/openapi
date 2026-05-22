@@ -1,4 +1,5 @@
 - billing-overview
+- billing-contacts
 - create-billing-contact
 - list-billing-contacts
 - get-billing-contact
@@ -11,4 +12,3 @@
 - list-billing-requests
 - get-billing-request
 - billing-request-callback
-- billing-contacts
