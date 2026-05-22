@@ -1,5 +1,4 @@
 ---
-title: Supported Currencies
 api:
   file: v2.json
   operationId: get_payment-channels-supported-currencies
