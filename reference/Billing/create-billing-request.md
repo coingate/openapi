@@ -1,5 +1,4 @@
 ---
-title: Create Billing Request
 excerpt: ''
 api:
   file: v2.json
