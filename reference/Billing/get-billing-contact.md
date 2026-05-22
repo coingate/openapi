@@ -1,5 +1,4 @@
 ---
-title: Get Billing Contact
 excerpt: ''
 api:
   file: v2.json
