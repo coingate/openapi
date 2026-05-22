@@ -1,7 +1,6 @@
 - billing-overview
 - billing-contacts
 - billing-products
-- get-billing-product
 - delete-billing-product
 - create-billing-request
 - list-billing-requests
