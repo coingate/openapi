@@ -13910,7 +13910,8 @@
           }
         },
         "parameters": [],
-        "operationId": "get_payment-channels-supported-currencies"
+        "operationId": "get_payment-channels-supported-currencies",
+        "summary": "Supported Currencies"
       }
     }
   },
