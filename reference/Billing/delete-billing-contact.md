@@ -1,5 +1,4 @@
 ---
-title: Delete Billing Contact
 excerpt: ''
 api:
   file: v2.json
