@@ -1,13 +1,18 @@
 ---
-title: Create Payment Channel
 api:
   file: v2.json
   operationId: post_payment-channels
 deprecated: false
-hidden: true
+hidden: false
 link:
   new_tab: false
 metadata:
   robots: index
 ---
+<br />
+
+<Callout icon="🚧" theme="warn">
+  This feature is currently under development and available only for selected partners during the early access phase. To join the whitelist and receive updates about Payment Channels availability, visit: <Anchor label="CoinGate Payment Channels" target="_blank" href="https://coingate.com/payment-channels">CoinGate Payment Channels</Anchor>
+</Callout>
+
 Create a new payment channel to receive crypto payments for a specific contact. The payment channel defines the receive currency, callback URL for notifications, and optionally generates crypto addresses for specified asset and platform combinations.
