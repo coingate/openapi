@@ -13851,6 +13851,67 @@
         "operationId": "get_countries-shoppers",
         "summary": "Shopper Supported Countries"
       }
+    },
+    "/payment_channels/supported-currencies": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "OK": {
+                    "summary": "OK",
+                    "value": [
+                      {
+                        "id": 1,
+                        "title": "Bitcoin",
+                        "kind": "crypto",
+                        "symbol": "BTC",
+                        "enabled": true,
+                        "disabled_message": null,
+                        "platforms": [
+                          {
+                            "id": 4,
+                            "id_name": "bitcoin",
+                            "title": "Bitcoin",
+                            "enabled": true
+                          }
+                        ]
+                      },
+                      {
+                        "id": 7,
+                        "title": "Tether",
+                        "kind": "crypto",
+                        "symbol": "USDT",
+                        "enabled": true,
+                        "disabled_message": null,
+                        "platforms": [
+                          {
+                            "id": 11,
+                            "id_name": "ethereum",
+                            "title": "Ethereum",
+                            "enabled": true
+                          },
+                          {
+                            "id": 18,
+                            "id_name": "tron",
+                            "title": "Tron",
+                            "enabled": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "operationId": "get_payment-channels-supported-currencies"
+      }
     }
   },
   "x-readme": {
