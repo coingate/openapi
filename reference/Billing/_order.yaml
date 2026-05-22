@@ -1,5 +1,6 @@
 - billing-overview
 - billing-contacts
+- billing-products
 - create-billing-product
 - list-billing-products
 - get-billing-product
@@ -8,4 +9,3 @@
 - list-billing-requests
 - get-billing-request
 - billing-request-callback
-- billing-products
