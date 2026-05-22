@@ -2,7 +2,6 @@
 - billing-contacts
 - billing-products
 - billing-requests
-- create-billing-request
 - list-billing-requests
 - get-billing-request
 - billing-request-callback
