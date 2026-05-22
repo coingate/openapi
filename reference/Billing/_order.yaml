@@ -1,6 +1,5 @@
 - billing-overview
 - billing-contacts
-- list-billing-contacts
 - get-billing-contact
 - delete-billing-contact
 - create-billing-product
