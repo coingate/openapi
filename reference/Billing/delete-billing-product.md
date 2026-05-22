@@ -1,5 +1,4 @@
 ---
-title: Delete Billing Product
 excerpt: ''
 api:
   file: v2.json
