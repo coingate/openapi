@@ -8,4 +8,6 @@ link:
 metadata:
   robots: index
 ---
-Retrieve a paginated list of all billing requests in your CoinGate account. Each request contains details about the billing contact, pricing, payment, products, and status.
+Retrieve a paginated list of all recurring billings in your CoinGate account. Each recurring billing contains its `status`, `frequency`, schedule (`start_at`, `end_at`, `next_billing_at`), and the list of `billing_requests` it has generated
+
+<br />
