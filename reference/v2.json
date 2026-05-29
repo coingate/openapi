@@ -14233,7 +14233,7 @@
                   "sort": {
                     "type": "string",
                     "description": "Sort billing requests by field. Available sort options: created_at_asc, created_at_desc. Default: created_at_asc.",
-                    "default": "created_at_asc"
+                    "default": "created_at_desc"
                   }
                 }
               }
