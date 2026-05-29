@@ -13953,134 +13953,54 @@
                       "example": 1,
                       "default": 0
                     },
-                    "uuid": {
-                      "type": "string",
-                      "example": "f1d6b2ef-3024-4ea2-b046-60f96adc0fb5"
-                    },
                     "status": {
                       "type": "string",
-                      "example": "pending"
+                      "example": "active"
                     },
-                    "title": {
+                    "frequency": {
                       "type": "string",
-                      "example": "Lunch"
+                      "example": "monthly"
                     },
-                    "due_days": {
-                      "type": "integer",
-                      "example": 3,
-                      "default": 0
-                    },
-                    "callback_url": {
+                    "start_at": {
                       "type": "string",
-                      "example": ""
+                      "example": "2026-05-29"
                     },
-                    "send_email": {
-                      "type": "boolean",
-                      "example": false,
-                      "default": true
-                    },
-                    "underpaid_cover_pct": {
+                    "end_at": {
                       "type": "string",
-                      "example": "0.0"
+                      "format": "date"
+                    },
+                    "next_billing_at": {
+                      "type": "string",
+                      "example": "2026-06-29"
                     },
                     "created_at": {
                       "type": "string",
-                      "example": "2024-10-15T16:59:05.757Z"
+                      "example": "2026-05-29T11:01:21.695Z"
                     },
-                    "billing_contact": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer",
-                          "example": 1,
-                          "default": 0
-                        },
-                        "contact_type": {
-                          "type": "string",
-                          "example": "person"
-                        },
-                        "email": {
-                          "type": "string",
-                          "example": "joe@doe.com"
-                        },
-                        "first_name": {
-                          "type": "string",
-                          "example": "Joe"
-                        },
-                        "surname": {
-                          "type": "string",
-                          "example": "Doe"
-                        },
-                        "external_contact_id": {
-                          "type": "string",
-                          "example": "AA1234"
-                        },
-                        "created_at": {
-                          "type": "string",
-                          "example": "2024-10-15T14:13:47.730Z"
+                    "billing_requests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 13,
+                            "default": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "example": "pending"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2026-05-29T11:01:21.703Z"
+                          },
+                          "paid_at": {
+                            "type": "string",
+                            "format": "date"
+                          }
                         }
                       }
-                    },
-                    "price_currency": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "title": {
-                          "type": "string",
-                          "example": "Euro"
-                        },
-                        "kind": {
-                          "type": "string",
-                          "example": "fiat"
-                        },
-                        "symbol": {
-                          "type": "string",
-                          "example": "EUR"
-                        }
-                      }
-                    },
-                    "price_amount": {
-                      "type": "string",
-                      "example": "20.0"
-                    },
-                    "receive_currency": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "title": {
-                          "type": "string",
-                          "example": "Euro"
-                        },
-                        "kind": {
-                          "type": "string",
-                          "example": "fiat"
-                        },
-                        "symbol": {
-                          "type": "string",
-                          "example": "EUR"
-                        }
-                      }
-                    },
-                    "receive_amount": {},
-                    "pay_currency": {},
-                    "pay_amount": {},
-                    "fees": {
-                      "type": "array"
-                    },
-                    "billing_request_items": {
-                      "type": "array"
-                    },
-                    "billing_request_url": {
-                      "type": "string",
-                      "example": ""
                     }
                   }
                 }
