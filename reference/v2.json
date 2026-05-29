@@ -13915,219 +13915,6 @@
       }
     },
     "/billing/recurrings": {
-      "post": {
-        "summary": "Create Recurring Billing",
-        "description": "",
-        "operationId": "create-billing-request-1",
-        "responses": {
-          "200": {
-            "description": "200",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": {
-                      "id": 1,
-                      "status": "active",
-                      "frequency": "monthly",
-                      "start_at": "2026-05-29",
-                      "end_at": null,
-                      "next_billing_at": "2026-06-29",
-                      "created_at": "2026-05-29T11:01:21.695Z",
-                      "billing_requests": [
-                        {
-                          "id": 13,
-                          "status": "pending",
-                          "created_at": "2026-05-29T11:01:21.703Z",
-                          "paid_at": null
-                        }
-                      ]
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "example": 1,
-                      "default": 0
-                    },
-                    "status": {
-                      "type": "string",
-                      "example": "active"
-                    },
-                    "frequency": {
-                      "type": "string",
-                      "example": "monthly"
-                    },
-                    "start_at": {
-                      "type": "string",
-                      "example": "2026-05-29"
-                    },
-                    "end_at": {
-                      "type": "string",
-                      "format": "date"
-                    },
-                    "next_billing_at": {
-                      "type": "string",
-                      "example": "2026-06-29"
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "example": "2026-05-29T11:01:21.695Z"
-                    },
-                    "billing_requests": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "integer",
-                            "example": 13,
-                            "default": 0
-                          },
-                          "status": {
-                            "type": "string",
-                            "example": "pending"
-                          },
-                          "created_at": {
-                            "type": "string",
-                            "example": "2026-05-29T11:01:21.703Z"
-                          },
-                          "paid_at": {
-                            "type": "string",
-                            "format": "date"
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "422",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": {
-                      "message": "Recurring billing is not valid",
-                      "reason": "RecurringBillingIsNotValid",
-                      "errors": [
-                        "Start at can't be in the past"
-                      ]
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Billing request is not valid"
-                    },
-                    "reason": {
-                      "type": "string",
-                      "example": "BillingRequestIsNotValid"
-                    },
-                    "errors": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "example": "Amount must be greater than 0"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "billing_contact_id": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "Billing Contact ID"
-                  },
-                  "title": {
-                    "type": "string",
-                    "description": "Request title"
-                  },
-                  "currency_id": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "Currency of amount. Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
-                  },
-                  "amount": {
-                    "type": "string",
-                    "description": "Amount is required only when the request is created without associated products. If products are included, the amount is automatically calculated based on the product prices and quantities"
-                  },
-                  "receive_currency_id": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
-                  },
-                  "frequency": {
-                    "type": "string",
-                    "description": "How often billing occurs. Possible values: `weekly`, `monthly`"
-                  },
-                  "start_at": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "When the first billing will be sent to the client. If set to a future date, the first billing will be created as a scheduled item and sent on the `start_at` date. This date also acts as the anchor day for subsequent recurring billings."
-                  },
-                  "end_at": {
-                    "type": "string",
-                    "description": "Indicates when recurring billings stop. If not set, billings will continue indefinitely.",
-                    "format": "date",
-                    "default": ""
-                  },
-                  "underpaid_cover_pct": {
-                    "type": "string",
-                    "description": "How much percentage of underpaid can be covered.",
-                    "default": "0"
-                  },
-                  "callback_url": {
-                    "type": "string",
-                    "description": "Send an automated message to Merchant URL when request status is changed. For testing you can use requestcatcher.com tool. URL must be direct without redirection. Read about billing request callbacks [here](https://developer.coingate.com/reference/billing-request-callback)."
-                  },
-                  "billing_request_items": {
-                    "type": "object",
-                    "properties": {
-                      "billing_product_id": {
-                        "type": "integer",
-                        "description": "Billing Product ID",
-                        "format": "int32"
-                      },
-                      "quantity": {
-                        "type": "integer",
-                        "format": "int32",
-                        "description": "Quantity of product"
-                      }
-                    },
-                    "description": "Billing Products and quantity. If present amount will calculated based on product price and quantity."
-                  }
-                },
-                "type": "object",
-                "required": [
-                  "billing_contact_id",
-                  "currency_id",
-                  "receive_currency_id",
-                  "frequency",
-                  "start_at"
-                ]
-              }
-            }
-          }
-        }
-      },
       "get": {
         "summary": "List Recurring Billing",
         "description": "",
@@ -14315,6 +14102,223 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Recurring Billing",
+        "description": "",
+        "operationId": "create-billing-request-1",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "id": 1,
+                      "status": "active",
+                      "frequency": "monthly",
+                      "start_at": "2026-05-29",
+                      "end_at": null,
+                      "next_billing_at": "2026-06-29",
+                      "created_at": "2026-05-29T11:01:21.695Z",
+                      "billing_requests": [
+                        {
+                          "id": 13,
+                          "status": "pending",
+                          "created_at": "2026-05-29T11:01:21.703Z",
+                          "paid_at": null
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "active"
+                    },
+                    "frequency": {
+                      "type": "string",
+                      "example": "monthly"
+                    },
+                    "start_at": {
+                      "type": "string",
+                      "example": "2026-05-29"
+                    },
+                    "end_at": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "next_billing_at": {
+                      "type": "string",
+                      "example": "2026-06-29"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2026-05-29T11:01:21.695Z"
+                    },
+                    "billing_requests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 13,
+                            "default": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "example": "pending"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2026-05-29T11:01:21.703Z"
+                          },
+                          "paid_at": {
+                            "type": "string",
+                            "format": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "422",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "message": "Recurring billing is not valid",
+                      "reason": "RecurringBillingIsNotValid",
+                      "errors": [
+                        "Start at can't be in the past"
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Billing request is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "BillingRequestIsNotValid"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "Amount must be greater than 0"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "billing_contact_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Billing Contact ID"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Request title"
+                  },
+                  "currency_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Currency of amount. Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
+                  },
+                  "amount": {
+                    "type": "string",
+                    "description": "Amount is required only when the request is created without associated products. If products are included, the amount is automatically calculated based on the product prices and quantities"
+                  },
+                  "receive_currency_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
+                  },
+                  "frequency": {
+                    "type": "string",
+                    "description": "How often billing occurs. Possible values: `weekly`, `monthly`",
+                    "enum": [
+                      "weekly",
+                      "monthly"
+                    ]
+                  },
+                  "start_at": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "When the first billing will be sent to the client. If set to a future date, the first billing will be created as a scheduled item and sent on the `start_at` date. This date also acts as the anchor day for subsequent recurring billings."
+                  },
+                  "end_at": {
+                    "type": "string",
+                    "description": "Indicates when recurring billings stop. If not set, billings will continue indefinitely.",
+                    "format": "date",
+                    "default": ""
+                  },
+                  "underpaid_cover_pct": {
+                    "type": "string",
+                    "description": "How much percentage of underpaid can be covered.",
+                    "default": "0"
+                  },
+                  "callback_url": {
+                    "type": "string",
+                    "description": "Send an automated message to Merchant URL when request status is changed. For testing you can use requestcatcher.com tool. URL must be direct without redirection. Read about billing request callbacks [here](https://developer.coingate.com/reference/billing-request-callback)."
+                  },
+                  "billing_request_items": {
+                    "type": "object",
+                    "properties": {
+                      "billing_product_id": {
+                        "type": "integer",
+                        "description": "Billing Product ID",
+                        "format": "int32"
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Quantity of product"
+                      }
+                    },
+                    "description": "Billing Products and quantity. If present amount will calculated based on product price and quantity."
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "billing_contact_id",
+                  "currency_id",
+                  "receive_currency_id",
+                  "frequency",
+                  "start_at"
+                ]
               }
             }
           }
