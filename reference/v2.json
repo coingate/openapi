@@ -14058,7 +14058,8 @@
                           },
                           "start_at": {
                             "type": "string",
-                            "example": "2026-05-29"
+                            "example": "2026-05-29",
+                            "format": "date"
                           },
                           "end_at": {
                             "type": "string",
@@ -14066,11 +14067,13 @@
                           },
                           "next_billing_at": {
                             "type": "string",
-                            "example": "2026-06-29"
+                            "example": "2026-06-29",
+                            "format": "date"
                           },
                           "created_at": {
                             "type": "string",
-                            "example": "2026-05-29T11:01:21.695Z"
+                            "example": "2026-05-29T11:01:21.695Z",
+                            "format": "date-time"
                           },
                           "billing_requests": {
                             "type": "array",
@@ -14088,11 +14091,12 @@
                                 },
                                 "created_at": {
                                   "type": "string",
-                                  "example": "2026-05-29T11:01:21.703Z"
+                                  "example": "2026-05-29T11:01:21.703Z",
+                                  "format": "date-time"
                                 },
                                 "paid_at": {
                                   "type": "string",
-                                  "format": "date"
+                                  "format": "date-time"
                                 }
                               }
                             }
