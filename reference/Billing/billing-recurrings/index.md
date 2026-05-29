@@ -1,5 +1,5 @@
 ---
-title: Billing Recurrings
+title: Billing Recurring
 deprecated: false
 hidden: true
 metadata:
