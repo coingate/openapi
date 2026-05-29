@@ -14207,11 +14207,9 @@
             }
           }
         }
-      }
-    },
-    "/billing/requests-1": {
+      },
       "get": {
-        "summary": "Copy of List Billing Requests",
+        "summary": "List Recurring Billing",
         "description": "",
         "operationId": "list-billing-requests-1",
         "requestBody": {
@@ -14249,7 +14247,65 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 100,\n  \"total_records\": 2,\n  \"total_pages\": 1,\n  \"billing_requests\": [\n    {\n      \"id\": 1,\n      \"uuid\": \"713177cf-49b7-4ad3-8927-06536f655168\",\n      \"status\": \"pending\",\n      \"title\": \"Sample Product\",\n      \"due_days\": 15,\n      \"callback_url\": \"https://callback.com/example\",\n      \"send_email\": false,\n      \"underpaid_cover_pct\": \"5.0\",\n      \"created_at\": \"2024-10-15T13:54:17.642Z\",\n      \"billing_contact\": {\n        \"id\": 1,\n        \"contact_type\": \"business\",\n        \"email\": \"example@busines.com\",\n        \"first_name\": null,\n        \"surname\": null,\n        \"company_name\": \"UAB Business\",\n        \"created_at\": \"2024-10-15T13:52:31.587Z\"\n      },\n      \"price_currency\": {\n        \"id\": 21,\n        \"title\": \"USDT\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"USDT\"\n      },\n      \"price_amount\": \"30.0\",\n      \"receive_currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      },\n      \"receive_amount\": null,\n\t\t\t\"pay_currency\": null,\n\t\t\t\"pay_amount\": null,\n      \"fees\": [],\n      \"billing_request_items\": [\n        {\n          \"id\": 1,\n          \"billing_product_id\": 10,\n          \"quantity\": 3\n        }\n      ],\n      \"billing_request_url\": \"\"\n    },\n    {\n      \"id\": 2,\n      \"uuid\": \"f1d6b2ef-3024-4ea2-b046-60f96adc0fb5\",\n      \"status\": \"completed\",\n      \"title\": \"Lunch\",\n      \"due_days\": 3,\n      \"callback_url\": \"\",\n      \"send_email\": true,\n      \"underpaid_cover_pct\": \"0.0\",\n      \"created_at\": \"2024-10-15T16:59:05.757Z\",\n      \"billing_contact\": {\n        \"id\": 2,\n        \"contact_type\": \"person\",\n        \"email\": \"joe@doe.com\",\n        \"first_name\": \"Joe\",\n        \"surname\": \"Doe\",\n        \"company_name\": null,\n        \"created_at\": \"2024-10-15T14:13:47.730Z\"\n      },\n      \"price_currency\": {\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"title\": \"Euro\",\n\t\t\t\t\"kind\": \"fiat\",\n\t\t\t\t\"symbol\": \"EUR\"\n\t\t\t},\n\t\t\t\"price_amount\": \"20.0\",\n\t\t\t\"receive_currency\": {\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"title\": \"Euro\",\n\t\t\t\t\"kind\": \"fiat\",\n\t\t\t\t\"symbol\": \"EUR\"\n\t\t\t},\n\t\t\t\"receive_amount\": \"19.8\",\n\t\t\t\"pay_currency\": {\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"title\": \"Bitcoin\",\n\t\t\t\t\"kind\": \"crypto\",\n\t\t\t\t\"symbol\": \"BTC\"\n\t\t\t},\n\t\t\t\"pay_amount\": \"0.00022086\",\n\t\t\t\"fees\": [\n\t\t\t\t{\n\t\t\t\t\t\"type\": \"processing_fee\",\n\t\t\t\t\t\"amount\": \"0.2\",\n\t\t\t\t\t\"currency\": {\n\t\t\t\t\t\t\"id\": 2,\n\t\t\t\t\t\t\"symbol\": \"EUR\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t],\n      \"billing_request_items\": [],\n      \"billing_request_url\": \"\"\n    }\n  ]\n}"
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_records": 8,
+                      "total_pages": 1,
+                      "recurring_billings": [
+                        {
+                          "id": 8,
+                          "status": "active",
+                          "frequency": "monthly",
+                          "start_at": "2026-05-29",
+                          "end_at": null,
+                          "next_billing_at": "2026-06-29",
+                          "created_at": "2026-05-29T11:01:21.695Z",
+                          "billing_requests": [
+                            {
+                              "id": 13,
+                              "status": "pending",
+                              "created_at": "2026-05-29T11:01:21.703Z",
+                              "paid_at": null
+                            }
+                          ]
+                        },
+                        {
+                          "id": 7,
+                          "status": "active",
+                          "frequency": "monthly",
+                          "start_at": "2026-06-01",
+                          "end_at": null,
+                          "next_billing_at": "2026-06-01",
+                          "created_at": "2026-05-29T11:00:38.861Z",
+                          "billing_requests": [
+                            {
+                              "id": 12,
+                              "status": "scheduled",
+                              "created_at": "2026-05-29T11:00:38.877Z",
+                              "paid_at": null
+                            }
+                          ]
+                        },
+                        {
+                          "id": 6,
+                          "status": "canceled",
+                          "frequency": "monthly",
+                          "start_at": "2026-05-25",
+                          "end_at": null,
+                          "next_billing_at": "2026-06-25",
+                          "created_at": "2026-05-25T08:35:14.566Z",
+                          "billing_requests": [
+                            {
+                              "id": 11,
+                              "status": "pending",
+                              "created_at": "2026-05-25T08:35:14.570Z",
+                              "paid_at": null
+                            }
+                          ]
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {
