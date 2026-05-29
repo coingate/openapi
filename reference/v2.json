@@ -14503,7 +14503,88 @@
         "responses": {
           "200": {
             "description": "200",
-            "content": {}
+            "content": {
+              "application/json": {
+                "examples": {
+                  "OK": {
+                    "summary": "OK",
+                    "value": {
+                      "id": 3,
+                      "status": "active",
+                      "frequency": "weekly",
+                      "start_at": "2026-04-30",
+                      "end_at": "2026-05-28",
+                      "next_billing_at": "2026-05-07",
+                      "created_at": "2026-04-30T14:22:08.409Z",
+                      "billing_requests": [
+                        {
+                          "id": 4,
+                          "status": "pending",
+                          "created_at": "2026-04-30T14:22:08.412Z",
+                          "paid_at": null
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 3,
+                      "default": 0
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "active"
+                    },
+                    "frequency": {
+                      "type": "string",
+                      "example": "weekly"
+                    },
+                    "start_at": {
+                      "type": "string",
+                      "example": "2026-04-30"
+                    },
+                    "end_at": {
+                      "type": "string",
+                      "example": "2026-05-28"
+                    },
+                    "next_billing_at": {
+                      "type": "string",
+                      "example": "2026-05-07"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2026-04-30T14:22:08.409Z"
+                    },
+                    "billing_requests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 4,
+                            "default": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "example": "pending"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2026-04-30T14:22:08.412Z"
+                          },
+                          "paid_at": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
