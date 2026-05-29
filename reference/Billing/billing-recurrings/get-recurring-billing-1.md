@@ -8,6 +8,4 @@ link:
 metadata:
   robots: noindex
 ---
-Retrieve a single recurring billing by its `id`
-
-<br />
+Stop a recurring billing from generating future billings. Existing billings are not canceled — only the creation of new ones is stopped
