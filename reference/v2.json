@@ -13913,6 +13913,273 @@
         "operationId": "get_payment-channels-supported-currencies",
         "summary": "Supported Currencies"
       }
+    },
+    "/billing/requests-1": {
+      "post": {
+        "summary": "Copy of Create Billing Request",
+        "description": "",
+        "operationId": "create-billing-request-1",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 1,\n  \"uuid\": \"f1d6b2ef-3024-4ea2-b046-60f96adc0fb5\",\n  \"status\": \"pending\",\n  \"title\": \"Lunch\",\n  \"due_days\": 3,\n  \"callback_url\": \"\",\n  \"send_email\": false,\n  \"underpaid_cover_pct\": \"0.0\",\n  \"created_at\": \"2024-10-15T16:59:05.757Z\",\n  \"billing_contact\": {\n    \"id\": 1,\n    \"contact_type\": \"person\",\n    \"email\": \"joe@doe.com\",\n    \"first_name\": \"Joe\",\n    \"surname\": \"Doe\",\n    \"external_contact_id\": \"AA1234\",\n    \"created_at\": \"2024-10-15T14:13:47.730Z\"\n  },\n  \"price_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"price_amount\": \"20.0\",\n  \"receive_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"receive_amount\": null,\n  \"pay_currency\": null,\n  \"pay_amount\":  null,\n  \"fees\": [],\n  \"billing_request_items\": [],\n  \"billing_request_url\": \"\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "uuid": {
+                      "type": "string",
+                      "example": "f1d6b2ef-3024-4ea2-b046-60f96adc0fb5"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "pending"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Lunch"
+                    },
+                    "due_days": {
+                      "type": "integer",
+                      "example": 3,
+                      "default": 0
+                    },
+                    "callback_url": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "send_email": {
+                      "type": "boolean",
+                      "example": false,
+                      "default": true
+                    },
+                    "underpaid_cover_pct": {
+                      "type": "string",
+                      "example": "0.0"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2024-10-15T16:59:05.757Z"
+                    },
+                    "billing_contact": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1,
+                          "default": 0
+                        },
+                        "contact_type": {
+                          "type": "string",
+                          "example": "person"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "joe@doe.com"
+                        },
+                        "first_name": {
+                          "type": "string",
+                          "example": "Joe"
+                        },
+                        "surname": {
+                          "type": "string",
+                          "example": "Doe"
+                        },
+                        "external_contact_id": {
+                          "type": "string",
+                          "example": "AA1234"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "example": "2024-10-15T14:13:47.730Z"
+                        }
+                      }
+                    },
+                    "price_currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 2,
+                          "default": 0
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Euro"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "example": "fiat"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "EUR"
+                        }
+                      }
+                    },
+                    "price_amount": {
+                      "type": "string",
+                      "example": "20.0"
+                    },
+                    "receive_currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 2,
+                          "default": 0
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Euro"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "example": "fiat"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "EUR"
+                        }
+                      }
+                    },
+                    "receive_amount": {},
+                    "pay_currency": {},
+                    "pay_amount": {},
+                    "fees": {
+                      "type": "array"
+                    },
+                    "billing_request_items": {
+                      "type": "array"
+                    },
+                    "billing_request_url": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "422",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Billing request is not valid\",\n  \"reason\": \"BillingRequestIsNotValid\",\n  \"errors\": [\n    \"Amount must be greater than 0\"\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Billing request is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "BillingRequestIsNotValid"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "Amount must be greater than 0"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "billing_contact_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Billing Contact ID"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Request title"
+                  },
+                  "currency_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Currency of amount. Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
+                  },
+                  "amount": {
+                    "type": "string",
+                    "description": "Amount is required only when the request is created without associated products. If products are included, the amount is automatically calculated based on the product prices and quantities"
+                  },
+                  "receive_currency_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
+                  },
+                  "due_days": {
+                    "type": "integer",
+                    "description": "Defines how many days the pay button remains active. Default: 0 won't expire. Example: A value of 3 means the pay button will remain active for 3 days after billing request has been created",
+                    "format": "int32",
+                    "default": "0"
+                  },
+                  "send_email": {
+                    "type": "boolean",
+                    "default": "true",
+                    "description": "Will billing contact receive email about reqeust."
+                  },
+                  "underpaid_cover_pct": {
+                    "type": "string",
+                    "description": "How much percentage of underpaid can be covered.",
+                    "default": "0"
+                  },
+                  "callback_url": {
+                    "type": "string",
+                    "description": "Send an automated message to Merchant URL when request status is changed. For testing you can use requestcatcher.com tool. URL must be direct without redirection. Read about billing request callbacks [here](https://developer.coingate.com/reference/billing-request-callback)."
+                  },
+                  "billing_request_items": {
+                    "type": "object",
+                    "properties": {
+                      "billing_product_id": {
+                        "type": "integer",
+                        "description": "Billing Product ID",
+                        "format": "int32"
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Quantity of product"
+                      }
+                    },
+                    "description": "Billing Products and quantity. If present amount will calculated based on product price and quantity."
+                  }
+                },
+                "type": "object",
+                "required": [
+                  "billing_contact_id",
+                  "currency_id",
+                  "receive_currency_id"
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   },
   "x-readme": {
