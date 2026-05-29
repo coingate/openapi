@@ -14446,7 +14446,7 @@
       }
     },
     "/billing/recurrings/{id}/discontinue": {
-      "get": {
+      "patch": {
         "summary": "Discontinue Recurring Billing",
         "description": "",
         "operationId": "list-billing-requests-1-1-1",
