@@ -14444,6 +14444,119 @@
           }
         ]
       }
+    },
+    "/billing/recurrings/{id}-1": {
+      "get": {
+        "summary": "Copy of Get Recurring Billing",
+        "description": "",
+        "operationId": "list-billing-requests-1-1-1",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "summary": "Result",
+                    "value": {
+                      "id": 3,
+                      "status": "active",
+                      "frequency": "weekly",
+                      "start_at": "2026-04-30",
+                      "end_at": "2026-05-28",
+                      "next_billing_at": "2026-05-07",
+                      "created_at": "2026-04-30T14:22:08.409Z",
+                      "billing_requests": [
+                        {
+                          "id": 4,
+                          "status": "pending",
+                          "created_at": "2026-04-30T14:22:08.412Z",
+                          "paid_at": null
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 3,
+                      "default": 0
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "active"
+                    },
+                    "frequency": {
+                      "type": "string",
+                      "example": "weekly"
+                    },
+                    "start_at": {
+                      "type": "string",
+                      "example": "2026-04-30",
+                      "format": "date"
+                    },
+                    "end_at": {
+                      "type": "string",
+                      "example": "2026-05-28",
+                      "format": "date"
+                    },
+                    "next_billing_at": {
+                      "type": "string",
+                      "example": "2026-05-07",
+                      "format": "date"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2026-04-30T14:22:08.409Z",
+                      "format": "date-time"
+                    },
+                    "billing_requests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 4,
+                            "default": 0
+                          },
+                          "status": {
+                            "type": "string",
+                            "example": "pending"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2026-04-30T14:22:08.412Z",
+                            "format": "date-time"
+                          },
+                          "paid_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ID of recurring billing"
+          }
+        ]
+      }
     }
   },
   "x-readme": {
