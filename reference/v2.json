@@ -14336,8 +14336,8 @@
             "content": {
               "application/json": {
                 "examples": {
-                  "OK": {
-                    "summary": "OK",
+                  "Result": {
+                    "summary": "Result",
                     "value": {
                       "id": 3,
                       "status": "active",
