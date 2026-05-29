@@ -13926,7 +13926,23 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": 1,\n  \"uuid\": \"f1d6b2ef-3024-4ea2-b046-60f96adc0fb5\",\n  \"status\": \"pending\",\n  \"title\": \"Lunch\",\n  \"due_days\": 3,\n  \"callback_url\": \"\",\n  \"send_email\": false,\n  \"underpaid_cover_pct\": \"0.0\",\n  \"created_at\": \"2024-10-15T16:59:05.757Z\",\n  \"billing_contact\": {\n    \"id\": 1,\n    \"contact_type\": \"person\",\n    \"email\": \"joe@doe.com\",\n    \"first_name\": \"Joe\",\n    \"surname\": \"Doe\",\n    \"external_contact_id\": \"AA1234\",\n    \"created_at\": \"2024-10-15T14:13:47.730Z\"\n  },\n  \"price_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"price_amount\": \"20.0\",\n  \"receive_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"receive_amount\": null,\n  \"pay_currency\": null,\n  \"pay_amount\":  null,\n  \"fees\": [],\n  \"billing_request_items\": [],\n  \"billing_request_url\": \"\"\n}"
+                    "value": {
+                      "id": 1,
+                      "status": "active",
+                      "frequency": "monthly",
+                      "start_at": "2026-05-29",
+                      "end_at": null,
+                      "next_billing_at": "2026-06-29",
+                      "created_at": "2026-05-29T11:01:21.695Z",
+                      "billing_requests": [
+                        {
+                          "id": 13,
+                          "status": "pending",
+                          "created_at": "2026-05-29T11:01:21.703Z",
+                          "paid_at": null
+                        }
+                      ]
+                    }
                   }
                 },
                 "schema": {
@@ -14077,7 +14093,13 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"message\": \"Billing request is not valid\",\n  \"reason\": \"BillingRequestIsNotValid\",\n  \"errors\": [\n    \"Amount must be greater than 0\"\n  ]\n}"
+                    "value": {
+                      "message": "Recurring billing is not valid",
+                      "reason": "RecurringBillingIsNotValid",
+                      "errors": [
+                        "Start at can't be in the past"
+                      ]
+                    }
                   }
                 },
                 "schema": {
