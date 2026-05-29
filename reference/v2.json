@@ -13914,9 +13914,9 @@
         "summary": "Supported Currencies"
       }
     },
-    "/billing/requests-1": {
+    "/billing/recurrings": {
       "post": {
-        "summary": "Copy of Create Billing Request",
+        "summary": "Create Recurring Billing",
         "description": "",
         "operationId": "create-billing-request-1",
         "responses": {
@@ -14132,16 +14132,20 @@
                     "format": "int32",
                     "description": "Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
                   },
-                  "due_days": {
-                    "type": "integer",
-                    "description": "Defines how many days the pay button remains active. Default: 0 won't expire. Example: A value of 3 means the pay button will remain active for 3 days after billing request has been created",
-                    "format": "int32",
-                    "default": "0"
+                  "frequency": {
+                    "type": "string",
+                    "description": "How often billing occurs. Possible values: `weekly`, `monthly`"
                   },
-                  "send_email": {
-                    "type": "boolean",
-                    "default": "true",
-                    "description": "Will billing contact receive email about reqeust."
+                  "start_at": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "When the first billing will be sent to the client. If set to a future date, the first billing will be created as a scheduled item and sent on the `start_at` date. This date also acts as the anchor day for subsequent recurring billings."
+                  },
+                  "end_at": {
+                    "type": "string",
+                    "description": "Indicates when recurring billings stop. If not set, billings will continue indefinitely.",
+                    "format": "date",
+                    "default": ""
                   },
                   "underpaid_cover_pct": {
                     "type": "string",
@@ -14173,7 +14177,9 @@
                 "required": [
                   "billing_contact_id",
                   "currency_id",
-                  "receive_currency_id"
+                  "receive_currency_id",
+                  "frequency",
+                  "start_at"
                 ]
               }
             }
