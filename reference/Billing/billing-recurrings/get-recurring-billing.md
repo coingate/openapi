@@ -8,6 +8,6 @@ link:
 metadata:
   robots: noindex
 ---
-Retrieve a single recurring billing by its `id`
+Retrieve a single recurring billing by its `id`.
 
 <br />
