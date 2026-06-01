@@ -13927,13 +13927,13 @@
                 "properties": {
                   "per_page": {
                     "type": "integer",
-                    "description": "Records per page",
+                    "description": "Records per page.",
                     "default": 100,
                     "format": "int32"
                   },
                   "page": {
                     "type": "integer",
-                    "description": "Current page number",
+                    "description": "Current page number.",
                     "default": 1,
                     "format": "int32"
                   },
