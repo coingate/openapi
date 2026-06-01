@@ -2,7 +2,7 @@
 api:
   file: v2.json
   operationId: list-billing-requests-1-1-1
-hidden: true
+hidden: false
 link:
   new_tab: false
 metadata:
