@@ -14611,7 +14611,7 @@
               "type": "string"
             },
             "required": true,
-            "description": "ID of recurring billing"
+            "description": "ID of recurring billing."
           }
         ]
       }
