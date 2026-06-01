@@ -14430,6 +14430,35 @@
                 }
               }
             }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Recurring billing not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "RecurringBillingNotFound"
+                    }
+                  }
+                },
+                "examples": {
+                  "Not Found": {
+                    "summary": "Not Found",
+                    "value": {
+                      "message": "Recurring billing not found",
+                      "reason": "RecurringBillingNotFound"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Not Found"
           }
         },
         "parameters": [
