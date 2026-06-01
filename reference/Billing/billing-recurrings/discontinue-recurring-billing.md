@@ -8,4 +8,4 @@ link:
 metadata:
   robots: noindex
 ---
-Stop a recurring billing from generating future billings. Existing billings are not canceled — only the creation of new ones is stopped
+Stops future billings and cancels any scheduled (not-yet-sent) billings. Billings that have already been issued are not affected.
