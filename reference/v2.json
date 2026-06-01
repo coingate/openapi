@@ -14253,29 +14253,29 @@
                   "billing_contact_id": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Billing Contact ID"
+                    "description": "Billing Contact ID."
                   },
                   "title": {
                     "type": "string",
-                    "description": "Request title"
+                    "description": "Request title."
                   },
                   "currency_id": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Currency of amount. Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
+                    "description": "Currency of amount. Currency ID's can be seen on https://developer.coingate.com/reference/currencies."
                   },
                   "amount": {
                     "type": "string",
-                    "description": "Amount is required only when the request is created without associated products. If products are included, the amount is automatically calculated based on the product prices and quantities"
+                    "description": "Amount is required only when the request is created without associated products. If products are included, the amount is automatically calculated based on the product prices and quantities."
                   },
                   "receive_currency_id": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "Currency ID's can be seen on https://developer.coingate.com/reference/currencies"
+                    "description": "Currency ID's can be seen on https://developer.coingate.com/reference/currencies."
                   },
                   "frequency": {
                     "type": "string",
-                    "description": "How often billing occurs. Possible values: `weekly`, `monthly`",
+                    "description": "How often billing occurs. Possible values: `weekly`, `monthly`.",
                     "enum": [
                       "weekly",
                       "monthly"
@@ -14294,7 +14294,7 @@
                   },
                   "underpaid_cover_pct": {
                     "type": "integer",
-                    "description": "How much percentage of underpaid can be covered. Max: 10",
+                    "description": "How much percentage of underpaid can be covered. Max: 10.",
                     "default": "0"
                   },
                   "callback_url": {
@@ -14306,13 +14306,13 @@
                     "properties": {
                       "billing_product_id": {
                         "type": "integer",
-                        "description": "Billing Product ID",
+                        "description": "Billing Product ID.",
                         "format": "int32"
                       },
                       "quantity": {
                         "type": "integer",
                         "format": "int32",
-                        "description": "Quantity of product"
+                        "description": "Quantity of product."
                       }
                     },
                     "description": "Billing Products and quantity. If present amount will calculated based on product price and quantity."
