@@ -13678,6 +13678,75 @@
           }
         },
         "summary": "Create Contact"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "OK": {
+                    "summary": "OK",
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_records": 2,
+                      "total_pages": 1,
+                      "contacts": [
+                        {
+                          "id": 29,
+                          "contact_type": "person",
+                          "email": "qa.test+example@coingate.com",
+                          "external_contact_id": "QA-EXTERNAL-1",
+                          "status": "active",
+                          "created_at": "2026-06-02T08:19:30.572Z",
+                          "first_name": "Jane",
+                          "surname": "Doe",
+                          "date_of_birth": "1995-05-21",
+                          "address_country_id": 133
+                        },
+                        {
+                          "id": 30,
+                          "contact_type": "business",
+                          "email": "qa.test+acme@coingate.com",
+                          "external_contact_id": "QA-EXTERNAL-2",
+                          "status": "active",
+                          "created_at": "2026-06-02T09:14:11.022Z",
+                          "company_name": "Acme QA UAB",
+                          "company_code": "QA-12345678",
+                          "incorporation_country_id": 133
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "default": "1"
+            },
+            "description": "1-indexed page number. Defaults to 1."
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "schema": {
+              "type": "integer",
+              "default": "100"
+            },
+            "description": "Items per page. Defaults to 100. Capped at 100."
+          }
+        ],
+        "summary": "List Contacts",
+        "operationId": "get_contacts"
       }
     },
     "/payment_channels": {
