@@ -2,7 +2,6 @@
 api:
   file: v2.json
   operationId: post_contacts
-deprecated: false
 hidden: false
 link:
   new_tab: false
