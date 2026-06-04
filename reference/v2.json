@@ -14615,6 +14615,57 @@
           }
         ]
       }
+    },
+    "/contacts/{id}/upload-documents": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "summary": "Upload Documents",
+        "description": "",
+        "operationId": "post_contacts-id-upload-documents",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "byte",
+                    "default": "",
+                    "description": "The document to upload. See File constraints below."
+                  },
+                  "document_type": {
+                    "type": "string",
+                    "description": "Kind of document. See Allowed document types."
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Optional note attached to the upload (visible to compliance reviewers)."
+                  }
+                },
+                "required": [
+                  "file",
+                  "document_type"
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   },
   "x-readme": {
