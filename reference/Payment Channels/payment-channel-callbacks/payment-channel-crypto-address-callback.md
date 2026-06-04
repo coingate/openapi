@@ -9,6 +9,10 @@ Sent when a deposit address attached to your payment channel changes status — 
 
 CoinGate sends a structured callback to the URL configured on the parent Payment Channel (`callback_url`). The payload follows a versioned envelope (`event`, `object`, `data`) and includes everything you need to track the address lifecycle: the address, its currency and platform, memo, expiry, status, and the parent payment channel ID.
 
+> 📘 API Callback Documentation
+>
+> The callback is delivered as a `POST` request with a `application/json` body. For shared callback behavior — retry policy, IP allowlist, manual resend — see the <Anchor label="API Callbacks " target="_blank" href="https://developer.coingate.com/reference/api-callbacks">API Callbacks </Anchor>reference.
+
 **Request**
 
 | Property     | Value                                       |
