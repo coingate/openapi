@@ -8,3 +8,4 @@ link:
 metadata:
   robots: index
 ---
+Returns the merchant's payment channels, paginated, with their generated deposit addresses inlined.
