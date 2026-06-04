@@ -2,3 +2,4 @@
 - create-payment-channel
 - supported-currencies
 - payment-channel-callbacks
+- payment-channels
