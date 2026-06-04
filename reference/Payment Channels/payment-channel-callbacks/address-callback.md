@@ -1,5 +1,5 @@
 ---
-title: Address Callback
+title: Crypto Address Callback
 deprecated: false
 hidden: false
 metadata:
