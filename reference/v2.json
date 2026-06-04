@@ -14620,7 +14620,76 @@
       "post": {
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Server-assigned uploaded-file ID. Stable."
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "Upload timestamp in UTC (ISO8601)."
+                      },
+                      "filename": {
+                        "type": "string",
+                        "description": "Original filename submitted in the multipart upload."
+                      },
+                      "document_type": {
+                        "type": "string",
+                        "description": "Echoes the document_type from the request."
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": {
+                  "OK": {
+                    "summary": "OK",
+                    "value": {
+                      "files": [
+                        {
+                          "id": 4821,
+                          "created_at": "2026-06-04T08:12:33.114Z",
+                          "filename": "passport.pdf",
+                          "document_type": "passport"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "Unprocessable Entity": {
+                    "summary": "Unprocessable Entity",
+                    "value": {
+                      "message": "Document upload failed",
+                      "reason": "DocumentUploadFailed",
+                      "errors": [
+                        "Document type is not allowed for person contacts"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
           }
         },
         "parameters": [
