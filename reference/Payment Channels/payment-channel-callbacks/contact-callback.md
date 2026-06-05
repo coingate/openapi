@@ -20,7 +20,7 @@ CoinGate POSTs a contact callback to your server every time a Payment-Channel co
 | contact.status.suspended    | All incoming payments on this contact's channel are placed on hold pending compliance review. Funds are not credited until compliance reviews the contact. |
 | contact.status.rejected     | KYC failed or the contact triggered a compliance rule. The channel is set to disabled and any incoming payments are marked invalid.                        |
 
-<br />
+**Request**
 
 | Property     | Value                                       |
 | :----------- | :------------------------------------------ |
