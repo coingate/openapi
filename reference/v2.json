@@ -15009,7 +15009,7 @@
         "x-readme": {
           "code-samples": [
             {
-              "code": "curl -X POST \"https://api.coingate.com/v2/payment_channels/61/addresses\" \\\n  -H \"Authorization: Bearer <API_APP_TOKEN>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"assets\": [\n      { \"currency_id\": 7, \"platform_id\": 11 },\n      { \"currency_id\": 7, \"platform_id\": 18 }\n    ]\n  }'",
+              "code": "curl -X POST \"https://api.coingate.com/v2/payment_channels/61/addresses\" \\\n  -H \"Authorization: Bearer <API_APP_TOKEN>\" \\\n  -H \"Content-Type: application/x-www-form-urlencoded\" \\\n  --data-urlencode \"assets[][currency_id]=7\" \\\n  --data-urlencode \"assets[][platform_id]=11\" \\\n  --data-urlencode \"assets[][currency_id]=7\" \\\n  --data-urlencode \"assets[][platform_id]=18\"",
               "language": "shell",
               "name": ""
             }
