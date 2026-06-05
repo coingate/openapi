@@ -21,3 +21,11 @@ CoinGate POSTs a contact callback to your server every time a Payment-Channel co
 | contact.status.rejected     | KYC failed or the contact triggered a compliance rule. The channel is set to disabled and any incoming payments are marked invalid.                        |
 
 <br />
+
+| Property     | Value                                       |
+| :----------- | :------------------------------------------ |
+| Method       | `POST`                                      |
+| URL          | The Payment Channel's `callback_url`        |
+| Content-Type | `application/json`                          |
+| User-Agent   | `CoinGate Payment Channel Contact Callback` |
+| Body         | JSON object — see Payload below             |
