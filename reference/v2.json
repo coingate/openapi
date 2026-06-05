@@ -15005,6 +15005,18 @@
               }
             }
           }
+        },
+        "x-readme": {
+          "code-samples": [
+            {
+              "code": "curl -X POST \"https://api.coingate.com/v2/payment_channels/61/addresses\" \\\n  -H \"Authorization: Bearer <API_APP_TOKEN>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"assets\": [\n      { \"currency_id\": 7, \"platform_id\": 11 },\n      { \"currency_id\": 7, \"platform_id\": 18 }\n    ]\n  }'",
+              "language": "shell",
+              "name": ""
+            }
+          ],
+          "samples-languages": [
+            "shell"
+          ]
         }
       }
     }
