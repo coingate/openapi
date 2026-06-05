@@ -14877,6 +14877,61 @@
           }
         }
       }
+    },
+    "/payment_channels/{id}/addresses": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Payment channel ID"
+          }
+        ],
+        "summary": "Add Addresses",
+        "operationId": "post_payment-channels-id-addresses",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "assets": {
+                    "type": "array",
+                    "items": {
+                      "properties": {
+                        "currency_id": {
+                          "type": "integer"
+                        },
+                        "platform_id": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "currency_id",
+                        "platform_id"
+                      ]
+                    },
+                    "description": "One or more { currency_id, platform_id } pairs to generate addresses for. See Supported Currencies for valid values."
+                  }
+                },
+                "required": [
+                  "assets"
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   },
   "x-readme": {
