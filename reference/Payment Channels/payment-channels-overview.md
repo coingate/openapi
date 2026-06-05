@@ -4,6 +4,14 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: create-contact
+      title: Create Contact
+      type: endpoint
+    - slug: api-callbacks
+      title: API Callbacks
+      type: endpoint
 ---
 <Callout icon="🚧" theme="warn">
   This feature is currently under development and available only for selected partners during the early access phase. To join the whitelist and receive updates about Payment Channels availability, visit: <Anchor label="CoinGate Payment Channels" target="_blank" href="https://coingate.com/payment-channels">CoinGate Payment Channels</Anchor>
