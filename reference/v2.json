@@ -14882,7 +14882,22 @@
       "post": {
         "responses": {
           "200": {
-            "description": ""
+            "description": "Returns only the addresses created by this call. Each new address starts with status: enqueued and address: null; the crypto daemon flips it to active (and populates address) typically in under a minute.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
           }
         },
         "parameters": [
