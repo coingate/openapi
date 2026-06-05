@@ -14882,19 +14882,79 @@
       "post": {
         "responses": {
           "200": {
-            "description": "Returns only the addresses created by this call. Each new address starts with status: enqueued and address: null; the crypto daemon flips it to active (and populates address) typically in under a minute.",
+            "description": "Returns only the addresses created by this call. Each new address starts with status: enqueued and address: null; the crypto node flips it to active (and populates address) typically in under a minute.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "name": {
-                      "type": "string"
+                    "payment_channel_id": {
+                      "type": "integer"
+                    },
+                    "addresses": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "currency_id": {
+                            "type": "integer"
+                          },
+                          "platform_id": {
+                            "type": "integer"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "memo": {
+                            "type": "string"
+                          },
+                          "expires_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "required": [
+                          "platform_id",
+                          "currency_id",
+                          "expires_at",
+                          "status"
+                        ]
+                      }
                     }
                   },
                   "required": [
-                    "name"
+                    "payment_channel_id",
+                    "addresses"
                   ]
+                },
+                "examples": {
+                  "OK": {
+                    "summary": "OK",
+                    "value": {
+                      "payment_channel_id": 61,
+                      "addresses": [
+                        {
+                          "currency_id": 7,
+                          "platform_id": 11,
+                          "address": null,
+                          "memo": "",
+                          "expires_at": null,
+                          "status": "enqueued"
+                        },
+                        {
+                          "currency_id": 7,
+                          "platform_id": 18,
+                          "address": null,
+                          "memo": "",
+                          "expires_at": null,
+                          "status": "enqueued"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
