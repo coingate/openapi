@@ -1,10 +1,16 @@
 ---
 title: Payment Channels Overview
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
+<br />
+
+<Callout icon="🚧" theme="warn">
+  This feature is currently under development and available only for selected partners during the early access phase. To join the whitelist and receive updates about Payment Channels availability, visit: <Anchor label="CoinGate Payment Channels" target="_blank" href="https://coingate.com/payment-channels">CoinGate Payment Channels</Anchor>
+</Callout>
+
 Payment Channels allow merchants to create dedicated crypto payment addresses for their customers and receive recurring payments without creating a new Order for every transaction.
 
 Unlike traditional crypto payment flows, Payment Channels do not expire after 20 minutes. Customers can send funds to the assigned payment address at any time, making them ideal for recurring deposits, account top-ups, customer wallets, and gaming platforms.
