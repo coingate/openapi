@@ -29,3 +29,20 @@ CoinGate POSTs a contact callback to your server every time a Payment-Channel co
 | Content-Type | `application/json`                          |
 | User-Agent   | `CoinGate Payment Channel Contact Callback` |
 | Body         | JSON object — see Payload below             |
+
+**Payload**
+
+```json
+{
+  "event": "contact.status.rejected",
+  "object": "contact",
+  "data": {
+    "id": 4821,
+    "external_contact_id": "user-9f2c14",
+    "compliance_status": "rejected",
+    "rejection_reason": "Documents could not be verified. Please re-upload a valid government-issued ID."
+  }
+}
+```
+
+<br />
