@@ -7,6 +7,10 @@ metadata:
 ---
 CoinGate POSTs a contact callback to your server every time a Payment-Channel contact's status changes. Use it to mirror the contact's verification state in your own system, surface KYC progress to your end user, and react to a suspended / rejected contact (e.g. block the customer from opening a new channel until they re-submit documents).
 
+> 📘 API Callback Documentation
+>
+> The callback is delivered as a `POST` request with a `application/json` body. For shared callback behavior — retry policy, IP allowlist, manual resend — see the <Anchor label="API Callbacks " target="_blank" href="https://developer.coingate.com/reference/api-callbacks">API Callbacks </Anchor>reference.
+
 **When the callback fires**
 
 | Event                       | Meaning                                                                                                                                                    |
