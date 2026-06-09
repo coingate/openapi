@@ -15024,7 +15024,7 @@
       "get": {
         "responses": {
           "200": {
-            "description": "",
+            "description": "200",
             "content": {
               "application/json": {
                 "examples": {
@@ -15148,7 +15148,7 @@
                 }
               }
             },
-            "description": "Not Found"
+            "description": "404"
           }
         },
         "parameters": [
