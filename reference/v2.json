@@ -15120,6 +15120,35 @@
                 }
               }
             }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payment channel not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "PaymentChannelNotFound"
+                    }
+                  }
+                },
+                "examples": {
+                  "Not Found": {
+                    "summary": "Not Found",
+                    "value": {
+                      "message": "Payment channel not found",
+                      "reason": "PaymentChannelNotFound"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Not Found"
           }
         },
         "parameters": [
