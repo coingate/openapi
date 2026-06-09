@@ -15016,7 +15016,7 @@
       "post": {
         "responses": {
           "200": {
-            "description": "Returns only the addresses created by this call. Each new address starts with status: enqueued and address: null; the crypto node flips it to active (and populates address) typically in under a minute.",
+            "description": "200",
             "content": {
               "application/json": {
                 "schema": {
@@ -15092,6 +15092,45 @@
                 }
               }
             }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payment channel is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "PaymentChannelIsNotValid"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "Platform 11 does not exist or is not eligible for currency 7"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Unsupported asset": {
+                    "summary": "Unsupported asset",
+                    "value": {
+                      "message": "Payment channel is not valid",
+                      "reason": "PaymentChannelIsNotValid",
+                      "errors": [
+                        "Platform 11 does not exist or is not eligible for currency 7"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Unsupported asset"
           }
         },
         "parameters": [
@@ -15102,7 +15141,7 @@
               "type": "integer"
             },
             "required": true,
-            "description": "Payment channel ID"
+            "description": "Payment channel ID."
           }
         ],
         "summary": "Add Addresses",
@@ -15130,7 +15169,7 @@
                         "platform_id"
                       ]
                     },
-                    "description": "One or more { currency_id, platform_id } pairs to generate addresses for. See Supported Currencies for valid values."
+                    "description": "One or more { currency_id, platform_id } pairs to generate addresses for. Each item: currency_id (integer, required), platform_id (integer, required)."
                   }
                 },
                 "required": [
