@@ -15044,7 +15044,8 @@
             "schema": {
               "type": "integer"
             },
-            "required": true
+            "required": true,
+            "description": "ID of the payment channel to retrieve."
           }
         ],
         "operationId": "get_payment-channels-id",
