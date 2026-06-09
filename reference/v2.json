@@ -15138,7 +15138,7 @@
       "get": {
         "responses": {
           "200": {
-            "description": "200",
+            "description": "OK",
             "content": {
               "application/json": {
                 "examples": {
