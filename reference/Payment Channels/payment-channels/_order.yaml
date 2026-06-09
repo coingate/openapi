@@ -1,3 +1,4 @@
 - create-payment-channel
 - list-payment-channels
 - add-addresses
+- get-payment-channel
