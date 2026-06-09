@@ -13754,7 +13754,116 @@
         "description": "",
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "OK": {
+                    "summary": "OK",
+                    "value": {
+                      "id": 76,
+                      "contact_id": 40,
+                      "payment_purpose": "Subscription fees",
+                      "callback_url": "https://example.com/webhooks/payment-channels",
+                      "receive_currency_id": 1,
+                      "status": "active",
+                      "created_at": "2026-06-09T05:43:14.172Z",
+                      "addresses": [
+                        {
+                          "currency_id": 1,
+                          "platform_id": 4,
+                          "address": null,
+                          "memo": "",
+                          "expires_at": null,
+                          "status": "enqueued"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 76,
+                      "default": 0
+                    },
+                    "contact_id": {
+                      "type": "integer",
+                      "example": 40,
+                      "default": 0
+                    },
+                    "payment_purpose": {
+                      "type": "string",
+                      "example": "Subscription fees"
+                    },
+                    "callback_url": {
+                      "type": "string",
+                      "example": "https://example.com/webhooks/payment-channels"
+                    },
+                    "receive_currency_id": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "active"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2026-06-09T05:43:14.172Z"
+                    },
+                    "addresses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "currency_id": {
+                            "type": "integer",
+                            "example": 1,
+                            "default": 0
+                          },
+                          "platform_id": {
+                            "type": "integer",
+                            "example": 4,
+                            "default": 0
+                          },
+                          "address": {},
+                          "memo": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "expires_at": {},
+                          "status": {
+                            "type": "string",
+                            "example": "enqueued"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "422": {
+                    "summary": "422",
+                    "value": ""
+                  }
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
           }
         },
         "parameters": [],
