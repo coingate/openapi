@@ -13754,7 +13754,7 @@
         "description": "",
         "responses": {
           "200": {
-            "description": "",
+            "description": "200",
             "content": {
               "application/json": {
                 "examples": {
@@ -13863,7 +13863,7 @@
                 }
               }
             },
-            "description": "Unprocessable Entity"
+            "description": "422"
           }
         },
         "parameters": [],
@@ -13876,30 +13876,26 @@
                 "properties": {
                   "contact_id": {
                     "type": "integer",
-                    "description": "ID of the contact to associate with this payment channel. Contact must belong to the same merchant and have all required travel rule fields filled"
+                    "description": "Contact to associate with this channel. Must belong to the same merchant, have all required travel-rule fields filled, and not already be assigned to another payment channel (a contact maps to at most one channel)."
                   },
                   "receive_currency_id": {
                     "type": "integer",
-                    "description": "ID of the currency the merchant wants to receive. Must be enabled and support merchant receive"
+                    "description": "Currency the merchant wants to receive. Must be enabled and support merchant receive."
                   },
                   "payment_purpose": {
                     "type": "string",
-                    "description": "Purpose of the payment (e.g. merchant_payment, subscription, donation)"
+                    "description": "Purpose of the payment (e.g. merchant_payment, subscription, donation)."
                   },
                   "callback_url": {
                     "type": "string",
-                    "description": "URL to receive webhook notifications for transactions on this payment channel"
+                    "description": "URL to receive webhook notifications for transactions on this channel."
                   },
                   "assets": {
-                    "type": "object",
-                    "description": "List of crypto assets to generate addresses for. Each item requires currency_id (integer) and platform_id (integer). The currency must be enabled and the platform must be active with deposits enabled",
-                    "properties": {
-                      "currency_id": {
-                        "type": "integer"
-                      },
-                      "platform_id": {
-                        "type": "integer"
-                      }
+                    "type": "array",
+                    "description": "Crypto assets to generate addresses for. New addresses start enqueued (null address) and become active within ~1 min. Each item: currency_id (integer, required), platform_id (integer, required).",
+                    "items": {
+                      "properties": {},
+                      "type": "object"
                     }
                   }
                 },
