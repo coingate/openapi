@@ -2,7 +2,7 @@
 api:
   file: v2.json
   operationId: get_contacts-id
-hidden: false
+hidden: true
 link:
   new_tab: false
 metadata:
