@@ -15053,11 +15053,11 @@
                     "type": "string",
                     "format": "byte",
                     "default": "",
-                    "description": "Document file. ≤10 MB; pdf/png/jpg/jpeg/zip/csv (invoice = pdf only)."
+                    "description": "The document file to upload. Refer to file constraints above."
                   },
                   "document_type": {
                     "type": "string",
-                    "description": "person: passport | national_id | residence_permit; business: signed_contract | service_agreement | invoice."
+                    "description": "The kind of document. Allowed values depend on the contact type. Refer to the allowed document types above."
                   },
                   "comment": {
                     "type": "string",
