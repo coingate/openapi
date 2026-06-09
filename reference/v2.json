@@ -14953,127 +14953,6 @@
         ]
       }
     },
-    "/contacts/{id}/upload-documents": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "200",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "description": "Server-assigned uploaded-file ID. Stable."
-                      },
-                      "created_at": {
-                        "type": "string",
-                        "description": "Upload timestamp in UTC (ISO8601)."
-                      },
-                      "filename": {
-                        "type": "string",
-                        "description": "Original filename submitted in the multipart upload."
-                      },
-                      "document_type": {
-                        "type": "string",
-                        "description": "Echoes the document_type from the request."
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ]
-                  }
-                },
-                "examples": {
-                  "200": {
-                    "summary": "200",
-                    "value": {
-                      "files": [
-                        {
-                          "id": 4821,
-                          "created_at": "2026-06-04T08:12:33.114Z",
-                          "filename": "passport.pdf",
-                          "document_type": "passport"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "422": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                },
-                "examples": {
-                  "422": {
-                    "summary": "422",
-                    "value": {
-                      "message": "Document upload failed",
-                      "reason": "DocumentUploadFailed",
-                      "errors": [
-                        "Document type is not allowed for person contacts"
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            "description": "422"
-          }
-        },
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "schema": {
-              "type": "integer"
-            },
-            "required": true,
-            "description": "Contact ID."
-          }
-        ],
-        "summary": "Upload Documents",
-        "description": "",
-        "operationId": "post_contacts-id-upload-documents",
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "byte",
-                    "default": "",
-                    "description": "The document file to upload. Refer to file constraints above."
-                  },
-                  "document_type": {
-                    "type": "string",
-                    "description": "The kind of document. Allowed values depend on the contact type. Refer to the allowed document types above."
-                  },
-                  "comment": {
-                    "type": "string",
-                    "description": "Optional note for compliance reviewers."
-                  }
-                },
-                "required": [
-                  "file",
-                  "document_type"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
     "/payment_channels/{id}/addresses": {
       "post": {
         "responses": {
@@ -15518,6 +15397,143 @@
         ],
         "summary": "Get Contact",
         "operationId": "get_contacts-id"
+      }
+    },
+    "/contacts/{id}/upload-documents": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Server-assigned uploaded-file ID. Stable."
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "Upload timestamp in UTC (ISO8601)."
+                      },
+                      "filename": {
+                        "type": "string",
+                        "description": "Original filename submitted in the multipart upload."
+                      },
+                      "document_type": {
+                        "type": "string",
+                        "description": "Echoes the document_type from the request."
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "examples": {
+                  "200": {
+                    "summary": "200",
+                    "value": {
+                      "files": [
+                        {
+                          "id": 4821,
+                          "created_at": "2026-06-04T08:12:33.114Z",
+                          "filename": "passport.pdf",
+                          "document_type": "passport"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Document upload failed"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "DocumentUploadFailed"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "Document type is not allowed for person contacts"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "422": {
+                    "summary": "422",
+                    "value": {
+                      "message": "Document upload failed",
+                      "reason": "DocumentUploadFailed",
+                      "errors": [
+                        "Document type is not allowed for person contacts"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "description": "422"
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Contact ID."
+          }
+        ],
+        "summary": "Upload Documents",
+        "description": "",
+        "operationId": "post_contacts-id-upload-documents",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "byte",
+                    "default": "",
+                    "description": "The document file to upload. Refer to file constraints above."
+                  },
+                  "document_type": {
+                    "type": "string",
+                    "description": "The kind of document. Allowed values depend on the contact type. Refer to the allowed document types above."
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Optional note for compliance reviewers."
+                  }
+                },
+                "required": [
+                  "file",
+                  "document_type"
+                ]
+              }
+            }
+          }
+        }
       }
     }
   },
