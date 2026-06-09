@@ -13853,12 +13853,41 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payment channel is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "PaymentChannelIsNotValid"
+                    },
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "contact_id": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "is already assigned to another payment channel"
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "examples": {
                   "422": {
                     "summary": "422",
-                    "value": ""
+                    "value": {
+                      "message": "Payment channel is not valid",
+                      "reason": "PaymentChannelIsNotValid",
+                      "errors": {
+                        "contact_id": [
+                          "is already assigned to another payment channel"
+                        ]
+                      }
+                    }
                   }
                 }
               }
