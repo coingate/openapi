@@ -15482,7 +15482,8 @@
             "schema": {
               "type": "integer"
             },
-            "required": true
+            "required": true,
+            "description": "Contact ID."
           }
         ],
         "summary": "Get Contact",
