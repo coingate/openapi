@@ -15142,8 +15142,8 @@
             "content": {
               "application/json": {
                 "examples": {
-                  "OK": {
-                    "summary": "OK",
+                  "200": {
+                    "summary": "200",
                     "value": {
                       "id": 86,
                       "contact_id": 45,
@@ -15252,8 +15252,8 @@
                   }
                 },
                 "examples": {
-                  "Not Found": {
-                    "summary": "Not Found",
+                  "404": {
+                    "summary": "404",
                     "value": {
                       "message": "Payment channel not found",
                       "reason": "PaymentChannelNotFound"
