@@ -15473,6 +15473,35 @@
                 }
               }
             }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Contact not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "ContactNotFound"
+                    }
+                  }
+                },
+                "examples": {
+                  "404": {
+                    "summary": "404",
+                    "value": {
+                      "message": "Contact not found",
+                      "reason": "ContactNotFound"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "404"
           }
         },
         "parameters": [
