@@ -14957,7 +14957,7 @@
       "post": {
         "responses": {
           "200": {
-            "description": "",
+            "description": "200",
             "content": {
               "application/json": {
                 "schema": {
@@ -14988,8 +14988,8 @@
                   }
                 },
                 "examples": {
-                  "OK": {
-                    "summary": "OK",
+                  "200": {
+                    "summary": "200",
                     "value": {
                       "files": [
                         {
@@ -15013,8 +15013,8 @@
                   "properties": {}
                 },
                 "examples": {
-                  "Unprocessable Entity": {
-                    "summary": "Unprocessable Entity",
+                  "422": {
+                    "summary": "422",
                     "value": {
                       "message": "Document upload failed",
                       "reason": "DocumentUploadFailed",
@@ -15026,7 +15026,7 @@
                 }
               }
             },
-            "description": "Unprocessable Entity"
+            "description": "422"
           }
         },
         "parameters": [
@@ -15036,7 +15036,8 @@
             "schema": {
               "type": "integer"
             },
-            "required": true
+            "required": true,
+            "description": "Contact ID."
           }
         ],
         "summary": "Upload Documents",
@@ -15052,15 +15053,15 @@
                     "type": "string",
                     "format": "byte",
                     "default": "",
-                    "description": "The document to upload. See File constraints below."
+                    "description": "Document file. ≤10 MB; pdf/png/jpg/jpeg/zip/csv (invoice = pdf only)."
                   },
                   "document_type": {
                     "type": "string",
-                    "description": "Kind of document. See Allowed document types."
+                    "description": "person: passport | national_id | residence_permit; business: signed_contract | service_agreement | invoice."
                   },
                   "comment": {
                     "type": "string",
-                    "description": "Optional note attached to the upload (visible to compliance reviewers)."
+                    "description": "Optional note for compliance reviewers."
                   }
                 },
                 "required": [
