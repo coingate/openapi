@@ -15030,7 +15030,92 @@
                 "examples": {
                   "OK": {
                     "summary": "OK",
-                    "value": "{{\n  \"id\": 86,\n  \"contact_id\": 45,\n  \"payment_purpose\": \"Subscription fees\",\n  \"callback_url\": \"https://example.com/webhooks/payment-channels\",\n  \"receive_currency_id\": 1,\n  \"status\": \"active\",\n  \"created_at\": \"2026-06-09T08:20:44.998Z\",\n  \"addresses\": [\n    {\n      \"currency_id\": 1,\n      \"platform_id\": 4,\n      \"address\": \"tb1qexampledepositaddress00000000000000000\",\n      \"memo\": \"\",\n      \"expires_at\": null,\n      \"status\": \"active\"\n    }\n  ]\n}}"
+                    "value": {
+                      "id": 86,
+                      "contact_id": 45,
+                      "payment_purpose": "Subscription fees",
+                      "callback_url": "https://example.com/webhooks/payment-channels",
+                      "receive_currency_id": 1,
+                      "status": "active",
+                      "created_at": "2026-06-09T08:20:44.998Z",
+                      "addresses": [
+                        {
+                          "currency_id": 1,
+                          "platform_id": 4,
+                          "address": "tb1qexampledepositaddress00000000000000000",
+                          "memo": "",
+                          "expires_at": null,
+                          "status": "active"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 86,
+                      "default": 0
+                    },
+                    "contact_id": {
+                      "type": "integer",
+                      "example": 45,
+                      "default": 0
+                    },
+                    "payment_purpose": {
+                      "type": "string",
+                      "example": "Subscription fees"
+                    },
+                    "callback_url": {
+                      "type": "string",
+                      "example": "https://example.com/webhooks/payment-channels"
+                    },
+                    "receive_currency_id": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "active"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2026-06-09T08:20:44.998Z"
+                    },
+                    "addresses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "currency_id": {
+                            "type": "integer",
+                            "example": 1,
+                            "default": 0
+                          },
+                          "platform_id": {
+                            "type": "integer",
+                            "example": 4,
+                            "default": 0
+                          },
+                          "address": {
+                            "type": "string",
+                            "example": "tb1qexampledepositaddress00000000000000000"
+                          },
+                          "memo": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "expires_at": {},
+                          "status": {
+                            "type": "string",
+                            "example": "active"
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
