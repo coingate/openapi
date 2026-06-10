@@ -2,7 +2,7 @@
 api:
   file: v2.json
   operationId: get_payment-channels-id
-hidden: true
+hidden: false
 link:
   new_tab: false
 metadata:
