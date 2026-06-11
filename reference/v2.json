@@ -15539,7 +15539,7 @@
     "/oracle/{realm}/ask": {
       "post": {
         "tags": [
-          "Crypto Oracle (TESTING)"
+          "TESTING"
         ],
         "summary": "Ask the Crypto Oracle",
         "operationId": "ask_crypto_oracle",
@@ -15724,8 +15724,8 @@
   "x-readme-fauxas": true,
   "tags": [
     {
-      "name": "Crypto Oracle (TESTING)",
-      "description": "Demo endpoint group created via the ReadMe API."
+      "name": "TESTING",
+      "description": "Sandbox demo endpoints created via the ReadMe API."
     }
   ]
 }
