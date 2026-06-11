@@ -13835,7 +13835,6 @@
                           "platform_id": 4,
                           "address": null,
                           "memo": "",
-                          "expires_at": null,
                           "status": "enqueued"
                         }
                       ]
