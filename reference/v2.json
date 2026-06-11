@@ -14027,7 +14027,6 @@
                               "platform_id": 4,
                               "address": "bc1qexampledepositaddress00000000000000000",
                               "memo": "",
-                              "expires_at": null,
                               "status": "active"
                             },
                             {
@@ -14035,7 +14034,6 @@
                               "platform_id": 11,
                               "address": "0xExampleEthereumAddress00000000000000000000",
                               "memo": "",
-                              "expires_at": null,
                               "status": "active"
                             }
                           ]
