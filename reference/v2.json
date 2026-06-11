@@ -15535,6 +15535,185 @@
           }
         }
       }
+    },
+    "/oracle/{realm}/ask": {
+      "post": {
+        "tags": [
+          "Crypto Oracle (TESTING)"
+        ],
+        "summary": "Ask the Crypto Oracle",
+        "operationId": "ask_crypto_oracle",
+        "description": "Pose a yes/no question to the Crypto Oracle and receive a mystical, non-binding prophecy about the markets. **For entertainment only** — not financial advice.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "realm",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "bull",
+                "bear",
+                "crab",
+                "moon"
+              ]
+            },
+            "description": "Which market realm the Oracle should channel."
+          },
+          {
+            "in": "query",
+            "name": "verbosity",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "terse",
+                "normal",
+                "verbose"
+              ],
+              "default": "normal"
+            },
+            "description": "How dramatic the prophecy should be."
+          },
+          {
+            "in": "query",
+            "name": "lang",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            },
+            "description": "ISO language code for the prophecy text."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "question"
+                ],
+                "properties": {
+                  "question": {
+                    "type": "string",
+                    "maxLength": 280,
+                    "description": "Your yes/no question for the Oracle."
+                  },
+                  "mood": {
+                    "type": "string",
+                    "enum": [
+                      "calm",
+                      "anxious",
+                      "greedy",
+                      "fearful"
+                    ],
+                    "description": "Your current trading mood."
+                  },
+                  "lucky_number": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "description": "A seed for the divination."
+                  }
+                }
+              },
+              "examples": {
+                "Basic": {
+                  "summary": "A simple question",
+                  "value": {
+                    "question": "Should I HODL?",
+                    "mood": "anxious",
+                    "lucky_number": 42
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Oracle has spoken.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Prophecy": {
+                    "summary": "A favorable omen",
+                    "value": {
+                      "id": "orc_9f2c14",
+                      "realm": "bull",
+                      "question": "Should I HODL?",
+                      "verdict": "yes",
+                      "confidence": 0.73,
+                      "prophecy": "The candles align. Diamond hands shall be rewarded — but beware the third full moon.",
+                      "lucky_token": {
+                        "symbol": "BTC",
+                        "id": 1
+                      },
+                      "expires_at": "2026-06-12T00:00:00+00:00"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed question.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "BadQuestion": {
+                    "value": {
+                      "message": "The Oracle only answers yes/no questions.",
+                      "reason": "QuestionNotDivinable"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Tribute required.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "PayTribute": {
+                    "value": {
+                      "message": "Insufficient tribute. Send 0.0001 BTC to continue.",
+                      "reason": "TributeRequired"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "The Oracle must rest.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Resting": {
+                    "value": {
+                      "message": "The Oracle is meditating. Try again in 60 seconds.",
+                      "reason": "OracleResting"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-readme": {
+          "code-samples": [
+            {
+              "language": "shell",
+              "name": "cURL",
+              "code": "curl -X POST 'https://api.coingate.com/api/v2/oracle/bull/ask?verbosity=verbose' \\\n  -H 'Authorization: Token <API_APP_TOKEN>' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"question\":\"Should I HODL?\",\"mood\":\"anxious\",\"lucky_number\":42}'"
+            }
+          ]
+        }
+      }
     }
   },
   "x-readme": {
@@ -15542,5 +15721,11 @@
     "explorer-enabled": false,
     "proxy-enabled": true
   },
-  "x-readme-fauxas": true
+  "x-readme-fauxas": true,
+  "tags": [
+    {
+      "name": "Crypto Oracle (TESTING)",
+      "description": "Demo endpoint group created via the ReadMe API."
+    }
+  ]
 }
