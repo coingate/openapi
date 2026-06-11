@@ -1,0 +1,267 @@
+openapi: 3.0.3
+info:
+  title: API Callbacks
+  version: '2.0'
+servers:
+  - url: https://api.coingate.com/v2
+    description: Production
+  - url: https://api-sandbox.coingate.com/v2
+    description: Sandbox
+paths:
+  /api_callbacks:
+    get:
+      operationId: listApiCallbacks
+      summary: List API callbacks
+      description: >
+        Returns the API callbacks that belong to the authenticated app's
+        account, newest first. Use the filters to narrow the list down to a
+        single resource (e.g. all callbacks for one order).
+      tags:
+        - API Callbacks
+      security:
+        - ApiToken: []
+      parameters:
+        - name: per_page
+          in: query
+          description: >-
+            Number of records per page. Defaults to 100, maximum 100. Values
+            below 1 are clamped to 1.
+          schema:
+            type: integer
+            format: int32
+            default: 100
+            maximum: 100
+            minimum: 1
+        - name: page
+          in: query
+          description: Page number. Defaults to 1.
+          schema:
+            type: integer
+            format: int32
+            default: 1
+            minimum: 1
+        - name: callbackable_type
+          in: query
+          description: Filter by the type of the resource the callback belongs to.
+          schema:
+            type: string
+            enum:
+              - Order
+              - Billing::Payment
+              - MerchantRefund
+              - MassPayout::Payout
+              - BillingRequest
+              - SendRequest
+              - BillingContact
+              - CryptoAddress
+          example: Order
+        - name: callbackable_id
+          in: query
+          description: >-
+            Filter by the ID of the resource the callback belongs to. Usually
+            combined with `callbackable_type`.
+          schema:
+            type: integer
+            format: int64
+          example: 475
+      responses:
+        '200':
+          description: A paginated list of API callbacks.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  current_page:
+                    type: integer
+                    example: 1
+                  per_page:
+                    type: integer
+                    example: 100
+                  total_api_callbacks:
+                    type: integer
+                    example: 2
+                  total_pages:
+                    type: integer
+                    example: 1
+                  api_callbacks:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ApiCallback'
+              example:
+                current_page: 1
+                per_page: 100
+                total_api_callbacks: 2
+                total_pages: 1
+                api_callbacks:
+                  - id: 927
+                    callbackable_type: Order
+                    callbackable_id: 475
+                    status: success
+                    retries: 1
+                    created_at: '2026-06-10T13:36:06+00:00'
+                  - id: 926
+                    callbackable_type: Order
+                    callbackable_id: 475
+                    status: success
+                    retries: 1
+                    created_at: '2026-06-10T13:35:58+00:00'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /api_callbacks/{id}/retries:
+    get:
+      operationId: listApiCallbackRetries
+      summary: List API callback retries
+      description: >
+        Returns every delivery attempt (retry) made for a single API callback,
+        newest first. Sensitive values inside `callback_params` (for example
+        `token`) are masked with `[FILTERED]`.
+      tags:
+        - API Callbacks
+      security:
+        - ApiToken: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The API callback ID (from the List API callbacks response).
+          schema:
+            type: integer
+            format: int64
+          example: 927
+      responses:
+        '200':
+          description: The retries for the callback.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  retries:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ApiCallbackRetry'
+              example:
+                retries:
+                  - id: 99616e2e-8518-4eb6-8485-e35c0a4c5b72
+                    api_callback_id: 927
+                    response_status: '200'
+                    callback_params:
+                      id: 475
+                      order_id: your-order-id
+                      status: paid
+                      price_amount: '5.0'
+                      price_currency: EUR
+                      pay_amount: '0.00009606'
+                      pay_currency: BTC
+                      receive_amount: '5.0'
+                      receive_currency: EUR
+                      token: '[FILTERED]'
+                      created_at: '2026-06-10T13:27:33+00:00'
+                      paid_at: '2026-06-10T13:36:06+00:00'
+                    created_at: '2026-06-10T13:36:14+00:00'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: No callback with this ID belongs to the authenticated account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: API callback not found
+                reason: ApiCallbackNotFound
+components:
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Pass your API token as: `Authorization: Token YOUR_API_TOKEN`'
+  responses:
+    Unauthorized:
+      description: Missing or invalid API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            message: Auth Token is not valid
+            reason: BadAuthToken
+  schemas:
+    ApiCallback:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 927
+        callbackable_type:
+          type: string
+          description: The type of resource that triggered the callback.
+          enum:
+            - Order
+            - Billing::Payment
+            - MerchantRefund
+            - MassPayout::Payout
+            - BillingRequest
+            - SendRequest
+            - BillingContact
+            - CryptoAddress
+          example: Order
+        callbackable_id:
+          type: integer
+          example: 475
+        status:
+          type: string
+          description: Current state of the callback.
+          enum:
+            - ready
+            - without_callback
+            - sending
+            - retrying
+            - success
+            - failure
+            - canceled
+            - skipped
+          example: success
+        retries:
+          type: integer
+          description: Number of delivery attempts made so far.
+          example: 1
+        created_at:
+          type: string
+          format: date-time
+          example: '2026-06-10T13:36:06+00:00'
+    ApiCallbackRetry:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 99616e2e-8518-4eb6-8485-e35c0a4c5b72
+        api_callback_id:
+          type: integer
+          example: 927
+        response_status:
+          type: string
+          description: HTTP status code returned by the merchant endpoint (string).
+          example: '200'
+        callback_params:
+          type: object
+          additionalProperties: true
+          description: >
+            The exact payload sent to the merchant on this attempt. Sensitive
+            values (e.g. `token`) are masked with `[FILTERED]`. If the stored
+            payload is not a valid JSON object it is replaced by `{ "error":
+            "Callback params are not a valid JSON object" }`.
+        created_at:
+          type: string
+          format: date-time
+          example: '2026-06-10T13:36:14+00:00'
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        reason:
+          type: string
