@@ -10,7 +10,7 @@ servers:
 paths:
   /api_callbacks:
     get:
-      operationId: listApiCallbacks
+      operationId: list-api-callbacks
       summary: List API callbacks
       description: >
         Returns the API callbacks that belong to the authenticated app's
@@ -110,7 +110,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
   /api_callbacks/{id}/retries:
     get:
-      operationId: listApiCallbackRetries
+      operationId: list-api-callback-retries
       summary: List API callback retries
       description: >
         Returns every delivery attempt (retry) made for a single API callback,

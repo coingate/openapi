@@ -1,6 +1,6 @@
 ---
 api:
   file: api-callbacks.yaml
-  operationId: listApiCallbackRetries
+  operationId: list-api-callback-retries
 hidden: false
 ---

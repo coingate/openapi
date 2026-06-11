@@ -1,6 +1,6 @@
 ---
 api:
   file: api-callbacks.yaml
-  operationId: listApiCallbacks
+  operationId: list-api-callbacks
 hidden: false
 ---
