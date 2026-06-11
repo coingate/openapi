@@ -1,10 +1,7 @@
 ---
-title: Create Void Request
-excerpt: ''
 api:
   file: v2.json
   operationId: void-request
-deprecated: false
 hidden: false
 metadata:
   title: ''

@@ -1,12 +1,7 @@
 ---
-title: Supported Currencies
-excerpt: >-
-  Retrieve the list of supported currencies for payment processing, including
-  shopper payment currencies, pricing currencies, and settlement currencies.
 api:
   file: v2.json
   operationId: currencies
-deprecated: false
 hidden: false
 metadata:
   title: Supported Merchant Processing Currencies

@@ -1,9 +1,7 @@
 ---
-excerpt: ''
 api:
   file: v2.json
   operationId: create-billing-contact
-deprecated: false
 hidden: false
 metadata:
   title: ''

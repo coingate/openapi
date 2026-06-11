@@ -2,7 +2,6 @@
 api:
   file: v2.json
   operationId: list-orders
-deprecated: false
 hidden: false
 metadata:
   title: ''

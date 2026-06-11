@@ -1,12 +1,7 @@
 ---
-title: Get Exchange Rate
-excerpt: >-
-  Current exchange rate for any two currencies, fiat or crypto. This endpoint is
-  public, authentication is not required.
 api:
   file: v2.json
   operationId: get-rate
-deprecated: false
 hidden: false
 metadata:
   title: ''

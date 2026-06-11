@@ -1,10 +1,7 @@
 ---
-title: Send Request Exchange Confirm
-excerpt: ''
 api:
   file: v2.json
   operationId: send-request-exchange-confirm
-deprecated: false
 hidden: false
 metadata:
   title: ''

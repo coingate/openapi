@@ -1,10 +1,7 @@
 ---
-title: Send Request Exchange Cancel
-excerpt: ''
 api:
   file: v2.json
   operationId: send-request-exchange-cancel
-deprecated: false
 hidden: false
 metadata:
   title: ''

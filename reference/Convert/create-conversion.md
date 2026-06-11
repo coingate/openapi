@@ -1,10 +1,7 @@
 ---
-title: Create Conversion
-excerpt: ''
 api:
   file: v2.json
   operationId: create-conversion
-deprecated: false
 hidden: false
 metadata:
   title: ''
