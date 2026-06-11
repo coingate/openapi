@@ -15013,7 +15013,6 @@
                           "platform_id": 11,
                           "address": null,
                           "memo": "",
-                          "expires_at": null,
                           "status": "enqueued"
                         },
                         {
@@ -15021,7 +15020,6 @@
                           "platform_id": 18,
                           "address": null,
                           "memo": "",
-                          "expires_at": null,
                           "status": "enqueued"
                         }
                       ]
