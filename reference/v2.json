@@ -13978,7 +13978,8 @@
             "description": "CoinGate Merchant Refund ID"
           }
         ],
-        "operationId": "patch_orders-order-id-refunds-id-mark-as-completed"
+        "operationId": "patch_orders-order-id-refunds-id-mark-as-completed",
+        "summary": "Mark as Completed"
       }
     },
     "/contacts": {
