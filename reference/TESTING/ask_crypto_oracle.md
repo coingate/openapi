@@ -3,8 +3,6 @@ api:
   file: v2.json
   operationId: ask_crypto_oracle
 hidden: false
-metadata:
-  title: Edited via ReadMe MCP
 ---
 <Callout icon="🔮" theme="info">
   **Demo endpoint** created end-to-end through the ReadMe v2 API — spec upload, page generation, category move, and this very intro were all done programmatically. Not a real CoinGate endpoint.
