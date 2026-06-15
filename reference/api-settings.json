@@ -19,7 +19,7 @@
     "/ledger/accounts/{id}": {
       "get": {
         "summary": "Get Account",
-        "description": "",
+        "description": "Retrieve a single ledger account by its ID. A ledger account holds your funds on CoinGate — there is one per currency and account type — and the response includes its current balance (a string, floored to the currency's precision), status, account type and currency details. The account must belong to the authenticated account; otherwise a 404 is returned.",
         "operationId": "get-ledger-account",
         "parameters": [
           {
