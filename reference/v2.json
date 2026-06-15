@@ -3804,7 +3804,7 @@
     "/ledger/accounts": {
       "get": {
         "summary": "List Accounts",
-        "description": "",
+        "description": "List the ledger accounts that belong to the authenticated account. Ledger accounts hold your funds on CoinGate, with one account per currency and account type. Only visible accounts are returned — those with status `active` or `suspended` — and each includes its current balance and currency details. Results are paginated, 100 per page by default.",
         "operationId": "ledger-accounts",
         "parameters": [
           {
