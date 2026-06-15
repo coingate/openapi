@@ -1,10 +1,7 @@
 ---
-title: Create Send Request
-excerpt: ''
 api:
   file: v2.json
   operationId: create-send
-deprecated: false
 hidden: false
 metadata:
   title: ''

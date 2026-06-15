@@ -1,10 +1,7 @@
 ---
-title: Create Order
-excerpt: Create order at CoinGate and redirect shopper to invoice (payment_url).
 api:
   file: v2.json
   operationId: create-order
-deprecated: false
 hidden: false
 metadata:
   title: ''

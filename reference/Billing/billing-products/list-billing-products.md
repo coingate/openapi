@@ -1,5 +1,4 @@
 ---
-excerpt: ''
 api:
   file: v2.json
   operationId: list-billing-products

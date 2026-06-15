@@ -1,10 +1,7 @@
 ---
-title: Refund Binance Order
-excerpt: ''
 api:
   file: v2.json
   operationId: create-binance-order-refund
-deprecated: false
 hidden: false
 metadata:
   title: ''

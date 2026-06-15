@@ -1,10 +1,7 @@
 ---
-title: Get Send Request
-excerpt: ''
 api:
   file: v2.json
   operationId: get-send
-deprecated: false
 hidden: false
 metadata:
   title: ''

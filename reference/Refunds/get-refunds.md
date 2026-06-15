@@ -1,10 +1,7 @@
 ---
-title: Get Refunds
-excerpt: ''
 api:
   file: v2.json
   operationId: get-refunds
-deprecated: false
 hidden: false
 metadata:
   title: ''

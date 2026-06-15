@@ -1,10 +1,7 @@
 ---
-title: Checkout
-excerpt: ''
 api:
   file: v2.json
   operationId: binance-checkout
-deprecated: false
 hidden: false
 metadata:
   title: ''

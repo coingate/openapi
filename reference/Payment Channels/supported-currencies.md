@@ -2,7 +2,6 @@
 api:
   file: v2.json
   operationId: get_payment-channels-supported-currencies
-deprecated: false
 hidden: false
 link:
   new_tab: false

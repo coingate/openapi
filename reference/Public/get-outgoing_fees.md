@@ -2,7 +2,6 @@
 api:
   file: v2.json
   operationId: get-outgoing_fees
-deprecated: false
 hidden: true
 metadata:
   title: ''

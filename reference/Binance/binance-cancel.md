@@ -1,10 +1,7 @@
 ---
-title: Cancel Order
-excerpt: ''
 api:
   file: v2.json
   operationId: binance-cancel
-deprecated: false
 hidden: false
 metadata:
   title: Cancel Binance Order

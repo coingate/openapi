@@ -1,9 +1,7 @@
 ---
-title: Create Payout Setting
 api:
   file: v2.json
   operationId: create-beneficiary-payout-setting
-deprecated: false
 hidden: false
 metadata:
   title: ''

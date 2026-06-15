@@ -1,9 +1,7 @@
 ---
-title: Test
 api:
   file: v2.json
   operationId: post_new-endpoint
-deprecated: false
 hidden: true
 link:
   new_tab: false

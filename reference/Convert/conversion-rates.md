@@ -1,10 +1,7 @@
 ---
-title: Conversion Rates
-excerpt: List Supported Conversion Rates
 api:
   file: v2.json
   operationId: conversion-rates
-deprecated: false
 hidden: false
 metadata:
   title: ''

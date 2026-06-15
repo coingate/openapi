@@ -1,10 +1,7 @@
 ---
-title: List Send Requests
-excerpt: ''
 api:
   file: v2.json
   operationId: list-send
-deprecated: false
 hidden: false
 metadata:
   title: ''

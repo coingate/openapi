@@ -1,14 +1,7 @@
 ---
-title: Checkout
-excerpt: >-
-  Placing [created order](https://developer.coingate.com/reference/create-order)
-  with pre-selected payment currency (BTC, LTC, ETH, etc). Display
-  payment_address and pay_amount for shopper or redirect to payment_url. Can be
-  used to white-label invoices.
 api:
   file: v2.json
   operationId: checkout
-deprecated: false
 hidden: false
 metadata:
   title: ''
