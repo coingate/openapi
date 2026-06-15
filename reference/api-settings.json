@@ -34,22 +34,22 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "The ledger account.",
             "content": {
               "application/json": {
                 "examples": {
                   "Result": {
                     "value": {
-                      "id": "01HP6X6EP5YG76EQPTFBRWD6Y9",
-                      "balance": "0.859781",
+                      "id": "01KS2DT6X277ZEERSGKRPW8YZV",
+                      "balance": "10.88",
                       "status": "active",
                       "account_type": "main",
-                      "title": "Bitcoin main account",
+                      "title": "Euro main account",
                       "currency": {
-                        "id": 1,
-                        "title": "Bitcoin",
-                        "kind": "crypto",
-                        "symbol": "BTC",
+                        "id": 2,
+                        "title": "Euro",
+                        "kind": "fiat",
+                        "symbol": "EUR",
                         "enabled": true,
                         "disabled_message": null
                       }
@@ -61,46 +61,55 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "01G0EM0RRVREB4WD5KDB6VJVPM"
+                      "description": "The ledger account ID (ULID).",
+                      "example": "01KS2DT6X277ZEERSGKRPW8YZV"
                     },
                     "balance": {
                       "type": "string",
-                      "example": "0.00501229",
-                      "description": "Current balance, floored to the currency's precision. Returned as a string to preserve precision."
+                      "description": "Current balance, floored to the currency's precision. Returned as a string to preserve precision.",
+                      "example": "10.88"
                     },
                     "status": {
                       "type": "string",
-                      "example": "active",
                       "enum": [
                         "active",
                         "disabled",
                         "error_creating",
                         "suspended"
                       ],
-                      "description": "Account state. The List endpoint only returns active/suspended; this endpoint can also return disabled/error_creating."
+                      "description": "Account state. The List endpoint only returns active/suspended; this endpoint can also return disabled/error_creating.",
+                      "example": "active"
+                    },
+                    "account_type": {
+                      "type": "string",
+                      "enum": [
+                        "main",
+                        "secondary",
+                        "tertiary"
+                      ],
+                      "description": "Type of the ledger account.",
+                      "example": "main"
+                    },
+                    "title": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Account title. Defaults to \"{currency title} {account_type} account\" when not set explicitly.",
+                      "example": "Euro main account"
                     },
                     "currency": {
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "integer",
-                          "example": 1,
-                          "default": 0,
-                          "description": "Currency ID."
+                          "description": "Currency ID.",
+                          "example": 2
                         },
                         "title": {
                           "type": "string",
-                          "example": "Bitcoin",
-                          "description": "Currency name."
-                        },
-                        "symbol": {
-                          "type": "string",
-                          "example": "BTC",
-                          "description": "ISO symbol of the currency."
-                        },
-                        "enabled": {
-                          "type": "boolean",
-                          "description": "Whether the currency is currently enabled (not temporarily disabled)."
+                          "description": "Currency name.",
+                          "example": "Euro"
                         },
                         "kind": {
                           "type": "string",
@@ -109,7 +118,17 @@
                             "crypto"
                           ],
                           "description": "Whether the currency is fiat or crypto.",
-                          "example": "crypto"
+                          "example": "fiat"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "description": "ISO symbol of the currency.",
+                          "example": "EUR"
+                        },
+                        "enabled": {
+                          "type": "boolean",
+                          "description": "Whether the currency is currently enabled (not temporarily disabled).",
+                          "example": true
                         },
                         "disabled_message": {
                           "type": [
@@ -120,22 +139,6 @@
                           "example": null
                         }
                       }
-                    },
-                    "account_type": {
-                      "type": "string",
-                      "enum": [
-                        "main",
-                        "secondary",
-                        "tertiary"
-                      ],
-                      "description": "Type of the ledger account."
-                    },
-                    "title": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "description": "Account title. Defaults to \"{currency title} {account_type} account\" when not set explicitly."
                     }
                   }
                 }
@@ -228,21 +231,21 @@
         ],
         "responses": {
           "200": {
-            "description": "200",
+            "description": "The ledger transaction.",
             "content": {
               "application/json": {
                 "examples": {
                   "Result": {
                     "value": {
-                      "id": "01KQYT8NNTDN5M185MWNNSKJBN",
-                      "created_at": "2026-05-06T14:14:59.004Z",
-                      "purpose": "Order ID #74 100.0 EUR",
-                      "type": "merchant_order",
-                      "source_type": "Order",
-                      "source_id": "74",
+                      "id": "01KS2DT7051V73P3A64P71GMBE",
+                      "created_at": "2026-05-20T10:10:01.862Z",
+                      "purpose": "Order ID #67983 processing fee 0.11 EUR",
+                      "type": "fee",
+                      "source_type": "Fee",
+                      "source_id": "139981",
                       "account": {
-                        "id": "01KM2ZN7CVENHDXPRKNPGB876A",
-                        "balance": "480.08",
+                        "id": "01KS2DT6X277ZEERSGKRPW8YZV",
+                        "balance": "10.88",
                         "status": "active",
                         "account_type": "main",
                         "title": "Euro main account",
@@ -263,9 +266,9 @@
                         "enabled": true,
                         "disabled_message": null
                       },
-                      "credited_amount": "0",
-                      "debited_amount": "100.0",
-                      "closing_balance": "481.08"
+                      "credited_amount": "0.11",
+                      "debited_amount": "0",
+                      "closing_balance": "10.88"
                     }
                   }
                 },
@@ -274,36 +277,169 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "01GTH61CE8SRENMEB6J9A8AE8P"
+                      "description": "The transaction (ledger entry) ID (ULID). Sortable by creation time.",
+                      "example": "01KS2DT7051V73P3A64P71GMBE"
                     },
                     "created_at": {
                       "type": "string",
-                      "example": "2023-03-02T12:51:31.431Z"
+                      "format": "date-time",
+                      "description": "When the transaction was created (ISO 8601, UTC).",
+                      "example": "2026-05-20T10:10:01.862Z"
                     },
                     "purpose": {
-                      "type": "string",
-                      "example": "Bought 0.04523086 BTC for 1000.0 EUR"
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Free-text note describing the transaction, or null.",
+                      "example": "Order ID #67983 processing fee 0.11 EUR"
                     },
                     "type": {
                       "type": "string",
-                      "example": "trader_order_buy"
+                      "enum": [
+                        "trader_order_buy",
+                        "trader_order_sell",
+                        "trader_order_swap",
+                        "withdrawal",
+                        "fee",
+                        "withdrawal_revert",
+                        "fee_revert",
+                        "merchant_refund",
+                        "merchant_refund_revert",
+                        "merchant_order",
+                        "merchant_order_revert",
+                        "funds_transfer",
+                        "deposit",
+                        "exchange_addition",
+                        "exchange_deduction",
+                        "balance_deduction",
+                        "mass_payout",
+                        "mass_payout_entry_refund",
+                        "merchant_order_pfb_deduction",
+                        "mass_payout_entry_service_fee_refund",
+                        "send_request",
+                        "send_request_revert",
+                        "flat_fee",
+                        "outgoing_fee",
+                        "conversion_fee",
+                        "fx_revenue",
+                        "exchange_fee",
+                        "claim_transaction_fee",
+                        "order_unclaimed_funds_addition",
+                        "order_unclaimed_funds_deduction",
+                        "abandonment_fee",
+                        "abandonment_balance",
+                        "deposit_revert",
+                        "usdt_usdc_conversion",
+                        "fx_revenue_revert",
+                        "tx_network_fee",
+                        "batch_payout",
+                        "batch_payout_revert",
+                        "payout_link",
+                        "payout_link_revert"
+                      ],
+                      "description": "The kind of ledger transaction.",
+                      "example": "fee"
                     },
                     "source_type": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Type of the record that produced this transaction (e.g. Order, Fee, Withdrawal), or null.",
+                      "example": "Fee"
                     },
                     "source_id": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "ID of the record that produced this transaction, or null.",
+                      "example": "139981"
                     },
                     "account": {
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "string",
-                          "example": "01GTH61CE10JWX4WE5KCPS33PZ"
+                          "description": "The ledger account ID (ULID).",
+                          "example": "01KS2DT6X277ZEERSGKRPW8YZV"
+                        },
+                        "balance": {
+                          "type": "string",
+                          "description": "Current balance, floored to the currency's precision. Returned as a string to preserve precision.",
+                          "example": "10.88"
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "active",
+                            "disabled",
+                            "error_creating",
+                            "suspended"
+                          ],
+                          "description": "Account state.",
+                          "example": "active"
+                        },
+                        "account_type": {
+                          "type": "string",
+                          "enum": [
+                            "main",
+                            "secondary",
+                            "tertiary"
+                          ],
+                          "description": "Type of the ledger account.",
+                          "example": "main"
                         },
                         "title": {
-                          "type": "string",
-                          "example": "Bitcoin main account"
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Account title. Defaults to \"{currency title} {account_type} account\" when not set explicitly.",
+                          "example": "Euro main account"
+                        },
+                        "currency": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "description": "Currency ID.",
+                              "example": 2
+                            },
+                            "title": {
+                              "type": "string",
+                              "description": "Currency name.",
+                              "example": "Euro"
+                            },
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "fiat",
+                                "crypto"
+                              ],
+                              "description": "Whether the currency is fiat or crypto.",
+                              "example": "fiat"
+                            },
+                            "symbol": {
+                              "type": "string",
+                              "description": "ISO symbol of the currency.",
+                              "example": "EUR"
+                            },
+                            "enabled": {
+                              "type": "boolean",
+                              "description": "Whether the currency is currently enabled (not temporarily disabled).",
+                              "example": true
+                            },
+                            "disabled_message": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "Reason the currency is temporarily disabled, or null when enabled.",
+                              "example": null
+                            }
+                          }
                         }
                       }
                     },
@@ -312,47 +448,73 @@
                       "properties": {
                         "id": {
                           "type": "integer",
-                          "example": 1,
-                          "default": 0
+                          "description": "Currency ID.",
+                          "example": 2
                         },
                         "title": {
                           "type": "string",
-                          "example": "Bitcoin"
+                          "description": "Currency name.",
+                          "example": "Euro"
                         },
                         "kind": {
                           "type": "string",
-                          "example": "crypto"
+                          "enum": [
+                            "fiat",
+                            "crypto"
+                          ],
+                          "description": "Whether the currency is fiat or crypto.",
+                          "example": "fiat"
                         },
                         "symbol": {
                           "type": "string",
-                          "example": "BTC"
+                          "description": "ISO symbol of the currency.",
+                          "example": "EUR"
+                        },
+                        "enabled": {
+                          "type": "boolean",
+                          "description": "Whether the currency is currently enabled (not temporarily disabled).",
+                          "example": true
+                        },
+                        "disabled_message": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Reason the currency is temporarily disabled, or null when enabled.",
+                          "example": null
                         }
                       }
                     },
                     "credited_amount": {
                       "type": "string",
-                      "example": "0"
+                      "description": "Amount credited in this transaction, as a positive decimal string. Credits reduce the account balance (e.g. a fee or withdrawal). \"0\" when the transaction is a debit.",
+                      "example": "0.11"
                     },
                     "debited_amount": {
                       "type": "string",
-                      "example": "0.04523086"
+                      "description": "Amount debited in this transaction, as a positive decimal string. Debits increase the account balance (e.g. an incoming merchant_order). \"0\" when the transaction is a credit.",
+                      "example": "0"
                     },
                     "closing_balance": {
                       "type": "string",
-                      "example": "0.04523086"
+                      "description": "Account balance immediately after this transaction was applied.",
+                      "example": "10.88"
                     }
                   }
                 }
               }
             }
           },
-          "404": {
-            "description": "404",
+          "401": {
+            "description": "Missing or invalid API token.",
             "content": {
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"message\": \"Ledger Account not found\",\n  \"reason\": \"LedgerAccountNotFound\"\n}"
+                    "value": {
+                      "message": "Auth Token is not valid",
+                      "reason": "BadAuthToken"
+                    }
                   }
                 },
                 "schema": {
@@ -360,11 +522,39 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "Ledger Account not found"
+                      "example": "Auth Token is not valid"
                     },
                     "reason": {
                       "type": "string",
-                      "example": "LedgerAccountNotFound"
+                      "example": "BadAuthToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No ledger transaction with this ID belongs to the authenticated account.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "message": "Ledger Transaction not found",
+                      "reason": "LedgerTransactionNotFound"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Ledger Transaction not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "LedgerTransactionNotFound"
                     }
                   }
                 }
