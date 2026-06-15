@@ -8649,7 +8649,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "Billign Product ID",
+            "description": "Billing Product ID",
             "schema": {
               "type": "string"
             },
@@ -8738,8 +8738,7 @@
               }
             }
           }
-        },
-        "deprecated": false
+        }
       },
       "delete": {
         "summary": "Delete Billing Product",
