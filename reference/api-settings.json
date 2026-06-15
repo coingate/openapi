@@ -65,11 +65,19 @@
                     },
                     "balance": {
                       "type": "string",
-                      "example": "0.00501229"
+                      "example": "0.00501229",
+                      "description": "Current balance, floored to the currency's precision. Returned as a string to preserve precision."
                     },
                     "status": {
                       "type": "string",
-                      "example": "active"
+                      "example": "active",
+                      "enum": [
+                        "active",
+                        "disabled",
+                        "error_creating",
+                        "suspended"
+                      ],
+                      "description": "Account state. The List endpoint only returns active/suspended; this endpoint can also return disabled/error_creating."
                     },
                     "currency": {
                       "type": "object",
@@ -77,18 +85,39 @@
                         "id": {
                           "type": "integer",
                           "example": 1,
-                          "default": 0
+                          "default": 0,
+                          "description": "Currency ID."
                         },
                         "title": {
                           "type": "string",
-                          "example": "Bitcoin"
+                          "example": "Bitcoin",
+                          "description": "Currency name."
                         },
                         "symbol": {
                           "type": "string",
-                          "example": "BTC"
+                          "example": "BTC",
+                          "description": "ISO symbol of the currency."
                         },
                         "enabled": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "Whether the currency is currently enabled (not temporarily disabled)."
+                        },
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "fiat",
+                            "crypto"
+                          ],
+                          "description": "Whether the currency is fiat or crypto.",
+                          "example": "crypto"
+                        },
+                        "disabled_message": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Reason the currency is temporarily disabled, or null when enabled.",
+                          "example": null
                         }
                       }
                     },
@@ -96,11 +125,45 @@
                       "type": "string",
                       "enum": [
                         "main",
-                        "secondary"
-                      ]
+                        "secondary",
+                        "tertiary"
+                      ],
+                      "description": "Type of the ledger account."
                     },
                     "title": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Account title. Defaults to \"{currency title} {account_type} account\" when not set explicitly."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API token.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "message": "Auth Token is not valid",
+                      "reason": "BadAuthToken"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Auth Token is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "BadAuthToken"
                     }
                   }
                 }

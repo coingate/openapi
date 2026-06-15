@@ -2,7 +2,6 @@
 api:
   file: api-settings.json
   operationId: get-withdrawals
-deprecated: false
 hidden: false
 metadata:
   title: ''
