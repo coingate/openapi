@@ -14502,7 +14502,8 @@
           }
         },
         "parameters": [],
-        "operationId": "get_countries-merchants"
+        "operationId": "get_countries-merchants",
+        "summary": "Merchant Supported Countries"
       }
     },
     "/countries/shoppers": {
