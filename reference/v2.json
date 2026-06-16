@@ -1617,7 +1617,7 @@
     "/orders/{id}/binance/checkout": {
       "post": {
         "summary": "Checkout",
-        "description": "# White-label invoices using Binance Checkout method\n\nUsing Binance Checkout method, invoices can be white-labelled and integrated into your website, without redirecting the customer to CoinGate and receiving payments through Binance Pay.\n\nThis is achieved by using one of the available Binance Pay attributes: `qr_code_link`, `qr_content`, `checkout_url`, `deep_link` or `universal_url`. Binance recommends using `universal_url`.\n\nPlease be aware that order should be created in advance through [create order endpoint](https://developer.coingate.com/reference/create-order) with `order_id`, `success` and `cancel` urls provided. You may experience some webhook callbacks delay, so we **highly recommend** using [get order endpoint](https://developer.coingate.com/reference/get-order) to retrieve latest updates once user lands on `success` or `cancel` url.\n\nIn case of cancelation, Binance only redirects the user to provided url without cancelling the order, so to fully cancel the order, please use [cancel Binance order endpoint](https://developer.coingate.com/reference/binance-cancel).",
+        "description": "Generate Binance Pay checkout details for a previously created order so the invoice can be white-labelled and embedded in your own site instead of redirecting the customer to CoinGate. Returns Binance Pay attributes such as `universal_url`, `checkout_url`, `deep_link`, `qr_content` and `qr_code_link`.",
         "operationId": "binance-checkout",
         "parameters": [
           {
@@ -2016,7 +2016,7 @@
     "/orders/{id}/binance/refund": {
       "post": {
         "summary": "Refund Binance Order",
-        "description": "# Refund orders paid via Binance Pay\n\nPlease note that this endpoint is only available for orders processed by Binance, please refer to the `payment_gateway` attribute on the order. This is similar to [POST Create Order Refund endpoint](https://developer.coingate.com/reference/create-refund) except you do not need to submit address, crypto platform and related payment information.\n\nLedger account ID can be found by making a [GET List Accounts](https://developer.coingate.com/reference/accounts) request and finding the ledger account ID associated with the currency in which the refund will be issued.",
+        "description": "Refund an order that was paid via Binance Pay. Unlike the standard order refund, no destination address or crypto platform is required — you only specify the ledger account to refund from. Only available for orders whose `payment_gateway` is Binance.",
         "operationId": "create-binance-order-refund",
         "parameters": [
           {
