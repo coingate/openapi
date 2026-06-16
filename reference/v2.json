@@ -325,7 +325,7 @@
       },
       "get": {
         "summary": "List Orders",
-        "description": "Retrieving information of all placed orders.",
+        "description": "Returns a paginated list of CoinGate orders created in your account. Orders are returned in sorted order, with the most recent orders appearing first.",
         "operationId": "list-orders",
         "parameters": [
           {
@@ -622,7 +622,7 @@
     "/orders/{id}/checkout": {
       "post": {
         "summary": "Checkout",
-        "description": "Placing [created order](https://developer.coingate.com/reference/create-order) with pre-selected payment currency (BTC, LTC, ETH, etc). Display payment_address and pay_amount for shopper or redirect to payment_url. Can be used to white-label invoices.",
+        "description": "Placing [created order](https://developer.coingate.com/reference/create-order) with pre-selected payment currency (BTC, LTC, ETH, etc). Display payment_address and pay_amount for shopper or redirect to payment_url. Can be used to white-label invoices. This endpoint is available only for selected merchants — contact CoinGate Support to enable it for your account, otherwise it returns a 422 error.",
         "operationId": "checkout",
         "parameters": [
           {
