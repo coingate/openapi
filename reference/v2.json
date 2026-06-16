@@ -855,7 +855,7 @@
     "/orders/{id}": {
       "get": {
         "summary": "Get Order",
-        "description": "",
+        "description": "Retrieve the details of a single CoinGate order using its unique order ID. Returns information such as payment amounts, addresses/URIs, gateway used, conversion rates, refunds, fees, and blockchain transaction data.",
         "operationId": "get-order",
         "parameters": [
           {
@@ -1617,7 +1617,7 @@
     "/orders/{id}/binance/checkout": {
       "post": {
         "summary": "Checkout",
-        "description": "",
+        "description": "# White-label invoices using Binance Checkout method\n\nUsing Binance Checkout method, invoices can be white-labelled and integrated into your website, without redirecting the customer to CoinGate and receiving payments through Binance Pay.\n\nThis is achieved by using one of the available Binance Pay attributes: `qr_code_link`, `qr_content`, `checkout_url`, `deep_link` or `universal_url`. Binance recommends using `universal_url`.\n\nPlease be aware that order should be created in advance through [create order endpoint](https://developer.coingate.com/reference/create-order) with `order_id`, `success` and `cancel` urls provided. You may experience some webhook callbacks delay, so we **highly recommend** using [get order endpoint](https://developer.coingate.com/reference/get-order) to retrieve latest updates once user lands on `success` or `cancel` url.\n\nIn case of cancelation, Binance only redirects the user to provided url without cancelling the order, so to fully cancel the order, please use [cancel Binance order endpoint](https://developer.coingate.com/reference/binance-cancel).",
         "operationId": "binance-checkout",
         "parameters": [
           {
@@ -1838,7 +1838,7 @@
     "/orders/{id}/binance/cancel": {
       "post": {
         "summary": "Cancel Order",
-        "description": "",
+        "description": "Cancels a Binance payment order from the merchant’s side. This stops the payment process and updates the CoinGate order’s status to canceled.",
         "operationId": "binance-cancel",
         "parameters": [
           {
@@ -2016,7 +2016,7 @@
     "/orders/{id}/binance/refund": {
       "post": {
         "summary": "Refund Binance Order",
-        "description": "",
+        "description": "# Refund orders paid via Binance Pay\n\nPlease note that this endpoint is only available for orders processed by Binance, please refer to the `payment_gateway` attribute on the order. This is similar to [POST Create Order Refund endpoint](https://developer.coingate.com/reference/create-refund) except you do not need to submit address, crypto platform and related payment information.\n\nLedger account ID can be found by making a [GET List Accounts](https://developer.coingate.com/reference/accounts) request and finding the ledger account ID associated with the currency in which the refund will be issued.",
         "operationId": "create-binance-order-refund",
         "parameters": [
           {
@@ -2335,7 +2335,7 @@
     "/orders/{order_id}/refunds": {
       "post": {
         "summary": "Create Order Refund",
-        "description": "",
+        "description": "Initiates a cryptocurrency refund for a specified order. You provide the refund amount, destination address, currency, and other required details. The refund is identified and tracked using the CoinGate-issued refund ID, and its status can be retrieved or updated via the API. For more details on how CoinGate refunds work, see [this guide](https://coingate.com/blog/post/merchant-refund).",
         "operationId": "create-refund",
         "parameters": [
           {
@@ -13348,7 +13348,7 @@
     },
     "/orders/{order_id}/refunds/{id}/mark_as_rejected": {
       "patch": {
-        "description": "",
+        "description": "Marks a pending refund as rejected, triggering the same business logic as the \"Mark as Rejected\" action in the Account Dashboard — including updating the order refund status and sending notification emails and API callbacks to the merchant and shopper. **Available in sandbox environment only**.",
         "responses": {
           "200": {
             "description": "",
@@ -13477,7 +13477,7 @@
     },
     "/orders/{order_id}/refunds/{id}/mark_as_completed": {
       "patch": {
-        "description": "",
+        "description": "Marks a pending refund as completed, triggering the same business logic as the \"Mark as Completed\" action in the Account Dashboard — including updating the order refund status and sending notification emails and API callbacks to the merchant and shopper. **Available in sandbox environment only**.",
         "responses": {
           "200": {
             "description": "",
