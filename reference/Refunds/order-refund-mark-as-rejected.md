@@ -8,4 +8,4 @@ link:
 metadata:
   robots: index
 ---
-Marks a pending refund as rejected, triggering the same business logic as the "Mark as Rejected" action in the Account Dashboard — including updating the order refund status and sending notification emails and API callbacks to the merchant and shopper. **Available in sandbox environment only**.
+<br />
