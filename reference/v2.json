@@ -1617,7 +1617,7 @@
     "/orders/{id}/binance/checkout": {
       "post": {
         "summary": "Checkout",
-        "description": "",
+        "description": "Generate Binance Pay checkout details for a previously created order so the invoice can be white-labelled and embedded in your own site instead of redirecting the customer to CoinGate. Returns Binance Pay attributes such as `universal_url`, `checkout_url`, `deep_link`, `qr_content` and `qr_code_link`.",
         "operationId": "binance-checkout",
         "parameters": [
           {
@@ -1838,7 +1838,7 @@
     "/orders/{id}/binance/cancel": {
       "post": {
         "summary": "Cancel Order",
-        "description": "",
+        "description": "Cancels a Binance payment order from the merchant’s side. This stops the payment process and updates the CoinGate order’s status to canceled.",
         "operationId": "binance-cancel",
         "parameters": [
           {
@@ -2016,7 +2016,7 @@
     "/orders/{id}/binance/refund": {
       "post": {
         "summary": "Refund Binance Order",
-        "description": "",
+        "description": "Refund an order that was paid via Binance Pay. Unlike the standard order refund, no destination address or crypto platform is required — you only specify the ledger account to refund from. Only available for orders whose `payment_gateway` is Binance.",
         "operationId": "create-binance-order-refund",
         "parameters": [
           {
