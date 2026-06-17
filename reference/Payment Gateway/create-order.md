@@ -21,11 +21,3 @@ Note on the _receive_currency_ parameter - this is your settlement currency. Whe
 > All fields within the shopper object are **optional**. For example, if you only have the shopper’s email, first name, and last name, you may leave all other fields empty. Any provided values will be automatically prefilled on the checkout form, and the remaining fields will be filled on the checkout form by the shopper.
 
 <br />
-
-> 📘 Shopper Object
->
-> Since 2025, the shopper object has been introduced to enhance the customer experience and simplify Travel Rule compliance by pre-filling the Travel Rule form during checkout. Learn more about the Travel Rule <Anchor label="here" target="_blank" href="https://coingate.com/blog/post/travel-rule-explained">here</Anchor>.
->
-> All fields within the shopper object are **optional**. For example, if you only have the shopper’s email, first name, and last name, you may leave all other fields empty. Any provided values will be automatically prefilled on the checkout form, and the remaining fields will be filled on the checkout form by the shopper.
-
-<br />
