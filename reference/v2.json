@@ -13471,7 +13471,7 @@
             "description": "CoinGate Merchant Refund ID"
           }
         ],
-        "summary": "Copy of ",
+        "summary": "Mark as Rejected",
         "operationId": "patch_orders-order-id-refunds-id-mark-as-rejected"
       }
     },
