@@ -10,7 +10,26 @@
     }
   ],
   "components": {
-    "securitySchemes": {}
+    "securitySchemes": {
+      "InstitutionApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-CG-Api-Key",
+        "description": "Your Institution API key."
+      },
+      "InstitutionNonce": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-CG-Nonce",
+        "description": "Epoch milliseconds; must be within ±5 minutes of server time."
+      },
+      "InstitutionSignature": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-CG-Signature",
+        "description": "HMAC-SHA256 of nonce+method+host+path+body, prefixed with 'v1='."
+      }
+    }
   },
   "security": [
     {}
@@ -15905,6 +15924,1710 @@
                   "file",
                   "document_type"
                 ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/institution/auth/test": {
+      "get": {
+        "summary": "Test Connection",
+        "operationId": "test-institution-connection",
+        "description": "Verify that your API key and request signature are valid. Returns the current server time.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "time": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2026-06-22T14:02:41.123Z"
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"success\": true,\n  \"time\": \"2026-06-22T14:02:41.123Z\"\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/institution/businesses": {
+      "get": {
+        "summary": "List Businesses",
+        "operationId": "list-businesses",
+        "description": "Retrieve all businesses belonging to the authenticated institution.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "businesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "example": 42
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "ops@acme.example"
+                          },
+                          "title": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "example": "ACME Holdings UAB"
+                          },
+                          "country": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "example": "LT"
+                          },
+                          "company_code": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "example": "300123456"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2026-06-22T14:02:41+00:00"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"businesses\": [\n    {\n      \"id\": 42,\n      \"email\": \"ops@acme.example\",\n      \"title\": \"ACME Holdings UAB\",\n      \"country\": \"LT\",\n      \"company_code\": \"300123456\",\n      \"created_at\": \"2026-06-22T14:02:41+00:00\"\n    }\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Business",
+        "operationId": "create-business",
+        "description": "Register a new business under the authenticated institution. All fields are required.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "company_name",
+                  "country",
+                  "company_code",
+                  "email",
+                  "first_name",
+                  "last_name",
+                  "role"
+                ],
+                "properties": {
+                  "company_name": {
+                    "type": "string",
+                    "description": "Max 191 characters.",
+                    "example": "ACME Holdings UAB"
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "2-letter ISO country code.",
+                    "example": "LT"
+                  },
+                  "company_code": {
+                    "type": "string",
+                    "description": "Max 191 characters.",
+                    "example": "300123456"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "ops@acme.example"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "description": "2-191 characters.",
+                    "example": "Jane"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "description": "2-191 characters.",
+                    "example": "Doe"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "director",
+                      "representative"
+                    ],
+                    "example": "director"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "201",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 42
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "ops@acme.example"
+                    },
+                    "title": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "example": "ACME Holdings UAB"
+                    },
+                    "country": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "example": "LT"
+                    },
+                    "company_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "example": "300123456"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2026-06-22T14:02:41+00:00"
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 42,\n  \"email\": \"ops@acme.example\",\n  \"title\": null,\n  \"country\": \"LT\",\n  \"company_code\": \"300123456\",\n  \"created_at\": \"2026-06-22T14:02:41+00:00\"\n}"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": {\n    \"email\": [\n      \"is invalid\"\n    ]\n  }\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/institution/businesses/{id}": {
+      "get": {
+        "summary": "Get Business",
+        "operationId": "get-business",
+        "description": "Retrieve a single business by ID.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Institution business ID.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 42
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "ops@acme.example"
+                    },
+                    "title": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "example": "ACME Holdings UAB"
+                    },
+                    "country": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "example": "LT"
+                    },
+                    "company_code": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "example": "300123456"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2026-06-22T14:02:41+00:00"
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 42,\n  \"email\": \"ops@acme.example\",\n  \"title\": \"ACME Holdings UAB\",\n  \"country\": \"LT\",\n  \"company_code\": \"300123456\",\n  \"created_at\": \"2026-06-22T14:02:41+00:00\"\n}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Business or verification not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"business not found\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/institution/businesses/{business_id}/verification": {
+      "get": {
+        "summary": "Get Verification",
+        "operationId": "get-verification",
+        "description": "Retrieve the verification record for a business.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "business_id",
+            "in": "path",
+            "required": true,
+            "description": "Institution business ID.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"success\": true\n}"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Verification not available for this business",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"verification is not available for this business\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Business or verification not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"business not found\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Submit Verification",
+        "operationId": "update-verification",
+        "description": "Submit or update KYB verification data for a business. The verification must be in the 'edited' status. Array sections (business partners, shareholders) merge into existing records by default; set upsert to false to replace them while preserving admin-added records. Returns the verification session URL.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "business_id",
+            "in": "path",
+            "required": true,
+            "description": "Institution business ID.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "upsert": {
+                    "type": "boolean",
+                    "description": "When true (default), array sections merge; when false, they replace existing records.",
+                    "example": true
+                  },
+                  "business_details": {
+                    "type": "object",
+                    "properties": {
+                      "legal_country": {
+                        "type": "string"
+                      },
+                      "legal_country_state": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "legal_name": {
+                        "type": "string"
+                      },
+                      "legal_status": {
+                        "type": "string"
+                      },
+                      "legal_code": {
+                        "type": "string"
+                      },
+                      "vat": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "tin": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "incorporation_date": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "phone_number": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "ticker_symbol": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "legal_address": {
+                        "type": "string"
+                      },
+                      "legal_secondary_address": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "legal_city": {
+                        "type": "string"
+                      },
+                      "legal_postal_code": {
+                        "type": "string"
+                      },
+                      "operation_address": {
+                        "type": "string"
+                      },
+                      "operation_secondary_address": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "operation_city": {
+                        "type": "string"
+                      },
+                      "operation_country": {
+                        "type": "string"
+                      },
+                      "operation_country_state": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "operation_postal_code": {
+                        "type": "string"
+                      },
+                      "hold_licenses": {
+                        "type": "boolean"
+                      },
+                      "authorized_capital": {
+                        "type": "string"
+                      },
+                      "previous_turnover": {
+                        "type": "string"
+                      },
+                      "expected_turnover_using_cg": {
+                        "type": "string"
+                      },
+                      "source_of_funds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "countries_of_funds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "countries_of_transferred_funds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "licenses": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "issuer": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "issued_at": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "format": "date"
+                            },
+                            "expires_at": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "format": "date"
+                            }
+                          }
+                        }
+                      },
+                      "industries": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "slug": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "primary_nace_industry": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "NACE class code."
+                          }
+                        }
+                      },
+                      "secondary_nace_industries": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "code": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "NACE class code."
+                            }
+                          }
+                        }
+                      },
+                      "websites": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "description": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "director": {
+                    "type": "object",
+                    "properties": {
+                      "first_name": {
+                        "type": "string"
+                      },
+                      "last_name": {
+                        "type": "string"
+                      },
+                      "date_of_birth": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "place_of_birth": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "Alpha-2 country code."
+                      },
+                      "country_state": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "Alpha-2 state code (requires country)."
+                      },
+                      "citizenship": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "postal_code": {
+                        "type": "string"
+                      },
+                      "shares": {
+                        "type": "number",
+                        "description": "Ownership percentage."
+                      },
+                      "pep": {
+                        "type": "boolean",
+                        "description": "Politically Exposed Person flag."
+                      },
+                      "prominent_public_functions": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "holds_director_position": {
+                        "type": "boolean"
+                      },
+                      "family_pep": {
+                        "type": "object",
+                        "properties": {
+                          "first_name": {
+                            "type": "string"
+                          },
+                          "middle_name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "last_name": {
+                            "type": "string"
+                          },
+                          "prominent_public_functions": {
+                            "type": "string"
+                          },
+                          "relationship": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "agent": {
+                    "type": "object",
+                    "properties": {
+                      "first_name": {
+                        "type": "string"
+                      },
+                      "last_name": {
+                        "type": "string"
+                      },
+                      "date_of_birth": {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      "place_of_birth": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string",
+                        "description": "Alpha-2 country code."
+                      },
+                      "country_state": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "Alpha-2 state code (requires country)."
+                      },
+                      "citizenship": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "postal_code": {
+                        "type": "string"
+                      },
+                      "shares": {
+                        "type": "number",
+                        "description": "Ownership percentage."
+                      },
+                      "pep": {
+                        "type": "boolean",
+                        "description": "Politically Exposed Person flag."
+                      },
+                      "prominent_public_functions": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "holds_director_position": {
+                        "type": "boolean"
+                      },
+                      "family_pep": {
+                        "type": "object",
+                        "properties": {
+                          "first_name": {
+                            "type": "string"
+                          },
+                          "middle_name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "last_name": {
+                            "type": "string"
+                          },
+                          "prominent_public_functions": {
+                            "type": "string"
+                          },
+                          "relationship": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "business_partners": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "legal_code": {
+                          "type": "string",
+                          "description": "Used for upsert matching."
+                        },
+                        "legal_name": {
+                          "type": "string"
+                        },
+                        "legal_country": {
+                          "type": "string"
+                        },
+                        "legal_country_state": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "person_shareholders": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "first_name": {
+                          "type": "string"
+                        },
+                        "last_name": {
+                          "type": "string"
+                        },
+                        "date_of_birth": {
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "place_of_birth": {
+                          "type": "string"
+                        },
+                        "citizenship": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "shares": {
+                          "type": "number"
+                        },
+                        "ubo": {
+                          "type": "boolean",
+                          "description": "Ultimate Beneficial Owner flag."
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "Alpha-2 country code."
+                        },
+                        "country_state": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "pep": {
+                          "type": "boolean"
+                        },
+                        "prominent_public_functions": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "family_pep": {
+                          "type": "object",
+                          "properties": {
+                            "first_name": {
+                              "type": "string"
+                            },
+                            "middle_name": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "last_name": {
+                              "type": "string"
+                            },
+                            "prominent_public_functions": {
+                              "type": "string"
+                            },
+                            "relationship": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "business_shareholders": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "organisation_name": {
+                          "type": "string"
+                        },
+                        "organisation_code": {
+                          "type": "string",
+                          "description": "Used for upsert matching."
+                        },
+                        "legal_country": {
+                          "type": "string"
+                        },
+                        "shares": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "verification": {
+                      "type": "object",
+                      "properties": {
+                        "verification_url": {
+                          "type": "string",
+                          "example": "https://coingate.com/verify/abc123"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"verification\": {\n    \"verification_url\": \"https://coingate.com/verify/abc123\"\n  }\n}"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Verification not editable or validation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"verification is not editable\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Verification not available for this business",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"verification is not available for this business\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Business or verification not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"business not found\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/institution/businesses/{business_id}/verification/sessions": {
+      "get": {
+        "summary": "List Verification Sessions",
+        "operationId": "list-verification-sessions",
+        "description": "Retrieve active verification sessions (links) for a business, ordered newest first.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "business_id",
+            "in": "path",
+            "required": true,
+            "description": "Institution business ID.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "verification_sessions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "example": "https://coingate.com/verify/abc123"
+                          },
+                          "expire_at": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time",
+                            "example": "2026-06-29T14:02:41+00:00"
+                          },
+                          "revoked_at": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time"
+                          },
+                          "consumed_at": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2026-06-22T14:02:41+00:00"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"verification_sessions\": [\n    {\n      \"url\": \"https://coingate.com/verify/abc123\",\n      \"expire_at\": \"2026-06-29T14:02:41+00:00\",\n      \"revoked_at\": null,\n      \"consumed_at\": null,\n      \"created_at\": \"2026-06-22T14:02:41+00:00\"\n    }\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Verification not available for this business",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"verification is not available for this business\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Business or verification not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"business not found\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/institution/businesses/{business_id}/verification/sessions/refresh": {
+      "put": {
+        "summary": "Refresh Verification Session",
+        "operationId": "refresh-verification-session",
+        "description": "Return the current active verification session for a business, or issue a new one if none is active. Use this to deliver a verification link to the business.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "business_id",
+            "in": "path",
+            "required": true,
+            "description": "Institution business ID.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "verification_session": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "example": "https://coingate.com/verify/abc123"
+                        },
+                        "expire_at": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "date-time",
+                          "example": "2026-06-29T14:02:41+00:00"
+                        },
+                        "revoked_at": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "date-time"
+                        },
+                        "consumed_at": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "date-time"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2026-06-22T14:02:41+00:00"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"verification_session\": {\n    \"url\": \"https://coingate.com/verify/abc123\",\n    \"expire_at\": \"2026-06-29T14:02:41+00:00\",\n    \"revoked_at\": null,\n    \"consumed_at\": null,\n    \"created_at\": \"2026-06-22T14:02:41+00:00\"\n  }\n}"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Verification not available for this business",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"verification is not available for this business\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Business or verification not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"business not found\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/institution/businesses/{business_id}/verification/files": {
+      "post": {
+        "summary": "Upload Verification File",
+        "operationId": "upload-verification-file",
+        "description": "Upload a KYB document for a business's verification. The verification must be in the 'edited' status. Send as multipart/form-data.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "business_id",
+            "in": "path",
+            "required": true,
+            "description": "Institution business ID.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "file"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "business_registration",
+                      "organizational_structure",
+                      "articles_of_association",
+                      "company_license",
+                      "proof_of_address",
+                      "bank_statement",
+                      "tax_declaration",
+                      "power_of_attorney",
+                      "identification_front",
+                      "identification_back"
+                    ],
+                    "example": "business_registration"
+                  },
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The document file."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "201",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 7
+                    },
+                    "kind": {
+                      "type": "string",
+                      "example": "business_registration"
+                    },
+                    "original_filename": {
+                      "type": "string",
+                      "example": "registration.pdf"
+                    },
+                    "status": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2026-06-22T14:02:41+00:00"
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 7,\n  \"kind\": \"business_registration\",\n  \"original_filename\": \"registration.pdf\",\n  \"status\": null,\n  \"created_at\": \"2026-06-22T14:02:41+00:00\"\n}"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"kind is not allowed\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Verification not available for this business",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"verification is not available for this business\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Business or verification not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"errors\": [\n    \"business not found\"\n  ]\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/institution/orders": {
+      "get": {
+        "summary": "List Orders",
+        "operationId": "list-institution-orders",
+        "description": "Retrieve orders for the authenticated institution.",
+        "tags": [
+          "Institution"
+        ],
+        "security": [
+          {
+            "InstitutionApiKey": [],
+            "InstitutionNonce": [],
+            "InstitutionSignature": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"success\": true\n}"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid API credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {}
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid API credentials\",\n  \"reason\": \"InvalidApiCredentials\"\n}"
+                  }
+                }
               }
             }
           }
