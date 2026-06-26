@@ -131,6 +131,6 @@ next:
 
 ## Order Status Changing Flow
 
-![](https://files.readme.io/dad48a28e440240f186b775c75c37447dc8e70199d770e6c441ebdc0a558cf07-Screenshot_2026-05-05_at_14.07.45.png)
+![](https://files.readme.io/7ea68afbe69ba55b00cd8975454630f0fe435cdbeaf1ab80878af88f0496b8d7-image.png)
 
 <br />
