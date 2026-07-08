@@ -26,6 +26,7 @@ You can integrate directly via API or choose from our ready-made, API-based [eco
 * Accept crypto payments from customers worldwide
 * Issue full or partial refunds
 * Send crypto payouts to employees, vendors, or users
+* Accept recurring deposits via dedicated, non-expiring Payment Channel addresses
 * Convert crypto to fiat or other assets in real-time
 * Automate billing with recurring or one-off crypto invoices, and more
 
@@ -42,6 +43,14 @@ Handle the entire payment lifecycle — from generating payment addresses to con
 ### Binance Pay Integration
 
 Together with the standard CoinGate Payment Processing integration, you also gain seamless access to <Anchor label="Binance Pay" target="_blank" href="https://merchant.binance.com/en">Binance Pay</Anchor>—a contactless, borderless, and secure cryptocurrency payment solution developed by Binance. This unlocks the ability for millions of Binance Pay users to purchase from your store using any wallet assets tied to their Binance account.
+
+### Payment Channels 🆕
+
+Assign each customer a dedicated crypto payment address that never expires and accept unlimited recurring deposits — no need to create a new order or invoice for every transaction. Unlike standard payment flows that expire after 20 minutes, Payment Channel addresses stay active indefinitely.
+
+CoinGate automatically detects every incoming deposit, attributes it to the correct customer, runs AML and Travel Rule compliance checks with full audit trails, and notifies your system via API callback. Funds can be received in the original cryptocurrency or auto-converted to a settlement currency like EUR, USD, or GBP — so you get predictable settlement without managing crypto exposure.
+
+Ideal for recurring deposits, account top-ups, customer wallets, marketplaces, ad networks, SaaS billing, and gaming platforms. Access is granted on request. [Learn more](https://developer.coingate.com/reference/payment-channels-overview).
 
 ### Refund API
 
