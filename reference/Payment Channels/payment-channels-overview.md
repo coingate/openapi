@@ -14,7 +14,7 @@ next:
       type: endpoint
 ---
 <Callout icon="📘" theme="info">
-  Payment Channels are ready to use. Access is granted on request — to request access, contact our sales team via <Anchor label="CoinGate Payment Channels" target="_blank" href="https://coingate.com/payment-channels">CoinGate Payment Channels</Anchor>.
+  Access is granted on request — to request access, contact our sales team via <Anchor label="CoinGate Payment Channels" target="_blank" href="https://coingate.com/payment-channels">CoinGate Payment Channels</Anchor>.
 </Callout>
 
 Payment Channels allow merchants to create dedicated crypto payment addresses for their customers and receive recurring payments without creating a new Order for every transaction.

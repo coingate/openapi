@@ -5,11 +5,6 @@ hidden: false
 metadata:
   robots: index
 ---
-<br />
-
-<Callout icon="📘" theme="info">
-  Payment Channels are ready to use. Access is granted on request — to request access, contact our sales team via <Anchor label="CoinGate Payment Channels" target="_blank" href="https://coingate.com/payment-channels">CoinGate Payment Channels</Anchor>.
-</Callout>
 
 When an order received through a Payment Channel changes status, CoinGate sends a structured callback to the URL configured on that Payment Channel (`callback_url`). The payload follows a versioned envelope (`event`, `object`, `data`) and includes everything a merchant needs for reconciliation: contact details, external identifiers, the payment address, blockchain transactions, fees, and the exchange rate.
 
