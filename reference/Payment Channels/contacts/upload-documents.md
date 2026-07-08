@@ -10,8 +10,8 @@ metadata:
 ---
 <br />
 
-<Callout icon="🚧" theme="warn">
-  This feature is currently under development and available only for selected partners during the early access phase. To join the whitelist and receive updates about Payment Channels availability, visit: <Anchor label="CoinGate Payment Channels" target="_blank" href="https://coingate.com/payment-channels">CoinGate Payment Channels</Anchor>
+<Callout icon="📘" theme="info">
+  Payment Channels are ready to use. Access is granted on request — to request access, contact our sales team via <Anchor label="CoinGate Payment Channels" target="_blank" href="https://coingate.com/payment-channels">CoinGate Payment Channels</Anchor>.
 </Callout>
 
 Upload a compliance document (passport, national ID, signed contract, etc.) to a payment channel contact. Used during the contact verification flow when CoinGate compliance requests supporting documents.
