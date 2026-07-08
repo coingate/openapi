@@ -36,45 +36,41 @@ All payments can be automatically settled in crypto or converted to fiat like EU
 
 ## Key Features
 
-### Easy Payment Integration
+CoinGate gives you everything to accept, move, and manage crypto — through a single API and one dashboard.
 
-Handle the entire payment lifecycle — from generating payment addresses to confirming transactions and receiving settlements — with just a few API calls. Start [here](https://developer.coingate.com/docs/api-overview).
+### Accepting payments
 
-### Binance Pay Integration
+<Cards columns={2}>
+  <Card title="Easy Payment Integration" icon="fa-bolt" href="https://developer.coingate.com/docs/api-overview">
+    Handle the full payment lifecycle — from generating addresses to confirming transactions and receiving settlement — in just a few API calls.
+  </Card>
+  <Card title="Payment Channels 🆕" icon="fa-arrows-rotate" href="https://developer.coingate.com/reference/payment-channels-overview">
+    Give each customer a dedicated, non-expiring crypto address for unlimited recurring deposits. Every deposit is auto-detected, attributed, compliance-checked, and settled in crypto or fiat.
+  </Card>
+  <Card title="Binance Pay" icon="fa-qrcode" href="https://merchant.binance.com/en" target="_blank">
+    Let millions of Binance Pay users check out using any assets tied to their Binance account — contactless, borderless, and secure.
+  </Card>
+  <Card title="Underpaid Cover" icon="fa-shield-halved" href="https://support.coingate.com/hc/en-us/articles/4402498932114">
+    Set an underpayment tolerance (up to 10%) so slightly underpaid invoices still complete, preventing failed or expired orders.
+  </Card>
+</Cards>
 
-Together with the standard CoinGate Payment Processing integration, you also gain seamless access to <Anchor label="Binance Pay" target="_blank" href="https://merchant.binance.com/en">Binance Pay</Anchor>—a contactless, borderless, and secure cryptocurrency payment solution developed by Binance. This unlocks the ability for millions of Binance Pay users to purchase from your store using any wallet assets tied to their Binance account.
+### Moving & managing funds
 
-### Payment Channels 🆕
-
-Assign each customer a dedicated crypto payment address that never expires and accept unlimited recurring deposits — no need to create a new order or invoice for every transaction. Unlike standard payment flows that expire after 20 minutes, Payment Channel addresses stay active indefinitely.
-
-CoinGate automatically detects every incoming deposit, attributes it to the correct customer, runs AML and Travel Rule compliance checks with full audit trails, and notifies your system via API callback. Funds can be received in the original cryptocurrency or auto-converted to a settlement currency like EUR, USD, or GBP — so you get predictable settlement without managing crypto exposure.
-
-Ideal for recurring deposits, account top-ups, customer wallets, marketplaces, ad networks, SaaS billing, and gaming platforms. Access is granted on request. [Learn more](https://developer.coingate.com/reference/payment-channels-overview).
-
-### Refund API
-
-Quickly issue full or partial [refunds](https://coingate.com/blog/post/merchant-refund) via API with transparent status tracking. Both merchants and customers receive automatic updates throughout the process.
-
-### Payout API
-
-Automate crypto payouts to employees, contractors, customers, or users — individually or at scale.
-
-Use the [Crypto Payout Integration](https://developer.coingate.com/reference/send-request-overview) for fully automated payout workflows, or choose [Batch Payouts](https://coingate.com/crypto-payouts) to upload a CSV file and process mass payouts without writing code.
-
-CoinGate handles currency conversion, blockchain delivery, and payout processing, helping you move funds globally with less operational overhead.
-
-### Convert API
-
-Easily swap between supported crypto and fiat currencies. Prices are fetched in real-time, and converted funds are automatically credited to your CoinGate balance. More about it — [here](https://developer.coingate.com/reference/conversion-overview).
-
-### Billing API
-
-Generate crypto invoices with defined due dates, amounts, and currencies. Track paid and unpaid bills from your dashboard or via API. [Learn more](https://developer.coingate.com/reference/billing-overview).
-
-### Underpaid Cover
-
-Underpaid Cover allows merchants to accept cryptocurrency payments that are slightly below the invoice amount by configuring an underpayment tolerance (up to 10%). If a shopper underpays within this threshold, the payment is still marked as paid, helping prevent failed or expired orders. [Learn more](https://support.coingate.com/hc/en-us/articles/4402498932114).
+<Cards columns={2}>
+  <Card title="Payout API" icon="fa-paper-plane" href="https://developer.coingate.com/reference/send-request-overview">
+    Automate crypto payouts to employees, contractors, or users — individually, at scale, or as no-code batch payouts via CSV. CoinGate handles conversion, delivery, and processing.
+  </Card>
+  <Card title="Convert API" icon="fa-arrow-right-arrow-left" href="https://developer.coingate.com/reference/conversion-overview">
+    Swap between supported crypto and fiat at real-time prices, with converted funds credited straight to your CoinGate balance.
+  </Card>
+  <Card title="Refund API" icon="fa-rotate-left" href="https://coingate.com/blog/post/merchant-refund" target="_blank">
+    Issue full or partial refunds via API, with transparent status tracking and automatic updates for you and your customers.
+  </Card>
+  <Card title="Billing API" icon="fa-file-invoice" href="https://developer.coingate.com/reference/billing-overview">
+    Generate crypto invoices with set due dates, amounts, and currencies, and track paid and unpaid bills from the dashboard or API.
+  </Card>
+</Cards>
 
 ## Developer-Friendly by Design
 
