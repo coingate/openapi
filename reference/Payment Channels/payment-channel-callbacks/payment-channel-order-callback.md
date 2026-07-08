@@ -55,17 +55,28 @@ A callback is sent every time the order transitions to one of these statuses:
     },
     "price": {
       "amount": "10.00",
-      "currency": { "id": 2, "symbol": "EUR" }
+      "currency": { "id": 2, "title": "Euro", "symbol": "EUR" }
     },
     "pay": {
       "amount": "0.00016069",
-      "currency": { "id": 1, "symbol": "BTC" },
-      "conversion_rate": "62000.00"
+      "currency": {
+        "id": 1,
+        "title": "Bitcoin",
+        "symbol": "BTC",
+        "platform": { "id": 6, "title": "Bitcoin" }
+      },
+      "exchange_rate": {
+        "to_currency": { "id": 2, "title": "Euro", "symbol": "EUR" },
+        "value": "62000.00"
+      }
     },
     "receive": {
       "amount": "9.00",
-      "currency": { "id": 1, "symbol": "EUR" },
-      "conversion_rate": "62000.00"
+      "currency": { "id": 2, "title": "Euro", "symbol": "EUR" },
+      "exchange_rate": {
+        "to_currency": { "id": 2, "title": "Euro", "symbol": "EUR" },
+        "value": "1.0"
+      }
     },
     "payment_channel": {
       "id": 456,
@@ -80,6 +91,7 @@ A callback is sent every time the order transitions to one of these statuses:
         "network_confirmations": 6,
         "currency": {
           "id": 1,
+          "title": "Bitcoin",
           "symbol": "BTC",
           "platform": { "id": 6, "title": "Bitcoin" }
         }
@@ -96,5 +108,9 @@ A callback is sent every time the order transitions to one of these statuses:
   }
 }
 ```
+
+> 📘 Exchange rate
+>
+> `exchange_rate.value` is the rate to convert into `exchange_rate.to_currency` (the order's price currency). The `exchange_rate` object is omitted entirely when no rate applies to that side. `pay.currency.platform` identifies the blockchain the paid asset settled on.
 
 <br />
