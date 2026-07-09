@@ -229,47 +229,96 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "description": "must be 'business' or 'personal'"
-                      },
-                      "ip_address": {
-                        "type": "string",
-                        "description": "Shopper’s IP address"
+                        "description": "Shopper type. Must be 'personal' or 'business' ('company' is also accepted as an alias for 'business')."
                       },
                       "email": {
                         "type": "string",
-                        "description": "Shoppers e-mail address"
+                        "description": "Shopper's e-mail address"
+                      },
+                      "ip_address": {
+                        "type": "string",
+                        "description": "Shopper's IP address"
+                      },
+                      "personal": {
+                        "type": "object",
+                        "properties": {
+                          "first_name": {
+                            "type": "string",
+                            "description": "Shopper's first name."
+                          },
+                          "last_name": {
+                            "type": "string",
+                            "description": "Shopper's last name."
+                          },
+                          "date_of_birth": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "Shopper's date of birth. Must be a valid date in the format YYYY-MM-DD."
+                          },
+                          "residence_country": {
+                            "type": "string",
+                            "description": "Shopper's country of residence. Must be a valid Alpha-2 country code."
+                          }
+                        },
+                        "description": "Personal details of the shopper. Provide when the shopper type is 'personal'."
+                      },
+                      "company": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Company's legal name."
+                          },
+                          "code": {
+                            "type": "string",
+                            "description": "Company code (or business ID number) assigned by the authority under which the company is registered."
+                          },
+                          "registration_country": {
+                            "type": "string",
+                            "description": "Country where the company is registered. Must be a valid Alpha-2 country code."
+                          }
+                        },
+                        "description": "Company details of the shopper. Provide when the shopper type is 'business'."
                       },
                       "first_name": {
                         "type": "string",
-                        "description": "Shopper’s first name. For business type, provide the representative’s first name"
+                        "deprecated": true,
+                        "description": "Deprecated, use personal.first_name instead. Shopper's first name. For business type, provide the representative's first name."
                       },
                       "last_name": {
                         "type": "string",
-                        "description": "Shopper’s last name. For business type, provide the representative’s last name"
+                        "deprecated": true,
+                        "description": "Deprecated, use personal.last_name instead. Shopper's last name. For business type, provide the representative's last name."
                       },
                       "date_of_birth": {
                         "type": "string",
                         "format": "date",
-                        "description": "Shopper’s date of birth. For business type, provide the representative’s date of birth. Must be a valid date in the format YYYY-MM-DD"
+                        "deprecated": true,
+                        "description": "Deprecated, use personal.date_of_birth instead. Shopper's date of birth. For business type, provide the representative's date of birth. Must be a valid date in the format YYYY-MM-DD."
                       },
                       "residence_address": {
                         "type": "string",
-                        "description": "Shopper's residence address. Can be omitted if the shopper is a business"
+                        "deprecated": true,
+                        "description": "Deprecated. Shopper's residence address. Can be omitted if the shopper is a business."
                       },
                       "residence_postal_code": {
                         "type": "string",
-                        "description": "Shopper's residence postal code. Can be omitted if the shopper is a business"
+                        "deprecated": true,
+                        "description": "Deprecated. Shopper's residence postal code. Can be omitted if the shopper is a business."
                       },
                       "residence_city": {
                         "type": "string",
-                        "description": "Shopper’s residence city. Can be omitted if the shopper is a business"
+                        "deprecated": true,
+                        "description": "Deprecated. Shopper's residence city. Can be omitted if the shopper is a business."
                       },
                       "residence_country": {
                         "type": "string",
-                        "description": "Shopper's country of residence. Must be a valid Alpha-2 country code. May be omitted if the shopper is a business."
+                        "deprecated": true,
+                        "description": "Deprecated, use personal.residence_country instead. Shopper's country of residence. Must be a valid Alpha-2 country code. May be omitted if the shopper is a business."
                       },
                       "company_details": {
                         "type": "object",
+                        "deprecated": true,
                         "properties": {
                           "name": {
                             "type": "string",
@@ -285,30 +334,29 @@
                           },
                           "incorporation_country": {
                             "type": "string",
-                            "format": "date",
                             "description": "Country where the company was incorporated. Must be a valid Alpha-2 country code."
                           },
                           "address": {
                             "type": "string",
-                            "description": "Company’s registered address."
+                            "description": "Company's registered address."
                           },
                           "postal_code": {
                             "type": "string",
-                            "description": "Postal code of the company’s registered address."
+                            "description": "Postal code of the company's registered address."
                           },
                           "city": {
                             "type": "string",
-                            "description": "Company’s registered address city."
+                            "description": "Company's registered address city."
                           },
                           "country": {
                             "type": "string",
                             "description": "Company's country of registration. Must be a valid Alpha-2 country code."
                           }
                         },
-                        "description": "Company details must be provided when the shopper type is 'business'."
+                        "description": "Deprecated, use the company object instead. Company details must be provided when the shopper type is 'business'."
                       }
                     },
-                    "description": "Optional object to enhance the shopper’s experience and prefill the Travel Rule form on the checkout page. Learn more about the [Travel Rule](https://coingate.com/blog/post/travel-rule-explained). All fields are optional."
+                    "description": "Optional object to enhance the shopper’s experience and prefill the Travel Rule form on the checkout page. Learn more about the [Travel Rule](https://coingate.com/blog/post/travel-rule-explained). All fields are optional. Use the nested personal and company objects; the top-level personal fields and company_details are deprecated. When personal or company is present, the deprecated top-level fields are ignored."
                   }
                 },
                 "type": "object",
