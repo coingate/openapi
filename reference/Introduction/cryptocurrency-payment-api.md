@@ -48,7 +48,7 @@ CoinGate gives you everything to accept, move, and manage crypto — through a s
     Give each customer a dedicated, non-expiring crypto address for unlimited recurring deposits. Every deposit is auto-detected, attributed, compliance-checked, and settled in crypto or fiat.
   </Card>
   <Card title="Binance Pay" icon="fa-qrcode" href="https://merchant.binance.com/en" target="_blank">
-    Let millions of Binance Pay users check out using any assets tied to their Binance account — contactless, borderless, and secure.
+    Together with the standard CoinGate Payment Processing integration, you also gain seamless access to Binance Pay—a contactless, borderless, and secure cryptocurrency payment solution developed by Binance. This unlocks the ability for millions of Binance Pay users to purchase from your store using any wallet assets tied to their Binance account.
   </Card>
   <Card title="Underpaid Cover" icon="fa-shield-halved" href="https://support.coingate.com/hc/en-us/articles/4402498932114">
     Set an underpayment tolerance (up to 10%) so slightly underpaid invoices still complete, preventing failed or expired orders.
