@@ -13,10 +13,6 @@ next:
       title: API Callbacks
       type: endpoint
 ---
-<Callout icon="📘" theme="info">
-  Access is granted on request — to request access, contact our sales team via <Anchor label="CoinGate Payment Channels" target="_blank" href="https://coingate.com/payment-channels">CoinGate Payment Channels</Anchor>.
-</Callout>
-
 Payment Channels allow merchants to create dedicated crypto payment addresses for their customers and receive recurring payments without creating a new Order for every transaction.
 
 Unlike traditional crypto payment flows, Payment Channels do not expire after 20 minutes. Customers can send funds to the assigned payment address at any time, making them ideal for recurring deposits, account top-ups, customer wallets, and gaming platforms.
