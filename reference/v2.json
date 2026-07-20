@@ -14540,6 +14540,70 @@
         "summary": "Shopper Supported Countries"
       }
     },
+    "/industries": {
+      "get": {
+        "summary": "Industries",
+        "description": "Returns the list of enabled industries, sorted by title. Use the industry id when submitting the industries field of a business verification.",
+        "operationId": "list-industries",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Industry identifier. Use this value when submitting business verification industries."
+                      },
+                      "title": {
+                        "type": "string",
+                        "description": "Human-readable industry name."
+                      },
+                      "slug": {
+                        "type": "string",
+                        "description": "URL-friendly industry identifier."
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "title",
+                      "slug"
+                    ]
+                  }
+                },
+                "examples": {
+                  "OK": {
+                    "summary": "OK",
+                    "value": [
+                      {
+                        "id": 1,
+                        "title": "Apparel & Cosmetics",
+                        "slug": "apparel-cosmetics"
+                      },
+                      {
+                        "id": 4,
+                        "title": "Education",
+                        "slug": "education"
+                      },
+                      {
+                        "id": 10,
+                        "title": "Gaming (not gambling)",
+                        "slug": "gaming-not-gambling"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/payment_channels/supported-currencies": {
       "get": {
         "description": "",
