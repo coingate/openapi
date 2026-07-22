@@ -5,8 +5,6 @@
 - platforms
 - void-request
 - get-void-request
-- crypto-forms
 - invoice
-- get-outgoing_fees
 - supported-countries
 - list-industries
