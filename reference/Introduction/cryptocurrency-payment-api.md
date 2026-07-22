@@ -79,8 +79,15 @@ CoinGate gives you everything to accept, move, and manage crypto — through a s
 * [Sandbox mode](https://developer.coingate.com/reference/environments) for safe integration testing
 * API keys with [permission controls](https://coingate.com/blog/post/business-user-permissions) to manage access securely
 * [Libraries](https://developer.coingate.com/reference/code-libraries) in popular programming languages
+* [Open-source OpenAPI specification](https://github.com/coingate/openapi) for client generation and tooling
 
 See a real-life use case in our [Shop Example](https://example.coingate.com/).
+
+## OpenAPI Specification
+
+The complete API v2 specification is available as an OpenAPI 3.1 document in our public [openapi repository](https://github.com/coingate/openapi). Use the [raw spec URL](https://raw.githubusercontent.com/coingate/openapi/v2/reference/v2.json) to generate API clients, import the API into Postman or Insomnia, or run a mock server.
+
+Spotted a mistake or a gap in the documentation? [Open an issue](https://github.com/coingate/openapi/issues) — small fixes are welcome as pull requests too.
 
 ## Track Everything From Your Dashboard
 
