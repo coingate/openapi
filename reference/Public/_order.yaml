@@ -3,6 +3,7 @@
 - ping
 - ip-addresses
 - platforms
+- platform-available
 - void-request
 - get-void-request
 - invoice
