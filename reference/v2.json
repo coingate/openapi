@@ -12803,6 +12803,112 @@
         }
       }
     },
+    "/platforms/{id_name}/available": {
+      "get": {
+        "summary": "Platform Availability",
+        "description": "Checks whether a specific crypto platform (blockchain network) is currently operational and able to process requests. The platform is identified by its id_name, which can be retrieved from the Platforms endpoint. Returns 200 with available set to true when the platform is up. Returns 503 with available set to false and a list of error messages when the platform is temporarily disabled or its node is unreachable. Returns 404 when no enabled platform matches the given id_name. Authentication is not required.",
+        "operationId": "platform-available",
+        "parameters": [
+          {
+            "name": "id_name",
+            "in": "path",
+            "required": true,
+            "description": "Platform id_name, for example bitcoin, ethereum or tron. The full list is available on the Platforms endpoint.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n    \"available\": true\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "available": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n    \"message\": \"Platform does not exist\",\n    \"reason\": \"PlatformNotFound\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Platform does not exist"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "PlatformNotFound"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n    \"available\": false,\n    \"errors\": [\n        \"Platform is not available\"\n    ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "available": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "Platform is not available"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-readme": {
+          "code-samples": [
+            {
+              "language": "shell",
+              "code": "curl https://api.coingate.com/v2/platforms/bitcoin/available"
+            }
+          ],
+          "samples-languages": [
+            "shell"
+          ]
+        }
+      }
+    },
     "/invoice/{uuid}/request-void": {
       "post": {
         "summary": "Create Void Request",
