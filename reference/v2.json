@@ -4961,37 +4961,49 @@
         "summary": "List Send Requests",
         "description": "",
         "operationId": "list-send",
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "per_page": {
-                    "type": "integer",
-                    "description": "Records per page you would like to see",
-                    "default": 100,
-                    "format": "int32"
-                  },
-                  "page": {
-                    "type": "integer",
-                    "description": "Current page number",
-                    "default": 1,
-                    "format": "int32"
-                  }
-                }
-              },
-              "examples": {
-                "Request Example": {
-                  "value": {
-                    "per_page": 100,
-                    "page": 1
-                  }
-                }
-              }
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page number",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Records per page (max - 100)",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          },
+          {
+            "name": "requestable_type",
+            "in": "query",
+            "description": "Return only send requests created by this source. Combine with requestable_id to filter down to a single batch payout or payout link.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "batch_payout",
+                "payout_link"
+              ]
+            }
+          },
+          {
+            "name": "requestable_id",
+            "in": "query",
+            "description": "ID of the source that created the send requests, e.g. the batch payout ID. Combine with requestable_type, otherwise the same ID may match both a batch payout and a payout link.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "200",
@@ -5329,6 +5341,38 @@
                             "default": true
                           }
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "422",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid parameters\",\n  \"reason\": \"InvalidParameters\",\n  \"errors\": [\n    \"requestable_type must be one of: batch_payout, payout_link\"\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid parameters"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "InvalidParameters"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "requestable_type must be one of: batch_payout, payout_link"
                       }
                     }
                   }
