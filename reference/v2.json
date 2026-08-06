@@ -4613,7 +4613,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": 11,\n  \"status\": \"draft\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"external_id\": \"1\",\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}"
+                    "value": "{\n  \"id\": 11,\n  \"status\": \"draft\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"external_id\": \"1\",\n  \"requestable_id\": 7,\n  \"requestable_type\": \"batch_payout\",\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}"
                   }
                 },
                 "schema": {
@@ -4643,6 +4643,20 @@
                     "external_id": {
                       "type": "string",
                       "example": "1"
+                    },
+                    "requestable_id": {
+                      "type": "integer",
+                      "description": "null when the send request was not created from a batch payout or payout link.",
+                      "example": 7
+                    },
+                    "requestable_type": {
+                      "type": "string",
+                      "description": "null when the send request was not created from a batch payout or payout link.",
+                      "enum": [
+                        "batch_payout",
+                        "payout_link"
+                      ],
+                      "example": "batch_payout"
                     },
                     "ledger_account": {
                       "type": "object",
@@ -4961,37 +4975,49 @@
         "summary": "List Send Requests",
         "description": "",
         "operationId": "list-send",
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "per_page": {
-                    "type": "integer",
-                    "description": "Records per page you would like to see",
-                    "default": 100,
-                    "format": "int32"
-                  },
-                  "page": {
-                    "type": "integer",
-                    "description": "Current page number",
-                    "default": 1,
-                    "format": "int32"
-                  }
-                }
-              },
-              "examples": {
-                "Request Example": {
-                  "value": {
-                    "per_page": 100,
-                    "page": 1
-                  }
-                }
-              }
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Current page number",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Records per page (max - 100)",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          },
+          {
+            "name": "requestable_type",
+            "in": "query",
+            "description": "Return only send requests created by this source. Combine with requestable_id to filter down to a single batch payout or payout link.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "batch_payout",
+                "payout_link"
+              ]
+            }
+          },
+          {
+            "name": "requestable_id",
+            "in": "query",
+            "description": "ID of the source that created the send requests, e.g. the batch payout ID. Combine with requestable_type, otherwise the same ID may match both a batch payout and a payout link.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "200",
@@ -4999,7 +5025,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 100,\n  \"total_records\": 1,\n  \"total_pages\": 1,\n  \"send_requests\": [\n    {\n  \"id\": 11,\n  \"status\": \"draft\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"external_id\": \"1\",\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}\n  ]\n}"
+                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 100,\n  \"total_records\": 1,\n  \"total_pages\": 1,\n  \"send_requests\": [\n    {\n  \"id\": 11,\n  \"status\": \"draft\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"external_id\": \"1\",\n  \"requestable_id\": 7,\n  \"requestable_type\": \"batch_payout\",\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}\n  ]\n}"
                   }
                 },
                 "schema": {
@@ -5054,6 +5080,20 @@
                           "external_id": {
                             "type": "string",
                             "example": "1"
+                          },
+                          "requestable_id": {
+                            "type": "integer",
+                            "description": "null when the send request was not created from a batch payout or payout link.",
+                            "example": 7
+                          },
+                          "requestable_type": {
+                            "type": "string",
+                            "description": "null when the send request was not created from a batch payout or payout link.",
+                            "enum": [
+                              "batch_payout",
+                              "payout_link"
+                            ],
+                            "example": "batch_payout"
                           },
                           "ledger_account": {
                             "type": "object",
@@ -5335,6 +5375,38 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "422",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Invalid parameters\",\n  \"reason\": \"InvalidParameters\",\n  \"errors\": [\n    \"requestable_type must be one of: batch_payout, payout_link\"\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid parameters"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "InvalidParameters"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "requestable_type must be one of: batch_payout, payout_link"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "deprecated": false
@@ -5352,7 +5424,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": 11,\n  \"status\": \"draft\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"external_id\": null,\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}"
+                    "value": "{\n  \"id\": 11,\n  \"status\": \"draft\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"external_id\": null,\n  \"requestable_id\": 7,\n  \"requestable_type\": \"batch_payout\",\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}"
                   }
                 },
                 "schema": {
@@ -5380,6 +5452,20 @@
                       "example": "2025-03-13T00:45:17.250Z"
                     },
                     "external_id": {},
+                    "requestable_id": {
+                      "type": "integer",
+                      "description": "null when the send request was not created from a batch payout or payout link.",
+                      "example": 7
+                    },
+                    "requestable_type": {
+                      "type": "string",
+                      "description": "null when the send request was not created from a batch payout or payout link.",
+                      "enum": [
+                        "batch_payout",
+                        "payout_link"
+                      ],
+                      "example": "batch_payout"
+                    },
                     "ledger_account": {
                       "type": "object",
                       "properties": {
@@ -5699,7 +5785,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": 11,\n  \"status\": \"draft\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}"
+                    "value": "{\n  \"id\": 11,\n  \"status\": \"draft\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"requestable_id\": 7,\n  \"requestable_type\": \"batch_payout\",\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}"
                   }
                 },
                 "schema": {
@@ -5725,6 +5811,20 @@
                     "created_at": {
                       "type": "string",
                       "example": "2025-03-13T00:45:17.250Z"
+                    },
+                    "requestable_id": {
+                      "type": "integer",
+                      "description": "null when the send request was not created from a batch payout or payout link.",
+                      "example": 7
+                    },
+                    "requestable_type": {
+                      "type": "string",
+                      "description": "null when the send request was not created from a batch payout or payout link.",
+                      "enum": [
+                        "batch_payout",
+                        "payout_link"
+                      ],
+                      "example": "batch_payout"
                     },
                     "ledger_account": {
                       "type": "object",
@@ -6077,7 +6177,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n  \"id\": 11,\n  \"status\": \"canceled\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}"
+                    "value": "{\n  \"id\": 11,\n  \"status\": \"canceled\",\n  \"purpose\": \"Sending 100 EUR Value\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"created_at\": \"2025-03-13T00:45:17.250Z\",\n  \"requestable_id\": 7,\n  \"requestable_type\": \"batch_payout\",\n  \"ledger_account\": {\n    \"id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n    \"balance\": \"1.0\",\n    \"status\": \"active\",\n    \"currency\": {\n      \"id\": 1,\n      \"title\": \"Bitcoin\",\n      \"symbol\": \"BTC\"\n    }\n  },\n  \"input_amount\": \"100.0\",\n  \"input_currency\": {\n    \"id\": 2,\n    \"title\": \"Euro\",\n    \"kind\": \"fiat\",\n    \"symbol\": \"EUR\"\n  },\n  \"sending_amount\": \"0.049422\",\n  \"sending_currency\": {\n    \"id\": 5,\n    \"title\": \"Ethereum\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"ETH\"\n  },\n  \"input_to_sending_rate\": \"0.00049422\",\n  \"sending_to_balance_debit_rate\": \"40.3258\",\n  \"balance_debit_amount\": \"0.00122557\",\n  \"balance_debit_currency\": {\n    \"id\": 1,\n    \"title\": \"Bitcoin\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"BTC\"\n  },\n  \"beneficiary_payout_setting\": {\n    \"id\": 2,\n    \"created_at\": \"2025-03-07T10:39:33.152Z\",\n    \"beneficiary_id\": 1,\n    \"platform\": {\n      \"id\": 2,\n      \"title\": \"Ethereum\",\n      \"id_name\": \"ethereum\"\n    },\n    \"crypto_address\": \"tb1qcq670zweall6zz4f96flfrefhr8myfxz9ll9l2\",\n    \"crypto_address_metadata\": null,\n    \"currency\": {\n      \"id\": 5,\n      \"title\": \"Ethereum\",\n      \"kind\": \"crypto\",\n      \"symbol\": \"ETH\"\n    }\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    },\n    \"conversion_fee\": {\n      \"amount\": \"0.00001226\",\n      \"currency\": {\n        \"id\": 1,\n        \"title\": \"Bitcoin\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"BTC\"\n      }\n    }\n  },\n  \"blockchain_transactions\": [],\n  \"actions_required\": {\n    \"confirm\": \"https://api.coingate.com/api/v2/send_requests/11/confirm\",\n    \"cancel\": \"https://api.coingate.com/api/v2/send_requests/11/cancel\"\n  },\n  \"requires_2fa_confirmation\": true\n}"
                   }
                 },
                 "schema": {
@@ -6103,6 +6203,20 @@
                     "created_at": {
                       "type": "string",
                       "example": "2025-03-13T00:45:17.250Z"
+                    },
+                    "requestable_id": {
+                      "type": "integer",
+                      "description": "null when the send request was not created from a batch payout or payout link.",
+                      "example": 7
+                    },
+                    "requestable_type": {
+                      "type": "string",
+                      "description": "null when the send request was not created from a batch payout or payout link.",
+                      "enum": [
+                        "batch_payout",
+                        "payout_link"
+                      ],
+                      "example": "batch_payout"
                     },
                     "ledger_account": {
                       "type": "object",

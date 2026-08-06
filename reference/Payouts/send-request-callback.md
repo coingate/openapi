@@ -122,6 +122,34 @@ CoinGate callback sends the data below:
 
     <tr>
       <td>
+        `requestable_id`
+      </td>
+
+      <td>
+        Integer
+      </td>
+
+      <td>
+        ID of the batch payout or payout link the send request was created from. `null` when it was created directly.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `requestable_type`
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        What created the send request — `batch_payout` or `payout_link`. `null` when it was created directly. Can be passed back to [List Send Requests](doc:list-send) as a filter.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         `ledger_account`
       </td>
 
@@ -336,6 +364,8 @@ An example of callback in JSON:
   "callback_url": "https://example.com/callback_url",
   "created_at": "2025-03-13T00:45:17.250Z",
   "external_id": "1",
+  "requestable_id": 7,
+  "requestable_type": "batch_payout",
   "ledger_account": {
     "id": "01JNQWKKJ6WXN8BZT1Y66B6G9H",
     "balance": "1.0",
