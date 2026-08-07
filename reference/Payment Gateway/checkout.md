@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+<Callout icon="❗️" theme="warn">
+  **This endpoint is not recommended.** For almost every integration, use [Create Order](https://developer.coingate.com/reference/create-order) and redirect the shopper to the returned `payment_url`. Choose the checkout method only if the hosted invoice genuinely cannot cover your case and you accept the limitations below.
+</Callout>
+
 # Displaying payment details on your own site
 
 Calls from accounts without access to the checkout method return status code 422.
