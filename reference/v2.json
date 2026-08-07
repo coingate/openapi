@@ -595,7 +595,7 @@
     "/orders/{id}/checkout": {
       "post": {
         "summary": "Checkout",
-        "description": "Placing [created order](https://developer.coingate.com/reference/create-order) with pre-selected payment currency (BTC, LTC, ETH, etc). Display payment_address and pay_amount for shopper or redirect to payment_url. Can be used to white-label invoices.",
+        "description": "Not recommended for new integrations. Places an already created order with a pre-selected payment currency (BTC, LTC, ETH, etc) and returns payment_address and pay_amount so you can render the payment on your own site. Available only to selected merchants. For almost all integrations, use the Create Order endpoint and redirect the shopper to the returned payment_url instead. Read the limitations before choosing this endpoint: https://developer.coingate.com/reference/checkout",
         "operationId": "checkout",
         "parameters": [
           {
