@@ -595,7 +595,7 @@
     "/orders/{id}/checkout": {
       "post": {
         "summary": "Checkout",
-        "description": "Placing [created order](https://developer.coingate.com/reference/create-order) with pre-selected payment currency (BTC, LTC, ETH, etc). Display payment_address and pay_amount for shopper or redirect to payment_url. Can be used to white-label invoices.",
+        "description": "Not recommended. Use [Create Order](https://developer.coingate.com/reference/create-order) and redirect the shopper to the returned payment_url instead.",
         "operationId": "checkout",
         "parameters": [
           {
