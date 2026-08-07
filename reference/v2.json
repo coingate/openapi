@@ -595,7 +595,7 @@
     "/orders/{id}/checkout": {
       "post": {
         "summary": "Checkout",
-        "description": "Not recommended for new integrations. Use [Create Order](https://developer.coingate.com/reference/create-order) and redirect the shopper to the returned payment_url instead.",
+        "description": "Not recommended. Use [Create Order](https://developer.coingate.com/reference/create-order) and redirect the shopper to the returned payment_url instead.",
         "operationId": "checkout",
         "parameters": [
           {
