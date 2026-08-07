@@ -10,13 +10,9 @@ metadata:
 next:
   description: ''
 ---
-<Callout icon="❗️" theme="warn">
-  **This endpoint is not recommended.** For almost every integration, use [Create Order](https://developer.coingate.com/reference/create-order) and redirect the shopper to the returned `payment_url`. Choose the checkout method only if the hosted invoice genuinely cannot cover your case and you accept the limitations below.
-</Callout>
-
 # Displaying payment details on your own site
 
-Access to the checkout method is restricted. Calls from accounts that do not have it return status code 422.
+Calls from accounts without access to the checkout method return status code 422.
 
 The checkout method returns the payment details of an order so you can display them on your own page instead of redirecting the shopper to CoinGate.
 
