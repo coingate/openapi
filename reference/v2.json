@@ -12072,6 +12072,10 @@
                       },
                       "surname": {
                         "type": "string"
+                      },
+                      "date_of_birth": {
+                        "type": "string",
+                        "description": "(YYYY-MM-DD or MM/DD/YYYY) Date of birth"
                       }
                     }
                   },
@@ -12137,10 +12141,6 @@
                   "post_code": {
                     "type": "string",
                     "description": "Postcode"
-                  },
-                  "date_of_birth": {
-                    "type": "string",
-                    "description": "(YYYY-MM-DD or MM/DD/YYYY) Date of birth"
                   }
                 }
               }
