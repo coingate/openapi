@@ -12124,7 +12124,7 @@
                   },
                   "crypto_address_metadata": {
                     "type": "string",
-                    "description": "Required destination_tag for XRP, memo for BNB,XLM,SOLANA ex. 12345"
+                    "description": "Optional. Destination tag for XRP. Not used on other networks we currently support. Example: 12345"
                   },
                   "street_name": {
                     "type": "string",
@@ -12368,7 +12368,7 @@
                   },
                   "crypto_address_metadata": {
                     "type": "string",
-                    "description": "Required destination_tag for XRP, memo for BNB,XLM,SOLANA ex. 12345"
+                    "description": "Optional. Destination tag for XRP. Not used on other networks we currently support. Example: 12345"
                   }
                 }
               }
