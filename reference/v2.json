@@ -15689,6 +15689,1474 @@
           }
         }
       }
+    },
+    "/payout_links": {
+      "post": {
+        "summary": "Create Payout Link",
+        "description": "Create a payout link and reserve the amount from one of your ledger accounts. CoinGate returns a payout_link_url that only the recipient_email address can claim, and the recipient picks the currency and payout method when they claim it. The reserved balance is returned to the ledger account if the link is canceled or expires unclaimed. Payout links must be enabled for your account before this endpoint returns anything other than 404.",
+        "operationId": "create-payout-link",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "ledger_account_id",
+                  "input_amount",
+                  "input_currency_id",
+                  "purpose",
+                  "expires_in_days",
+                  "recipient_email"
+                ],
+                "properties": {
+                  "ledger_account_id": {
+                    "type": "string",
+                    "description": "Ledger account to reserve the funds from. Must be an active account of your own. IDs come from https://developer.coingate.com/reference/ledger-accounts",
+                    "example": "01JNQWKKJ6WXN8BZT1Y66B6G9H"
+                  },
+                  "input_amount": {
+                    "type": "string",
+                    "description": "Amount to pay out, greater than 0. Converted to the ledger account currency at creation time.",
+                    "example": "20.0"
+                  },
+                  "input_currency_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Currency of input_amount. Currency IDs are listed on https://developer.coingate.com/reference/currencies",
+                    "example": 34
+                  },
+                  "purpose": {
+                    "type": "string",
+                    "description": "Reason for the payout, shown to the recipient. 4 to 191 characters.",
+                    "example": "Invoice 42"
+                  },
+                  "expires_in_days": {
+                    "type": "integer",
+                    "format": "int32",
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7
+                    ],
+                    "description": "Days the link stays claimable. One of 1, 2, 3, 4, 5, 6, 7. The link expires at the end of that day, UTC.",
+                    "example": 7
+                  },
+                  "recipient_email": {
+                    "type": "string",
+                    "description": "Email address of the person allowed to claim the link. Must be a deliverable, non-disposable address. Max length 191.",
+                    "example": "recipient@example.com"
+                  },
+                  "send_email": {
+                    "type": "boolean",
+                    "description": "Send the link to recipient_email from CoinGate. Defaults to false, in which case you deliver payout_link_url yourself.",
+                    "default": false,
+                    "example": true
+                  },
+                  "external_id": {
+                    "type": "string",
+                    "description": "Your own reference for this payout link. Max length 50.",
+                    "example": "ext-1"
+                  },
+                  "callback_url": {
+                    "type": "string",
+                    "description": "URL notified on every status change. Must be a direct URL without redirects. Max length 1024. See the Payout Link Callback page.",
+                    "example": "https://example.com/callback_url"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payout link created.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 11,\n  \"uuid\": \"0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30\",\n  \"status\": \"pending\",\n  \"ledger_account_id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n  \"purpose\": \"Invoice 42\",\n  \"external_id\": \"ext-1\",\n  \"recipient_email\": \"recipient@example.com\",\n  \"send_email\": true,\n  \"payout_link_url\": \"https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"expires_at\": \"2026-08-31T23:59:59.999Z\",\n  \"claimed_at\": null,\n  \"created_at\": \"2026-08-24T10:15:00.000Z\",\n  \"input_amount\": \"20.0\",\n  \"input_currency\": {\n    \"id\": 34,\n    \"title\": \"Tether USD\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"USDT\",\n    \"enabled\": true,\n    \"disabled_message\": null\n  },\n  \"balance_debit_amount\": \"20.0\",\n  \"balance_debit_currency\": {\n    \"id\": 34,\n    \"title\": \"Tether USD\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"USDT\",\n    \"enabled\": true,\n    \"disabled_message\": null\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.2\",\n      \"currency\": {\n        \"id\": 34,\n        \"title\": \"Tether USD\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"USDT\",\n        \"enabled\": true,\n        \"disabled_message\": null\n      }\n    }\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Unique identifier of the payout link. Use it on the Get and Cancel endpoints.",
+                      "example": 11
+                    },
+                    "uuid": {
+                      "type": "string",
+                      "description": "Public identifier of the payout link. It is the last segment of payout_link_url.",
+                      "example": "0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Current status of the payout link. See the Payout Link Statuses page.",
+                      "enum": [
+                        "draft",
+                        "pending",
+                        "processing",
+                        "completed",
+                        "expired",
+                        "failed",
+                        "canceled"
+                      ],
+                      "example": "pending"
+                    },
+                    "ledger_account_id": {
+                      "type": "string",
+                      "description": "Ledger account the funds were reserved from.",
+                      "example": "01JNQWKKJ6WXN8BZT1Y66B6G9H"
+                    },
+                    "purpose": {
+                      "type": "string",
+                      "description": "Reason for the payout, shown to the recipient.",
+                      "example": "Invoice 42"
+                    },
+                    "external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Your own reference for this payout link. null when it was not provided.",
+                      "example": "ext-1"
+                    },
+                    "recipient_email": {
+                      "type": "string",
+                      "description": "Email address of the person allowed to claim the link.",
+                      "example": "recipient@example.com"
+                    },
+                    "send_email": {
+                      "type": "boolean",
+                      "description": "Whether CoinGate emails the link to the recipient.",
+                      "example": true
+                    },
+                    "payout_link_url": {
+                      "type": "string",
+                      "description": "URL the recipient opens to claim the payout.",
+                      "example": "https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
+                    },
+                    "callback_url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "URL notified on every status change. null when it was not provided.",
+                      "example": "https://example.com/callback_url"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "description": "End of the day, UTC, on which the link stops being claimable.",
+                      "example": "2026-08-31T23:59:59.999Z"
+                    },
+                    "claimed_at": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "When the recipient claimed the link. null until it is claimed.",
+                      "example": null
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2026-08-24T10:15:00.000Z"
+                    },
+                    "input_amount": {
+                      "type": "string",
+                      "description": "Amount as requested, in input_currency.",
+                      "example": "20.0"
+                    },
+                    "input_currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "Currency ID. See the Currencies endpoint.",
+                          "example": 34
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Tether USD"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "crypto",
+                            "fiat"
+                          ],
+                          "example": "crypto"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "USDT"
+                        },
+                        "enabled": {
+                          "type": "boolean",
+                          "description": "false while the currency is temporarily disabled.",
+                          "example": true
+                        },
+                        "disabled_message": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Reason the currency is temporarily disabled. null when enabled.",
+                          "example": null
+                        }
+                      }
+                    },
+                    "balance_debit_amount": {
+                      "type": "string",
+                      "description": "Amount reserved from the ledger account, in balance_debit_currency. Equal to input_amount converted at creation time, minus the service fee when your fee rule deducts fees from the recipient.",
+                      "example": "20.0"
+                    },
+                    "balance_debit_currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "Currency ID. See the Currencies endpoint.",
+                          "example": 34
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Tether USD"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "crypto",
+                            "fiat"
+                          ],
+                          "example": "crypto"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "USDT"
+                        },
+                        "enabled": {
+                          "type": "boolean",
+                          "description": "false while the currency is temporarily disabled.",
+                          "example": true
+                        },
+                        "disabled_message": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Reason the currency is temporarily disabled. null when enabled.",
+                          "example": null
+                        }
+                      }
+                    },
+                    "fees": {
+                      "type": "object",
+                      "description": "Fees charged for this payout link, in the ledger account currency.",
+                      "properties": {
+                        "service_fee": {
+                          "type": "object",
+                          "description": "Total of the flat, percentage and conversion fees.",
+                          "properties": {
+                            "amount": {
+                              "type": "string",
+                              "example": "0.2"
+                            },
+                            "currency": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer",
+                                  "description": "Currency ID. See the Currencies endpoint.",
+                                  "example": 34
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "example": "Tether USD"
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "enum": [
+                                    "crypto",
+                                    "fiat"
+                                  ],
+                                  "example": "crypto"
+                                },
+                                "symbol": {
+                                  "type": "string",
+                                  "example": "USDT"
+                                },
+                                "enabled": {
+                                  "type": "boolean",
+                                  "description": "false while the currency is temporarily disabled.",
+                                  "example": true
+                                },
+                                "disabled_message": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ],
+                                  "description": "Reason the currency is temporarily disabled. null when enabled.",
+                                  "example": null
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The request was rejected. errors lists every problem found.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"PayoutLink is not valid\",\n  \"reason\": \"PayoutLinkIsNotValid\",\n  \"errors\": [\n    \"purpose is missing\",\n    \"Insufficient funds. Please top up your ledger account.\"\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "PayoutLink is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "PayoutLinkIsNotValid"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Human readable messages, one per problem.",
+                      "example": [
+                        "purpose is missing"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Auth Token is not valid\",\n  \"reason\": \"BadAuthToken\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Auth Token is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "enum": [
+                        "BadAuthToken",
+                        "AccountBlocked",
+                        "IpAddressIsNotAllowed"
+                      ],
+                      "example": "BadAuthToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payout links are not enabled for the account, or the payout link does not belong to it.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Payout link not found\",\n  \"reason\": \"PayoutLinksNotAvailable\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payout link not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "enum": [
+                        "PayoutLinksNotAvailable"
+                      ],
+                      "example": "PayoutLinksNotAvailable"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List Payout Links",
+        "description": "Retrieve a paginated list of the payout links that belong to the authenticated account, newest first by default. Use it to reconcile payouts, track which links are still waiting to be claimed, and find the ones that expired or failed.",
+        "operationId": "list-payout-links",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number. Defaults to 1. Values below 1 are clamped to 1.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Records per page. Defaults to 100, maximum 100. Values below 1 are clamped to 1.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100,
+              "maximum": 100,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order. One of created_at_desc, created_at_asc. Defaults to created_at_desc.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "created_at_desc",
+                "created_at_asc"
+              ],
+              "default": "created_at_desc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated payout links.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"current_page\": 1,\n  \"per_page\": 100,\n  \"total_records\": 1,\n  \"total_pages\": 1,\n  \"payout_links\": [\n    {\n      \"id\": 11,\n      \"uuid\": \"0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30\",\n      \"status\": \"pending\",\n      \"ledger_account_id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n      \"purpose\": \"Invoice 42\",\n      \"external_id\": \"ext-1\",\n      \"recipient_email\": \"recipient@example.com\",\n      \"send_email\": true,\n      \"payout_link_url\": \"https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30\",\n      \"callback_url\": \"https://example.com/callback_url\",\n      \"expires_at\": \"2026-08-31T23:59:59.999Z\",\n      \"claimed_at\": null,\n      \"created_at\": \"2026-08-24T10:15:00.000Z\",\n      \"input_amount\": \"20.0\",\n      \"input_currency\": {\n        \"id\": 34,\n        \"title\": \"Tether USD\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"USDT\",\n        \"enabled\": true,\n        \"disabled_message\": null\n      },\n      \"balance_debit_amount\": \"20.0\",\n      \"balance_debit_currency\": {\n        \"id\": 34,\n        \"title\": \"Tether USD\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"USDT\",\n        \"enabled\": true,\n        \"disabled_message\": null\n      },\n      \"fees\": {\n        \"service_fee\": {\n          \"amount\": \"0.2\",\n          \"currency\": {\n            \"id\": 34,\n            \"title\": \"Tether USD\",\n            \"kind\": \"crypto\",\n            \"symbol\": \"USDT\",\n            \"enabled\": true,\n            \"disabled_message\": null\n          }\n        }\n      }\n    }\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "per_page": {
+                      "type": "integer",
+                      "example": 100
+                    },
+                    "total_records": {
+                      "type": "integer",
+                      "description": "Total payout links matching the request.",
+                      "example": 1
+                    },
+                    "total_pages": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "payout_links": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the payout link. Use it on the Get and Cancel endpoints.",
+                            "example": 11
+                          },
+                          "uuid": {
+                            "type": "string",
+                            "description": "Public identifier of the payout link. It is the last segment of payout_link_url.",
+                            "example": "0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Current status of the payout link. See the Payout Link Statuses page.",
+                            "enum": [
+                              "draft",
+                              "pending",
+                              "processing",
+                              "completed",
+                              "expired",
+                              "failed",
+                              "canceled"
+                            ],
+                            "example": "pending"
+                          },
+                          "ledger_account_id": {
+                            "type": "string",
+                            "description": "Ledger account the funds were reserved from.",
+                            "example": "01JNQWKKJ6WXN8BZT1Y66B6G9H"
+                          },
+                          "purpose": {
+                            "type": "string",
+                            "description": "Reason for the payout, shown to the recipient.",
+                            "example": "Invoice 42"
+                          },
+                          "external_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Your own reference for this payout link. null when it was not provided.",
+                            "example": "ext-1"
+                          },
+                          "recipient_email": {
+                            "type": "string",
+                            "description": "Email address of the person allowed to claim the link.",
+                            "example": "recipient@example.com"
+                          },
+                          "send_email": {
+                            "type": "boolean",
+                            "description": "Whether CoinGate emails the link to the recipient.",
+                            "example": true
+                          },
+                          "payout_link_url": {
+                            "type": "string",
+                            "description": "URL the recipient opens to claim the payout.",
+                            "example": "https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
+                          },
+                          "callback_url": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "URL notified on every status change. null when it was not provided.",
+                            "example": "https://example.com/callback_url"
+                          },
+                          "expires_at": {
+                            "type": "string",
+                            "description": "End of the day, UTC, on which the link stops being claimable.",
+                            "example": "2026-08-31T23:59:59.999Z"
+                          },
+                          "claimed_at": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "When the recipient claimed the link. null until it is claimed.",
+                            "example": null
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2026-08-24T10:15:00.000Z"
+                          },
+                          "input_amount": {
+                            "type": "string",
+                            "description": "Amount as requested, in input_currency.",
+                            "example": "20.0"
+                          },
+                          "input_currency": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": "Currency ID. See the Currencies endpoint.",
+                                "example": 34
+                              },
+                              "title": {
+                                "type": "string",
+                                "example": "Tether USD"
+                              },
+                              "kind": {
+                                "type": "string",
+                                "enum": [
+                                  "crypto",
+                                  "fiat"
+                                ],
+                                "example": "crypto"
+                              },
+                              "symbol": {
+                                "type": "string",
+                                "example": "USDT"
+                              },
+                              "enabled": {
+                                "type": "boolean",
+                                "description": "false while the currency is temporarily disabled.",
+                                "example": true
+                              },
+                              "disabled_message": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "Reason the currency is temporarily disabled. null when enabled.",
+                                "example": null
+                              }
+                            }
+                          },
+                          "balance_debit_amount": {
+                            "type": "string",
+                            "description": "Amount reserved from the ledger account, in balance_debit_currency. Equal to input_amount converted at creation time, minus the service fee when your fee rule deducts fees from the recipient.",
+                            "example": "20.0"
+                          },
+                          "balance_debit_currency": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": "Currency ID. See the Currencies endpoint.",
+                                "example": 34
+                              },
+                              "title": {
+                                "type": "string",
+                                "example": "Tether USD"
+                              },
+                              "kind": {
+                                "type": "string",
+                                "enum": [
+                                  "crypto",
+                                  "fiat"
+                                ],
+                                "example": "crypto"
+                              },
+                              "symbol": {
+                                "type": "string",
+                                "example": "USDT"
+                              },
+                              "enabled": {
+                                "type": "boolean",
+                                "description": "false while the currency is temporarily disabled.",
+                                "example": true
+                              },
+                              "disabled_message": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "Reason the currency is temporarily disabled. null when enabled.",
+                                "example": null
+                              }
+                            }
+                          },
+                          "fees": {
+                            "type": "object",
+                            "description": "Fees charged for this payout link, in the ledger account currency.",
+                            "properties": {
+                              "service_fee": {
+                                "type": "object",
+                                "description": "Total of the flat, percentage and conversion fees.",
+                                "properties": {
+                                  "amount": {
+                                    "type": "string",
+                                    "example": "0.2"
+                                  },
+                                  "currency": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer",
+                                        "description": "Currency ID. See the Currencies endpoint.",
+                                        "example": 34
+                                      },
+                                      "title": {
+                                        "type": "string",
+                                        "example": "Tether USD"
+                                      },
+                                      "kind": {
+                                        "type": "string",
+                                        "enum": [
+                                          "crypto",
+                                          "fiat"
+                                        ],
+                                        "example": "crypto"
+                                      },
+                                      "symbol": {
+                                        "type": "string",
+                                        "example": "USDT"
+                                      },
+                                      "enabled": {
+                                        "type": "boolean",
+                                        "description": "false while the currency is temporarily disabled.",
+                                        "example": true
+                                      },
+                                      "disabled_message": {
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ],
+                                        "description": "Reason the currency is temporarily disabled. null when enabled.",
+                                        "example": null
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Auth Token is not valid\",\n  \"reason\": \"BadAuthToken\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Auth Token is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "enum": [
+                        "BadAuthToken",
+                        "AccountBlocked",
+                        "IpAddressIsNotAllowed"
+                      ],
+                      "example": "BadAuthToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payout links are not enabled for the account, or the payout link does not belong to it.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Payout link not found\",\n  \"reason\": \"PayoutLinksNotAvailable\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payout link not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "enum": [
+                        "PayoutLinksNotAvailable"
+                      ],
+                      "example": "PayoutLinksNotAvailable"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payout_links/{id}": {
+      "get": {
+        "summary": "Get Payout Link",
+        "description": "Retrieve a single payout link by its ID, including its current status, the amount reserved from your ledger account, the service fee, and the claim URL. Returns 404 when the payout link belongs to another account.",
+        "operationId": "get-payout-link",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Payout link ID, as returned in the id field.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Payout link.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 11,\n  \"uuid\": \"0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30\",\n  \"status\": \"pending\",\n  \"ledger_account_id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n  \"purpose\": \"Invoice 42\",\n  \"external_id\": \"ext-1\",\n  \"recipient_email\": \"recipient@example.com\",\n  \"send_email\": true,\n  \"payout_link_url\": \"https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"expires_at\": \"2026-08-31T23:59:59.999Z\",\n  \"claimed_at\": null,\n  \"created_at\": \"2026-08-24T10:15:00.000Z\",\n  \"input_amount\": \"20.0\",\n  \"input_currency\": {\n    \"id\": 34,\n    \"title\": \"Tether USD\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"USDT\",\n    \"enabled\": true,\n    \"disabled_message\": null\n  },\n  \"balance_debit_amount\": \"20.0\",\n  \"balance_debit_currency\": {\n    \"id\": 34,\n    \"title\": \"Tether USD\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"USDT\",\n    \"enabled\": true,\n    \"disabled_message\": null\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.2\",\n      \"currency\": {\n        \"id\": 34,\n        \"title\": \"Tether USD\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"USDT\",\n        \"enabled\": true,\n        \"disabled_message\": null\n      }\n    }\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Unique identifier of the payout link. Use it on the Get and Cancel endpoints.",
+                      "example": 11
+                    },
+                    "uuid": {
+                      "type": "string",
+                      "description": "Public identifier of the payout link. It is the last segment of payout_link_url.",
+                      "example": "0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Current status of the payout link. See the Payout Link Statuses page.",
+                      "enum": [
+                        "draft",
+                        "pending",
+                        "processing",
+                        "completed",
+                        "expired",
+                        "failed",
+                        "canceled"
+                      ],
+                      "example": "pending"
+                    },
+                    "ledger_account_id": {
+                      "type": "string",
+                      "description": "Ledger account the funds were reserved from.",
+                      "example": "01JNQWKKJ6WXN8BZT1Y66B6G9H"
+                    },
+                    "purpose": {
+                      "type": "string",
+                      "description": "Reason for the payout, shown to the recipient.",
+                      "example": "Invoice 42"
+                    },
+                    "external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Your own reference for this payout link. null when it was not provided.",
+                      "example": "ext-1"
+                    },
+                    "recipient_email": {
+                      "type": "string",
+                      "description": "Email address of the person allowed to claim the link.",
+                      "example": "recipient@example.com"
+                    },
+                    "send_email": {
+                      "type": "boolean",
+                      "description": "Whether CoinGate emails the link to the recipient.",
+                      "example": true
+                    },
+                    "payout_link_url": {
+                      "type": "string",
+                      "description": "URL the recipient opens to claim the payout.",
+                      "example": "https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
+                    },
+                    "callback_url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "URL notified on every status change. null when it was not provided.",
+                      "example": "https://example.com/callback_url"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "description": "End of the day, UTC, on which the link stops being claimable.",
+                      "example": "2026-08-31T23:59:59.999Z"
+                    },
+                    "claimed_at": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "When the recipient claimed the link. null until it is claimed.",
+                      "example": null
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2026-08-24T10:15:00.000Z"
+                    },
+                    "input_amount": {
+                      "type": "string",
+                      "description": "Amount as requested, in input_currency.",
+                      "example": "20.0"
+                    },
+                    "input_currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "Currency ID. See the Currencies endpoint.",
+                          "example": 34
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Tether USD"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "crypto",
+                            "fiat"
+                          ],
+                          "example": "crypto"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "USDT"
+                        },
+                        "enabled": {
+                          "type": "boolean",
+                          "description": "false while the currency is temporarily disabled.",
+                          "example": true
+                        },
+                        "disabled_message": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Reason the currency is temporarily disabled. null when enabled.",
+                          "example": null
+                        }
+                      }
+                    },
+                    "balance_debit_amount": {
+                      "type": "string",
+                      "description": "Amount reserved from the ledger account, in balance_debit_currency. Equal to input_amount converted at creation time, minus the service fee when your fee rule deducts fees from the recipient.",
+                      "example": "20.0"
+                    },
+                    "balance_debit_currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "Currency ID. See the Currencies endpoint.",
+                          "example": 34
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Tether USD"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "crypto",
+                            "fiat"
+                          ],
+                          "example": "crypto"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "USDT"
+                        },
+                        "enabled": {
+                          "type": "boolean",
+                          "description": "false while the currency is temporarily disabled.",
+                          "example": true
+                        },
+                        "disabled_message": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Reason the currency is temporarily disabled. null when enabled.",
+                          "example": null
+                        }
+                      }
+                    },
+                    "fees": {
+                      "type": "object",
+                      "description": "Fees charged for this payout link, in the ledger account currency.",
+                      "properties": {
+                        "service_fee": {
+                          "type": "object",
+                          "description": "Total of the flat, percentage and conversion fees.",
+                          "properties": {
+                            "amount": {
+                              "type": "string",
+                              "example": "0.2"
+                            },
+                            "currency": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer",
+                                  "description": "Currency ID. See the Currencies endpoint.",
+                                  "example": 34
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "example": "Tether USD"
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "enum": [
+                                    "crypto",
+                                    "fiat"
+                                  ],
+                                  "example": "crypto"
+                                },
+                                "symbol": {
+                                  "type": "string",
+                                  "example": "USDT"
+                                },
+                                "enabled": {
+                                  "type": "boolean",
+                                  "description": "false while the currency is temporarily disabled.",
+                                  "example": true
+                                },
+                                "disabled_message": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ],
+                                  "description": "Reason the currency is temporarily disabled. null when enabled.",
+                                  "example": null
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Auth Token is not valid\",\n  \"reason\": \"BadAuthToken\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Auth Token is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "enum": [
+                        "BadAuthToken",
+                        "AccountBlocked",
+                        "IpAddressIsNotAllowed"
+                      ],
+                      "example": "BadAuthToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payout links are not enabled for the account, or the payout link does not belong to it.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Payout link not found\",\n  \"reason\": \"PayoutLinkNotFound\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payout link not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "enum": [
+                        "PayoutLinksNotAvailable",
+                        "PayoutLinkNotFound"
+                      ],
+                      "example": "PayoutLinkNotFound"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payout_links/{id}/cancel": {
+      "patch": {
+        "summary": "Cancel Payout Link",
+        "description": "Cancel a payout link that has not been claimed yet and return the reserved amount to the ledger account it came from. Only links in draft or pending status can be canceled. Canceling a link in any other status returns 422 and leaves the status unchanged.",
+        "operationId": "cancel-payout-link",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Payout link ID, as returned in the id field.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Payout link canceled.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"id\": 11,\n  \"uuid\": \"0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30\",\n  \"status\": \"canceled\",\n  \"ledger_account_id\": \"01JNQWKKJ6WXN8BZT1Y66B6G9H\",\n  \"purpose\": \"Invoice 42\",\n  \"external_id\": \"ext-1\",\n  \"recipient_email\": \"recipient@example.com\",\n  \"send_email\": true,\n  \"payout_link_url\": \"https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30\",\n  \"callback_url\": \"https://example.com/callback_url\",\n  \"expires_at\": \"2026-08-31T23:59:59.999Z\",\n  \"claimed_at\": null,\n  \"created_at\": \"2026-08-24T10:15:00.000Z\",\n  \"input_amount\": \"20.0\",\n  \"input_currency\": {\n    \"id\": 34,\n    \"title\": \"Tether USD\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"USDT\",\n    \"enabled\": true,\n    \"disabled_message\": null\n  },\n  \"balance_debit_amount\": \"20.0\",\n  \"balance_debit_currency\": {\n    \"id\": 34,\n    \"title\": \"Tether USD\",\n    \"kind\": \"crypto\",\n    \"symbol\": \"USDT\",\n    \"enabled\": true,\n    \"disabled_message\": null\n  },\n  \"fees\": {\n    \"service_fee\": {\n      \"amount\": \"0.2\",\n      \"currency\": {\n        \"id\": 34,\n        \"title\": \"Tether USD\",\n        \"kind\": \"crypto\",\n        \"symbol\": \"USDT\",\n        \"enabled\": true,\n        \"disabled_message\": null\n      }\n    }\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Unique identifier of the payout link. Use it on the Get and Cancel endpoints.",
+                      "example": 11
+                    },
+                    "uuid": {
+                      "type": "string",
+                      "description": "Public identifier of the payout link. It is the last segment of payout_link_url.",
+                      "example": "0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Current status of the payout link. See the Payout Link Statuses page.",
+                      "enum": [
+                        "draft",
+                        "pending",
+                        "processing",
+                        "completed",
+                        "expired",
+                        "failed",
+                        "canceled"
+                      ],
+                      "example": "canceled"
+                    },
+                    "ledger_account_id": {
+                      "type": "string",
+                      "description": "Ledger account the funds were reserved from.",
+                      "example": "01JNQWKKJ6WXN8BZT1Y66B6G9H"
+                    },
+                    "purpose": {
+                      "type": "string",
+                      "description": "Reason for the payout, shown to the recipient.",
+                      "example": "Invoice 42"
+                    },
+                    "external_id": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Your own reference for this payout link. null when it was not provided.",
+                      "example": "ext-1"
+                    },
+                    "recipient_email": {
+                      "type": "string",
+                      "description": "Email address of the person allowed to claim the link.",
+                      "example": "recipient@example.com"
+                    },
+                    "send_email": {
+                      "type": "boolean",
+                      "description": "Whether CoinGate emails the link to the recipient.",
+                      "example": true
+                    },
+                    "payout_link_url": {
+                      "type": "string",
+                      "description": "URL the recipient opens to claim the payout.",
+                      "example": "https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
+                    },
+                    "callback_url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "URL notified on every status change. null when it was not provided.",
+                      "example": "https://example.com/callback_url"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "description": "End of the day, UTC, on which the link stops being claimable.",
+                      "example": "2026-08-31T23:59:59.999Z"
+                    },
+                    "claimed_at": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "When the recipient claimed the link. null until it is claimed.",
+                      "example": null
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2026-08-24T10:15:00.000Z"
+                    },
+                    "input_amount": {
+                      "type": "string",
+                      "description": "Amount as requested, in input_currency.",
+                      "example": "20.0"
+                    },
+                    "input_currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "Currency ID. See the Currencies endpoint.",
+                          "example": 34
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Tether USD"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "crypto",
+                            "fiat"
+                          ],
+                          "example": "crypto"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "USDT"
+                        },
+                        "enabled": {
+                          "type": "boolean",
+                          "description": "false while the currency is temporarily disabled.",
+                          "example": true
+                        },
+                        "disabled_message": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Reason the currency is temporarily disabled. null when enabled.",
+                          "example": null
+                        }
+                      }
+                    },
+                    "balance_debit_amount": {
+                      "type": "string",
+                      "description": "Amount reserved from the ledger account, in balance_debit_currency. Equal to input_amount converted at creation time, minus the service fee when your fee rule deducts fees from the recipient.",
+                      "example": "20.0"
+                    },
+                    "balance_debit_currency": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "Currency ID. See the Currencies endpoint.",
+                          "example": 34
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Tether USD"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "crypto",
+                            "fiat"
+                          ],
+                          "example": "crypto"
+                        },
+                        "symbol": {
+                          "type": "string",
+                          "example": "USDT"
+                        },
+                        "enabled": {
+                          "type": "boolean",
+                          "description": "false while the currency is temporarily disabled.",
+                          "example": true
+                        },
+                        "disabled_message": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "Reason the currency is temporarily disabled. null when enabled.",
+                          "example": null
+                        }
+                      }
+                    },
+                    "fees": {
+                      "type": "object",
+                      "description": "Fees charged for this payout link, in the ledger account currency.",
+                      "properties": {
+                        "service_fee": {
+                          "type": "object",
+                          "description": "Total of the flat, percentage and conversion fees.",
+                          "properties": {
+                            "amount": {
+                              "type": "string",
+                              "example": "0.2"
+                            },
+                            "currency": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer",
+                                  "description": "Currency ID. See the Currencies endpoint.",
+                                  "example": 34
+                                },
+                                "title": {
+                                  "type": "string",
+                                  "example": "Tether USD"
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "enum": [
+                                    "crypto",
+                                    "fiat"
+                                  ],
+                                  "example": "crypto"
+                                },
+                                "symbol": {
+                                  "type": "string",
+                                  "example": "USDT"
+                                },
+                                "enabled": {
+                                  "type": "boolean",
+                                  "description": "false while the currency is temporarily disabled.",
+                                  "example": true
+                                },
+                                "disabled_message": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ],
+                                  "description": "Reason the currency is temporarily disabled. null when enabled.",
+                                  "example": null
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The request was rejected. errors lists every problem found.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"PayoutLink is not valid\",\n  \"reason\": \"PayoutLinkIsNotValid\",\n  \"errors\": [\n    \"purpose is missing\",\n    \"Insufficient funds. Please top up your ledger account.\"\n  ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "PayoutLink is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "example": "PayoutLinkIsNotValid"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Human readable messages, one per problem.",
+                      "example": [
+                        "purpose is missing"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Auth Token is not valid\",\n  \"reason\": \"BadAuthToken\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Auth Token is not valid"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "enum": [
+                        "BadAuthToken",
+                        "AccountBlocked",
+                        "IpAddressIsNotAllowed"
+                      ],
+                      "example": "BadAuthToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Payout links are not enabled for the account, or the payout link does not belong to it.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"message\": \"Payout link not found\",\n  \"reason\": \"PayoutLinkNotFound\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Payout link not found"
+                    },
+                    "reason": {
+                      "type": "string",
+                      "enum": [
+                        "PayoutLinksNotAvailable",
+                        "PayoutLinkNotFound"
+                      ],
+                      "example": "PayoutLinkNotFound"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "x-readme": {
