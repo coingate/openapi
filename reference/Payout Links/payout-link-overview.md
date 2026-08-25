@@ -37,8 +37,6 @@ Two amounts appear on the payout link object:
 
 The total reserved from your ledger account is `balance_debit_amount` plus the processing fee in `fees.service_fee.amount`. Fees are always added on top of the payout, so the recipient collects the full `balance_debit_amount`.
 
-The conversion rate is fixed when the link is created, so the value the recipient collects does not move while the link is waiting.
-
 ## Getting the money back
 
 The reserved amount returns to the ledger account it came from when the link is [canceled](https://developer.coingate.com/reference/cancel-payout-link) or when it expires uncollected. A link can be collected until the end of the day, UTC, that `expires_at` falls on — `expires_in_days` accepts 1 to 7 days.
