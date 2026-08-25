@@ -15693,7 +15693,7 @@
     "/payout_links": {
       "post": {
         "summary": "Create Payout Link",
-        "description": "Create a payout link and reserve the amount from one of your ledger accounts. CoinGate returns a payout_link_url that only the recipient_email address can claim, and the recipient picks the currency and payout method when they claim it. The reserved balance is returned to the ledger account if the link is canceled or expires unclaimed. Payout links must be enabled for your account before this endpoint returns anything other than 404.",
+        "description": "Create a payout link and reserve the amount from one of your ledger accounts. CoinGate returns a payout_link_url that only the recipient_email address can collect, and the recipient picks the currency and payout method when they collect it. The reserved balance is returned to the ledger account if the link is canceled or expires uncollected.",
         "operationId": "create-payout-link",
         "requestBody": {
           "content": {
@@ -15742,12 +15742,12 @@
                       6,
                       7
                     ],
-                    "description": "Days the link stays claimable. One of 1, 2, 3, 4, 5, 6, 7. The link expires at the end of that day, UTC.",
+                    "description": "Days the link stays open for collection. One of 1, 2, 3, 4, 5, 6, 7. The link expires at the end of that day, UTC.",
                     "example": 7
                   },
                   "recipient_email": {
                     "type": "string",
-                    "description": "Email address of the person allowed to claim the link. Must be a deliverable, non-disposable address. Max length 191.",
+                    "description": "Email address of the person allowed to collect the payout. Must be a deliverable, non-disposable address. Max length 191.",
                     "example": "recipient@example.com"
                   },
                   "send_email": {
@@ -15828,7 +15828,7 @@
                     },
                     "recipient_email": {
                       "type": "string",
-                      "description": "Email address of the person allowed to claim the link.",
+                      "description": "Email address of the person allowed to collect the payout.",
                       "example": "recipient@example.com"
                     },
                     "send_email": {
@@ -15838,7 +15838,7 @@
                     },
                     "payout_link_url": {
                       "type": "string",
-                      "description": "URL the recipient opens to claim the payout.",
+                      "description": "URL the recipient opens to collect the payout.",
                       "example": "https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
                     },
                     "callback_url": {
@@ -15851,7 +15851,7 @@
                     },
                     "expires_at": {
                       "type": "string",
-                      "description": "End of the day, UTC, on which the link stops being claimable.",
+                      "description": "End of the day, UTC, after which the link can no longer be collected.",
                       "example": "2026-08-31T23:59:59.999Z"
                     },
                     "claimed_at": {
@@ -15859,7 +15859,7 @@
                         "string",
                         "null"
                       ],
-                      "description": "When the recipient claimed the link. null until it is claimed.",
+                      "description": "When the recipient collected the payout. null until it is collected.",
                       "example": null
                     },
                     "created_at": {
@@ -15960,7 +15960,7 @@
                       "properties": {
                         "service_fee": {
                           "type": "object",
-                          "description": "Total of the flat, percentage and conversion fees.",
+                          "description": "Processing fee for this payout link.",
                           "properties": {
                             "amount": {
                               "type": "string",
@@ -16078,40 +16078,12 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Payout links are not enabled for the account, or the payout link does not belong to it.",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"message\": \"Payout link not found\",\n  \"reason\": \"PayoutLinksNotAvailable\"\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Payout link not found"
-                    },
-                    "reason": {
-                      "type": "string",
-                      "enum": [
-                        "PayoutLinksNotAvailable"
-                      ],
-                      "example": "PayoutLinksNotAvailable"
-                    }
-                  }
-                }
-              }
-            }
           }
         }
       },
       "get": {
         "summary": "List Payout Links",
-        "description": "Retrieve a paginated list of the payout links that belong to the authenticated account, newest first by default. Use it to reconcile payouts, track which links are still waiting to be claimed, and find the ones that expired or failed.",
+        "description": "Retrieve a paginated list of the payout links that belong to the authenticated account, newest first by default. Use it to reconcile payouts, track which links are still waiting to be collected, and find the ones that expired or failed.",
         "operationId": "list-payout-links",
         "parameters": [
           {
@@ -16229,7 +16201,7 @@
                           },
                           "recipient_email": {
                             "type": "string",
-                            "description": "Email address of the person allowed to claim the link.",
+                            "description": "Email address of the person allowed to collect the payout.",
                             "example": "recipient@example.com"
                           },
                           "send_email": {
@@ -16239,7 +16211,7 @@
                           },
                           "payout_link_url": {
                             "type": "string",
-                            "description": "URL the recipient opens to claim the payout.",
+                            "description": "URL the recipient opens to collect the payout.",
                             "example": "https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
                           },
                           "callback_url": {
@@ -16252,7 +16224,7 @@
                           },
                           "expires_at": {
                             "type": "string",
-                            "description": "End of the day, UTC, on which the link stops being claimable.",
+                            "description": "End of the day, UTC, after which the link can no longer be collected.",
                             "example": "2026-08-31T23:59:59.999Z"
                           },
                           "claimed_at": {
@@ -16260,7 +16232,7 @@
                               "string",
                               "null"
                             ],
-                            "description": "When the recipient claimed the link. null until it is claimed.",
+                            "description": "When the recipient collected the payout. null until it is collected.",
                             "example": null
                           },
                           "created_at": {
@@ -16361,7 +16333,7 @@
                             "properties": {
                               "service_fee": {
                                 "type": "object",
-                                "description": "Total of the flat, percentage and conversion fees.",
+                                "description": "Processing fee for this payout link.",
                                 "properties": {
                                   "amount": {
                                     "type": "string",
@@ -16447,34 +16419,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Payout links are not enabled for the account, or the payout link does not belong to it.",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"message\": \"Payout link not found\",\n  \"reason\": \"PayoutLinksNotAvailable\"\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Payout link not found"
-                    },
-                    "reason": {
-                      "type": "string",
-                      "enum": [
-                        "PayoutLinksNotAvailable"
-                      ],
-                      "example": "PayoutLinksNotAvailable"
-                    }
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -16482,7 +16426,7 @@
     "/payout_links/{id}": {
       "get": {
         "summary": "Get Payout Link",
-        "description": "Retrieve a single payout link by its ID, including its current status, the amount reserved from your ledger account, the service fee, and the claim URL. Returns 404 when the payout link belongs to another account.",
+        "description": "Retrieve a single payout link by its ID, including its current status, the amount reserved from your ledger account, the service fee, and the collect URL.",
         "operationId": "get-payout-link",
         "parameters": [
           {
@@ -16553,7 +16497,7 @@
                     },
                     "recipient_email": {
                       "type": "string",
-                      "description": "Email address of the person allowed to claim the link.",
+                      "description": "Email address of the person allowed to collect the payout.",
                       "example": "recipient@example.com"
                     },
                     "send_email": {
@@ -16563,7 +16507,7 @@
                     },
                     "payout_link_url": {
                       "type": "string",
-                      "description": "URL the recipient opens to claim the payout.",
+                      "description": "URL the recipient opens to collect the payout.",
                       "example": "https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
                     },
                     "callback_url": {
@@ -16576,7 +16520,7 @@
                     },
                     "expires_at": {
                       "type": "string",
-                      "description": "End of the day, UTC, on which the link stops being claimable.",
+                      "description": "End of the day, UTC, after which the link can no longer be collected.",
                       "example": "2026-08-31T23:59:59.999Z"
                     },
                     "claimed_at": {
@@ -16584,7 +16528,7 @@
                         "string",
                         "null"
                       ],
-                      "description": "When the recipient claimed the link. null until it is claimed.",
+                      "description": "When the recipient collected the payout. null until it is collected.",
                       "example": null
                     },
                     "created_at": {
@@ -16685,7 +16629,7 @@
                       "properties": {
                         "service_fee": {
                           "type": "object",
-                          "description": "Total of the flat, percentage and conversion fees.",
+                          "description": "Processing fee for this payout link.",
                           "properties": {
                             "amount": {
                               "type": "string",
@@ -16770,7 +16714,7 @@
             }
           },
           "404": {
-            "description": "Payout links are not enabled for the account, or the payout link does not belong to it.",
+            "description": "Payout link not found.",
             "content": {
               "application/json": {
                 "examples": {
@@ -16788,7 +16732,6 @@
                     "reason": {
                       "type": "string",
                       "enum": [
-                        "PayoutLinksNotAvailable",
                         "PayoutLinkNotFound"
                       ],
                       "example": "PayoutLinkNotFound"
@@ -16804,7 +16747,7 @@
     "/payout_links/{id}/cancel": {
       "patch": {
         "summary": "Cancel Payout Link",
-        "description": "Cancel a payout link that has not been claimed yet and return the reserved amount to the ledger account it came from. Only links in draft or pending status can be canceled. Canceling a link in any other status returns 422 and leaves the status unchanged.",
+        "description": "Cancel a payout link that has not been collected yet and return the reserved amount to the ledger account it came from. Only links in draft or pending status can be canceled. Canceling a link in any other status returns 422 and leaves the status unchanged.",
         "operationId": "cancel-payout-link",
         "parameters": [
           {
@@ -16875,7 +16818,7 @@
                     },
                     "recipient_email": {
                       "type": "string",
-                      "description": "Email address of the person allowed to claim the link.",
+                      "description": "Email address of the person allowed to collect the payout.",
                       "example": "recipient@example.com"
                     },
                     "send_email": {
@@ -16885,7 +16828,7 @@
                     },
                     "payout_link_url": {
                       "type": "string",
-                      "description": "URL the recipient opens to claim the payout.",
+                      "description": "URL the recipient opens to collect the payout.",
                       "example": "https://payout.coingate.com/0f9d3f0e-6d2f-4a1c-9c7e-5f4b2c1d8e30"
                     },
                     "callback_url": {
@@ -16898,7 +16841,7 @@
                     },
                     "expires_at": {
                       "type": "string",
-                      "description": "End of the day, UTC, on which the link stops being claimable.",
+                      "description": "End of the day, UTC, after which the link can no longer be collected.",
                       "example": "2026-08-31T23:59:59.999Z"
                     },
                     "claimed_at": {
@@ -16906,7 +16849,7 @@
                         "string",
                         "null"
                       ],
-                      "description": "When the recipient claimed the link. null until it is claimed.",
+                      "description": "When the recipient collected the payout. null until it is collected.",
                       "example": null
                     },
                     "created_at": {
@@ -17007,7 +16950,7 @@
                       "properties": {
                         "service_fee": {
                           "type": "object",
-                          "description": "Total of the flat, percentage and conversion fees.",
+                          "description": "Processing fee for this payout link.",
                           "properties": {
                             "amount": {
                               "type": "string",
@@ -17127,7 +17070,7 @@
             }
           },
           "404": {
-            "description": "Payout links are not enabled for the account, or the payout link does not belong to it.",
+            "description": "Payout link not found.",
             "content": {
               "application/json": {
                 "examples": {
@@ -17145,7 +17088,6 @@
                     "reason": {
                       "type": "string",
                       "enum": [
-                        "PayoutLinksNotAvailable",
                         "PayoutLinkNotFound"
                       ],
                       "example": "PayoutLinkNotFound"
