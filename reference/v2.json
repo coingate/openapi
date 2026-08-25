@@ -16015,7 +16015,7 @@
             }
           },
           "422": {
-            "description": "The request was rejected. errors lists every problem found.",
+            "description": "The request was rejected. Errors lists every problem found.",
             "content": {
               "application/json": {
                 "examples": {
@@ -17005,7 +17005,7 @@
             }
           },
           "422": {
-            "description": "The request was rejected. errors lists every problem found.",
+            "description": "The request was rejected. Errors lists every problem found.",
             "content": {
               "application/json": {
                 "examples": {
