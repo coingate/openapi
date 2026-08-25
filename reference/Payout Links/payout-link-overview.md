@@ -23,7 +23,7 @@ You need an active ledger account with enough balance to cover the amount and th
 1. **Create the link.** Call [Create Payout Link](https://developer.coingate.com/reference/create-payout-link) with the ledger account, the amount, the purpose, how long the link stays open for collection, and the recipient's email address.
 2. **CoinGate reserves the funds.** The amount is converted to the ledger account currency and deducted immediately, so the money is committed the moment the link exists, not when it is collected.
 3. **Deliver the link.** The response contains `payout_link_url`. Set `send_email: true` to have CoinGate email it to `recipient_email`, or leave it off and deliver the URL yourself.
-4. **The recipient collects it.** Only the `recipient_email` address can collect the link. They pick the currency and payout method at collection time, which is why the response has no payout destination on it.
+4. **The recipient collects it.** Only the `recipient_email` address can collect the link, and the recipient has to confirm the payout from that address before it is sent. They pick the currency and payout method at collection time, which is why the response has no payout destination on it.
 5. **Track the outcome.** Poll [Get Payout Link](https://developer.coingate.com/reference/get-payout-link) or set a `callback_url` and let CoinGate push every status change to you. See [Payout Link Statuses](https://developer.coingate.com/reference/payout-link-statuses) and [Payout Link Callback](https://developer.coingate.com/reference/payout-link-callback).
 
 ## Amounts and fees
@@ -48,3 +48,7 @@ The reserved amount returns to the ledger account it came from when the link is 
 If payout approvals are enabled on your account, a new link is created in `draft` and has to be approved in the dashboard before the recipient can collect it. Links created through the API require **two different approvers**: the API authenticates with a key rather than a user, so CoinGate cannot tell who made the call and requires a second person to sign off.
 
 With approvals off, links are created in `pending` and can be collected straight away.
+
+> 🚧 Important: use a real, working recipient email address
+>
+> The recipient confirms the payout from the `recipient_email` address you send on the link. A temporary, disposable or mistyped address leaves the recipient unable to approve the payout, so the link sits uncollected until it expires and the reserved amount returns to your ledger account.

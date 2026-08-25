@@ -15747,7 +15747,7 @@
                   },
                   "recipient_email": {
                     "type": "string",
-                    "description": "Email address of the person allowed to collect the payout. Must be a deliverable, non-disposable address. Max length 191.",
+                    "description": "Email address of the person allowed to collect the payout. The recipient also confirms the payout from this address before it is sent, so it must be a real, working mailbox. Must be a deliverable, non-disposable address. Max length 191.",
                     "example": "recipient@example.com"
                   },
                   "send_email": {
