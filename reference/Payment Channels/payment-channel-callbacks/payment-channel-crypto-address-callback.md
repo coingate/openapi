@@ -35,6 +35,7 @@ CoinGate sends a structured callback to the URL configured on the parent Payment
     "address": "bc1qexampledepositaddress00000000000000000",
     "memo": "",
     "status": "active",
+    "expires_at": null,
     "payment_channel_id": 61
   }
 }
@@ -46,6 +47,7 @@ CoinGate sends a structured callback to the URL configured on the parent Payment
 | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | enqueued | Generation requested. address is `null`. No funds can land here yet.                                                                                                                                                               |
 | active   | Generation complete. `address` is populated. Ready to receive deposits.                                                                                                                                                            |
-| expired  | Address was rotated. Deposits sent to this address are still processed, but new payments should target a fresh address — get one via [Add Addresses](https://developer.coingate.com/reference/add-addresses) to a Payment Channel. |
+
+Expiring an address does not send a callback. Once `expires_at` is set, the address is no longer handed out and you can add a new one for the same currency and platform via [Add Addresses](https://developer.coingate.com/reference/add-addresses). Deposits to the expired address are still processed until `expires_at`.
 
 You will not receive an address callback for funds movement on the address — that's the [Order callback's](https://developer.coingate.com/reference/payment-channel-order-callback) job.

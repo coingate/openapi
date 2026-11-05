@@ -13990,7 +13990,12 @@
                             "type": "string",
                             "example": ""
                           },
-                          "expires_at": {},
+                          "expires_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true,
+                            "description": "Set once the address is expired: it is no longer handed out, and deposits to it are still accepted until this time. null while the address is in use."
+                          },
                           "status": {
                             "type": "string",
                             "example": "enqueued"
@@ -15141,7 +15146,9 @@
                           },
                           "expires_at": {
                             "type": "string",
-                            "format": "date-time"
+                            "format": "date-time",
+                            "nullable": true,
+                            "description": "Set once the address is expired: it is no longer handed out, and deposits to it are still accepted until this time. null while the address is in use."
                           },
                           "status": {
                             "type": "string"
@@ -15376,7 +15383,12 @@
                             "type": "string",
                             "example": ""
                           },
-                          "expires_at": {},
+                          "expires_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true,
+                            "description": "Set once the address is expired: it is no longer handed out, and deposits to it are still accepted until this time. null while the address is in use."
+                          },
                           "status": {
                             "type": "string",
                             "example": "active"
